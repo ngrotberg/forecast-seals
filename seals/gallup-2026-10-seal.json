@@ -1,0 +1,1339 @@
+{
+  "kind": "gallup-forward-seal-1",
+  "title": "Gallup Poll Social Series, October 2026: forward seal",
+  "output_label": "model-generated prediction, not a measurement",
+  "made_at": "2026-09-24T13:13:39Z",
+  "made_at_note": "predictions.json was written at this time (file mtime, UTC); the run started 2026-09-24T13:12:47.077197+00:00",
+  "sealed_at": "2026-09-24T13:16:05Z",
+  "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof gallup-2026-10-seal.json.ots",
+  "code_commit": "6670b0fc35bf0d3da15cc005049eb57590614202",
+  "code_commit_short": "6670b0f",
+  "code_note": "the commit of the private code repository that made the predictions (pinned worktree, detached); it cannot be checked from outside",
+  "method": {
+    "served": "ensemble_mean@0.4.0",
+    "members": [
+      "mrp_numpyro@0.5.0",
+      "gbm_pooled@0.1.0"
+    ],
+    "baseline": "carry_forward@0.1.0",
+    "history": "GSS 2000-2024 (13 waves); no wave withheld, since GSS 2024 was released 2025-05-22, before the assumed fieldwork start",
+    "frame": "frame:2023 (ACS 2023 PUMS, published 2024-10-17)"
+  },
+  "study": {
+    "name": "Gallup Poll Social Series, October 2026",
+    "fielded": "2026",
+    "fielded_start": "2026-10-01",
+    "fielded_start_assumption": "ASSUMPTION: 2026-10-01. Gallup's October Crime survey began 2023-10-02, 2024-10-01 and 2025-10-01; the 2026 date is not published.",
+    "items_assumption": "ASSUMPTION: Gallup fields all three items in its October 2026 Crime survey with the 2025 wording, as it did in 2023, 2024 and 2025.",
+    "cuts": [
+      "total"
+    ],
+    "cuts_note": "National total only. Gallup's published age bands in 2023, 2024 and 2025 are 18-34, 35-54 and 55+, which are not unions of the frame's decade bands (18-29 ... 70+), so no age cut is predicted."
+  },
+  "predictions_json": {
+    "file": "predictions.json",
+    "sha256": "c2b2d84f3cdaa8e6171a0f1b8facd407a1350008ff4f623207220325471c7e71",
+    "bytes": 10939,
+    "hash_recipe": "sha256 over the UTF-8 bytes of json.dumps(content, indent=2) followed by one newline; these are exactly the bytes of predictions.json as written",
+    "content": {
+      "kind": "extend-predictions-1",
+      "study": "Gallup Poll Social Series, October 2026",
+      "fielded": "2026",
+      "history_source": "gss",
+      "frame_wave": "2023",
+      "output_label": "model-generated prediction, not a measurement",
+      "fielded_start": "2026-10-01",
+      "frame_published_on": "2024-10-17",
+      "frame_published_before_fielding": true,
+      "frame_dates_note": "frame:2023 is seeded from acs_pums 2023, published 2024-10-17 (ACS 2023 data release schedule, '1-Year Public Use Microdata Sample (PUMS) Files'; fielded continuously across calendar year 2023); the study's fieldwork began 2026-10-01, as supplied",
+      "history": {
+        "cut_at": "2026-10-01",
+        "start_assumed": false,
+        "before_wave": "2026",
+        "waves": [
+          "2000",
+          "2002",
+          "2004",
+          "2006",
+          "2008",
+          "2010",
+          "2012",
+          "2014",
+          "2016",
+          "2018",
+          "2021",
+          "2022",
+          "2024"
+        ],
+        "withheld": [],
+        "note": "GSS 2000-2016 (9 waves) have no recorded release date and count as released because GSS 2024, released 2025-05-22, came after them"
+      },
+      "ledger": "these predictions are not recorded in the prediction ledger and carry no ledger id; this report and its JSON file are the record",
+      "predictors": [
+        "carry_forward",
+        "mrp_numpyro",
+        "gbm_pooled",
+        "ensemble_mean"
+      ],
+      "method_ids": {
+        "carry_forward": "carry_forward@0.1.0",
+        "mrp_numpyro": "mrp_numpyro@0.5.0",
+        "gbm_pooled": "gbm_pooled@0.1.0",
+        "ensemble_mean": "ensemble_mean@0.4.0"
+      },
+      "git_commit": "6670b0fc35bf0d3da15cc005049eb57590614202",
+      "started_at": "2026-09-24T13:12:47.077197+00:00",
+      "duration_s": 51.9763361250516,
+      "cells_supplied": {
+        "marijuana_legal": [
+          "total"
+        ],
+        "death_penalty": [
+          "total"
+        ],
+        "fear_walking": [
+          "total"
+        ]
+      },
+      "unmapped": {},
+      "unscored": [],
+      "notes": [],
+      "failures": [],
+      "predictions": [
+        {
+          "item_id": "death_penalty",
+          "predictor": "carry_forward",
+          "cut": "total",
+          "label": "favor",
+          "predicted": 0.6180638011575751,
+          "lower_80": 0.5986225779552388,
+          "upper_80": 0.6381117052638539,
+          "lower_95": 0.5872971834675275,
+          "upper_95": 0.6486218573697127,
+          "trained_through": "2024",
+          "n_train": 1986
+        },
+        {
+          "item_id": "death_penalty",
+          "predictor": "carry_forward",
+          "cut": "total",
+          "label": "oppose",
+          "predicted": 0.3819361988424248,
+          "lower_80": 0.36188829473614614,
+          "upper_80": 0.4013774220447613,
+          "lower_95": 0.35137814263028744,
+          "upper_95": 0.41270281653247254,
+          "trained_through": "2024",
+          "n_train": 1986
+        },
+        {
+          "item_id": "death_penalty",
+          "predictor": "mrp_numpyro",
+          "cut": "total",
+          "label": "favor",
+          "predicted": 0.6144986977124164,
+          "lower_80": 0.5235908832848463,
+          "upper_80": 0.703898130941676,
+          "lower_95": 0.4745772743420157,
+          "upper_95": 0.7402295682213367,
+          "trained_through": "2024",
+          "n_train": 29481
+        },
+        {
+          "item_id": "death_penalty",
+          "predictor": "mrp_numpyro",
+          "cut": "total",
+          "label": "oppose",
+          "predicted": 0.38550130228758356,
+          "lower_80": 0.2961018690583241,
+          "upper_80": 0.4764091167151537,
+          "lower_95": 0.2597704317786634,
+          "upper_95": 0.5254227256579844,
+          "trained_through": "2024",
+          "n_train": 29481
+        },
+        {
+          "item_id": "death_penalty",
+          "predictor": "gbm_pooled",
+          "cut": "total",
+          "label": "favor",
+          "predicted": 0.6110538243101423,
+          "lower_80": 0.6093768605483745,
+          "upper_80": 0.612508930241115,
+          "lower_95": 0.6083646194468386,
+          "upper_95": 0.6125122692805426,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "death_penalty",
+          "predictor": "gbm_pooled",
+          "cut": "total",
+          "label": "oppose",
+          "predicted": 0.38894617568985773,
+          "lower_80": 0.38749106975888353,
+          "upper_80": 0.39062313945162597,
+          "lower_95": 0.38748773071945725,
+          "upper_95": 0.3916353805531618,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "death_penalty",
+          "predictor": "ensemble_mean",
+          "cut": "total",
+          "label": "favor",
+          "predicted": 0.6159472929638428,
+          "lower_80": 0.5250394785362726,
+          "upper_80": 0.7053467261931023,
+          "lower_95": 0.47602586959344206,
+          "upper_95": 0.741678163472763,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "death_penalty",
+          "predictor": "ensemble_mean",
+          "cut": "total",
+          "label": "oppose",
+          "predicted": 0.3840527070361572,
+          "lower_80": 0.2946532738068977,
+          "upper_80": 0.4749605214637273,
+          "lower_95": 0.258321836527237,
+          "upper_95": 0.523974130406558,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "fear_walking",
+          "predictor": "carry_forward",
+          "cut": "total",
+          "label": "yes",
+          "predicted": 0.3309647468497273,
+          "lower_80": 0.3132399069321987,
+          "upper_80": 0.3493738403157966,
+          "lower_95": 0.3020204975730853,
+          "upper_95": 0.36016662050228904,
+          "trained_through": "2024",
+          "n_train": 2128
+        },
+        {
+          "item_id": "fear_walking",
+          "predictor": "carry_forward",
+          "cut": "total",
+          "label": "no",
+          "predicted": 0.6690352531502727,
+          "lower_80": 0.6506261596842033,
+          "upper_80": 0.6867600930678013,
+          "lower_95": 0.6398333794977109,
+          "upper_95": 0.6979795024269148,
+          "trained_through": "2024",
+          "n_train": 2128
+        },
+        {
+          "item_id": "fear_walking",
+          "predictor": "mrp_numpyro",
+          "cut": "total",
+          "label": "yes",
+          "predicted": 0.339066845039317,
+          "lower_80": 0.3022943070454384,
+          "upper_80": 0.37900066502234064,
+          "lower_95": 0.2863681531841287,
+          "upper_95": 0.4037146976031932,
+          "trained_through": "2024",
+          "n_train": 22587
+        },
+        {
+          "item_id": "fear_walking",
+          "predictor": "mrp_numpyro",
+          "cut": "total",
+          "label": "no",
+          "predicted": 0.660933154960683,
+          "lower_80": 0.6209993349776595,
+          "upper_80": 0.6977056929545616,
+          "lower_95": 0.5962853023968069,
+          "upper_95": 0.7136318468158713,
+          "trained_through": "2024",
+          "n_train": 22587
+        },
+        {
+          "item_id": "fear_walking",
+          "predictor": "gbm_pooled",
+          "cut": "total",
+          "label": "yes",
+          "predicted": 0.3436903837287927,
+          "lower_80": 0.3418353665900637,
+          "upper_80": 0.34621155457793423,
+          "lower_95": 0.3417582650049379,
+          "upper_95": 0.34811403280257613,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "fear_walking",
+          "predictor": "gbm_pooled",
+          "cut": "total",
+          "label": "no",
+          "predicted": 0.6563096162712074,
+          "lower_80": 0.6537884454220658,
+          "upper_80": 0.6581646334099365,
+          "lower_95": 0.6518859671974235,
+          "upper_95": 0.658241734995062,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "fear_walking",
+          "predictor": "ensemble_mean",
+          "cut": "total",
+          "label": "yes",
+          "predicted": 0.335150810447164,
+          "lower_80": 0.2983782724532854,
+          "upper_80": 0.37508463043018764,
+          "lower_95": 0.2824521185919757,
+          "upper_95": 0.39979866301104017,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "fear_walking",
+          "predictor": "ensemble_mean",
+          "cut": "total",
+          "label": "no",
+          "predicted": 0.664849189552836,
+          "lower_80": 0.6249153695698125,
+          "upper_80": 0.7016217275467147,
+          "lower_95": 0.6002013369889599,
+          "upper_95": 0.7175478814080244,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "marijuana_legal",
+          "predictor": "carry_forward",
+          "cut": "total",
+          "label": "legal",
+          "predicted": 0.6751017476092931,
+          "lower_80": 0.6458785914679681,
+          "upper_80": 0.7044799579216141,
+          "lower_95": 0.6292949398807678,
+          "upper_95": 0.7193974554411928,
+          "trained_through": "2024",
+          "n_train": 835
+        },
+        {
+          "item_id": "marijuana_legal",
+          "predictor": "carry_forward",
+          "cut": "total",
+          "label": "not_legal",
+          "predicted": 0.32489825239070685,
+          "lower_80": 0.2955200420783859,
+          "upper_80": 0.3541214085320319,
+          "lower_95": 0.28060254455880723,
+          "upper_95": 0.3707050601192322,
+          "trained_through": "2024",
+          "n_train": 835
+        },
+        {
+          "item_id": "marijuana_legal",
+          "predictor": "mrp_numpyro",
+          "cut": "total",
+          "label": "legal",
+          "predicted": 0.6886336919487234,
+          "lower_80": 0.5962246458204629,
+          "upper_80": 0.7754820738155885,
+          "lower_95": 0.5477200647458176,
+          "upper_95": 0.8119430531479216,
+          "trained_through": "2024",
+          "n_train": 15678
+        },
+        {
+          "item_id": "marijuana_legal",
+          "predictor": "mrp_numpyro",
+          "cut": "total",
+          "label": "not_legal",
+          "predicted": 0.3113663080512766,
+          "lower_80": 0.22451792618441146,
+          "upper_80": 0.40377535417953714,
+          "lower_95": 0.1880569468520784,
+          "upper_95": 0.45227993525418225,
+          "trained_through": "2024",
+          "n_train": 15678
+        },
+        {
+          "item_id": "marijuana_legal",
+          "predictor": "gbm_pooled",
+          "cut": "total",
+          "label": "legal",
+          "predicted": 0.6766916187938057,
+          "lower_80": 0.6741348245928092,
+          "upper_80": 0.6802307991540241,
+          "lower_95": 0.6737709812056174,
+          "upper_95": 0.6820109230344139,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "marijuana_legal",
+          "predictor": "gbm_pooled",
+          "cut": "total",
+          "label": "not_legal",
+          "predicted": 0.32330838120619443,
+          "lower_80": 0.3197692008459761,
+          "upper_80": 0.32586517540719095,
+          "lower_95": 0.31798907696558654,
+          "upper_95": 0.3262290187943812,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "marijuana_legal",
+          "predictor": "ensemble_mean",
+          "cut": "total",
+          "label": "legal",
+          "predicted": 0.681227634483859,
+          "lower_80": 0.5888185883555985,
+          "upper_80": 0.7680760163507242,
+          "lower_95": 0.5403140072809532,
+          "upper_95": 0.8045369956830573,
+          "trained_through": "2024",
+          "n_train": 291772
+        },
+        {
+          "item_id": "marijuana_legal",
+          "predictor": "ensemble_mean",
+          "cut": "total",
+          "label": "not_legal",
+          "predicted": 0.31877236551614097,
+          "lower_80": 0.23192398364927586,
+          "upper_80": 0.41118141164440153,
+          "lower_95": 0.1954630043169428,
+          "upper_95": 0.45968599271904664,
+          "trained_through": "2024",
+          "n_train": 291772
+        }
+      ]
+    }
+  },
+  "predicted_shares_percent": {
+    "death_penalty": {
+      "carry_forward@0.1.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "favor": {
+          "predicted": 61.81,
+          "band_80": [
+            59.86,
+            63.81
+          ],
+          "band_95": [
+            58.73,
+            64.86
+          ]
+        },
+        "oppose": {
+          "predicted": 38.19,
+          "band_80": [
+            36.19,
+            40.14
+          ],
+          "band_95": [
+            35.14,
+            41.27
+          ]
+        }
+      },
+      "mrp_numpyro@0.5.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "favor": {
+          "predicted": 61.45,
+          "band_80": [
+            52.36,
+            70.39
+          ],
+          "band_95": [
+            47.46,
+            74.02
+          ]
+        },
+        "oppose": {
+          "predicted": 38.55,
+          "band_80": [
+            29.61,
+            47.64
+          ],
+          "band_95": [
+            25.98,
+            52.54
+          ]
+        }
+      },
+      "gbm_pooled@0.1.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "favor": {
+          "predicted": 61.11,
+          "band_80": [
+            60.94,
+            61.25
+          ],
+          "band_95": [
+            60.84,
+            61.25
+          ]
+        },
+        "oppose": {
+          "predicted": 38.89,
+          "band_80": [
+            38.75,
+            39.06
+          ],
+          "band_95": [
+            38.75,
+            39.16
+          ]
+        }
+      },
+      "ensemble_mean@0.4.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "favor": {
+          "predicted": 61.59,
+          "band_80": [
+            52.5,
+            70.53
+          ],
+          "band_95": [
+            47.6,
+            74.17
+          ]
+        },
+        "oppose": {
+          "predicted": 38.41,
+          "band_80": [
+            29.47,
+            47.5
+          ],
+          "band_95": [
+            25.83,
+            52.4
+          ]
+        }
+      }
+    },
+    "fear_walking": {
+      "carry_forward@0.1.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "yes": {
+          "predicted": 33.1,
+          "band_80": [
+            31.32,
+            34.94
+          ],
+          "band_95": [
+            30.2,
+            36.02
+          ]
+        },
+        "no": {
+          "predicted": 66.9,
+          "band_80": [
+            65.06,
+            68.68
+          ],
+          "band_95": [
+            63.98,
+            69.8
+          ]
+        }
+      },
+      "mrp_numpyro@0.5.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "yes": {
+          "predicted": 33.91,
+          "band_80": [
+            30.23,
+            37.9
+          ],
+          "band_95": [
+            28.64,
+            40.37
+          ]
+        },
+        "no": {
+          "predicted": 66.09,
+          "band_80": [
+            62.1,
+            69.77
+          ],
+          "band_95": [
+            59.63,
+            71.36
+          ]
+        }
+      },
+      "gbm_pooled@0.1.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "yes": {
+          "predicted": 34.37,
+          "band_80": [
+            34.18,
+            34.62
+          ],
+          "band_95": [
+            34.18,
+            34.81
+          ]
+        },
+        "no": {
+          "predicted": 65.63,
+          "band_80": [
+            65.38,
+            65.82
+          ],
+          "band_95": [
+            65.19,
+            65.82
+          ]
+        }
+      },
+      "ensemble_mean@0.4.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "yes": {
+          "predicted": 33.52,
+          "band_80": [
+            29.84,
+            37.51
+          ],
+          "band_95": [
+            28.25,
+            39.98
+          ]
+        },
+        "no": {
+          "predicted": 66.48,
+          "band_80": [
+            62.49,
+            70.16
+          ],
+          "band_95": [
+            60.02,
+            71.75
+          ]
+        }
+      }
+    },
+    "marijuana_legal": {
+      "carry_forward@0.1.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "legal": {
+          "predicted": 67.51,
+          "band_80": [
+            64.59,
+            70.45
+          ],
+          "band_95": [
+            62.93,
+            71.94
+          ]
+        },
+        "not_legal": {
+          "predicted": 32.49,
+          "band_80": [
+            29.55,
+            35.41
+          ],
+          "band_95": [
+            28.06,
+            37.07
+          ]
+        }
+      },
+      "mrp_numpyro@0.5.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "legal": {
+          "predicted": 68.86,
+          "band_80": [
+            59.62,
+            77.55
+          ],
+          "band_95": [
+            54.77,
+            81.19
+          ]
+        },
+        "not_legal": {
+          "predicted": 31.14,
+          "band_80": [
+            22.45,
+            40.38
+          ],
+          "band_95": [
+            18.81,
+            45.23
+          ]
+        }
+      },
+      "gbm_pooled@0.1.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "legal": {
+          "predicted": 67.67,
+          "band_80": [
+            67.41,
+            68.02
+          ],
+          "band_95": [
+            67.38,
+            68.2
+          ]
+        },
+        "not_legal": {
+          "predicted": 32.33,
+          "band_80": [
+            31.98,
+            32.59
+          ],
+          "band_95": [
+            31.8,
+            32.62
+          ]
+        }
+      },
+      "ensemble_mean@0.4.0": {
+        "cut": "total",
+        "trained_through": "2024",
+        "legal": {
+          "predicted": 68.12,
+          "band_80": [
+            58.88,
+            76.81
+          ],
+          "band_95": [
+            54.03,
+            80.45
+          ]
+        },
+        "not_legal": {
+          "predicted": 31.88,
+          "band_80": [
+            23.19,
+            41.12
+          ],
+          "band_95": [
+            19.55,
+            45.97
+          ]
+        }
+      }
+    }
+  },
+  "items": {
+    "marijuana_legal": {
+      "gss_variable": "grass",
+      "gss_wording": "Do you think the use of marijuana should be made legal or not?",
+      "labels": [
+        "legal",
+        "not_legal"
+      ],
+      "gallup_wording": "Do you think the use of marijuana should be legal, or not?",
+      "gallup_wording_1969_2020": "Do you think the use of marijuana should be made legal, or not?",
+      "gallup_options": [
+        "Yes, legal",
+        "No, illegal",
+        "No opinion"
+      ],
+      "wording_difference": "Gallup drops 'made' ('should be legal' for 'should be made legal') since 2021 and offers 'Yes, legal / No, illegal'. Mapping grade: equivalent.",
+      "gallup_readings": [
+        {
+          "year": 2023,
+          "fieldwork": "2023-10-02 to 2023-10-23",
+          "published": "2023-11-08",
+          "n": 1009,
+          "shares": [
+            70,
+            29,
+            1
+          ],
+          "source": "https://news.gallup.com/poll/514007/grassroots-support-legalizing-marijuana-hits-record.aspx",
+          "topline": "https://news.gallup.com/file/poll/514139/20231108Marijuana.pdf",
+          "rescaled_without_no_opinion": [
+            70.71,
+            29.29
+          ]
+        },
+        {
+          "year": 2024,
+          "fieldwork": "2024-10-01 to 2024-10-12",
+          "published": "2024-11-01",
+          "n": 1023,
+          "shares": [
+            68,
+            31,
+            1
+          ],
+          "published_note": "earliest Gallup page found carrying the 2024 figure; no stand-alone 2024 legalization release was found",
+          "source": "https://news.gallup.com/poll/284135/percentage-americans-smoke-marijuana.aspx",
+          "topline": "https://news.gallup.com/file/poll/697466/2025_11_04%20Drugs%20Topline%20and%20Tabs.pdf",
+          "rescaled_without_no_opinion": [
+            68.69,
+            31.31
+          ]
+        },
+        {
+          "year": 2025,
+          "fieldwork": "2025-10-01 to 2025-10-16",
+          "published": "2025-11-05",
+          "n": 1000,
+          "shares": [
+            64,
+            33,
+            2
+          ],
+          "source": "https://news.gallup.com/poll/697445/americans-positive-progress-drugs.aspx",
+          "topline": "https://news.gallup.com/file/poll/697466/2025_11_04%20Drugs%20Topline%20and%20Tabs.pdf",
+          "rescaled_without_no_opinion": [
+            65.98,
+            34.02
+          ]
+        }
+      ],
+      "prediction": {
+        "method": "ensemble_mean@0.4.0",
+        "cut": "total",
+        "legal": 68.12,
+        "not_legal": 31.88,
+        "band_80_legal": [
+          58.88,
+          76.81
+        ],
+        "band_95_legal": [
+          54.03,
+          80.45
+        ]
+      },
+      "baselines": {
+        "carry_forward_gss_2024": {
+          "method": "carry_forward@0.1.0",
+          "legal": 67.51,
+          "not_legal": 32.49,
+          "raw_weighted_share_legal": 67.65,
+          "cases": 835,
+          "kish_effective_n": 421
+        },
+        "gallup_previous_reading": {
+          "year": 2025,
+          "fieldwork": "2025-10-01 to 2025-10-16",
+          "published": "2025-11-05",
+          "published_shares": [
+            64,
+            33,
+            2
+          ],
+          "legal": 65.98,
+          "not_legal": 34.02,
+          "source": "https://news.gallup.com/poll/697445/americans-positive-progress-drugs.aspx",
+          "topline": "https://news.gallup.com/file/poll/697466/2025_11_04%20Drugs%20Topline%20and%20Tabs.pdf"
+        }
+      },
+      "prediction_minus_baseline_points": {
+        "vs_carry_forward": 0.61,
+        "vs_gallup_previous": 2.14
+      },
+      "house_effect_gallup_minus_gss": {
+        "matched_waves": [
+          {
+            "year": 2000,
+            "gallup_rescaled": 32.63,
+            "gss_weighted": 32.15,
+            "gap_points": 0.48
+          },
+          {
+            "year": 2010,
+            "gallup_rescaled": 47.92,
+            "gss_weighted": 48.54,
+            "gap_points": -0.62
+          },
+          {
+            "year": 2012,
+            "gallup_rescaled": 48.98,
+            "gss_weighted": 46.61,
+            "gap_points": 2.37
+          },
+          {
+            "year": 2014,
+            "gallup_rescaled": 52.04,
+            "gss_weighted": 55.33,
+            "gap_points": -3.29
+          },
+          {
+            "year": 2016,
+            "gallup_rescaled": 60.61,
+            "gss_weighted": 60.18,
+            "gap_points": 0.43
+          },
+          {
+            "year": 2018,
+            "gallup_rescaled": 67.35,
+            "gss_weighted": 63.46,
+            "gap_points": 3.89
+          },
+          {
+            "year": 2022,
+            "gallup_rescaled": 68.69,
+            "gss_weighted": 71.11,
+            "gap_points": -2.42
+          },
+          {
+            "year": 2024,
+            "gallup_rescaled": 68.69,
+            "gss_weighted": 67.65,
+            "gap_points": 1.04
+          }
+        ],
+        "mean_2018_2024": 0.84,
+        "n_2018_2024": 3,
+        "mean_all_matched": 0.24,
+        "n_all_matched": 8
+      }
+    },
+    "death_penalty": {
+      "gss_variable": "cappun",
+      "gss_wording": "Do you favor or oppose the death penalty for persons convicted of murder?",
+      "labels": [
+        "favor",
+        "oppose"
+      ],
+      "gallup_wording": "Are you in favor of the death penalty for a person convicted of murder?",
+      "gallup_options": [
+        "Favor",
+        "Oppose",
+        "No opinion"
+      ],
+      "wording_difference": "Gallup asks 'Are you in favor of...' (one-sided), the GSS 'Do you favor or oppose...' (balanced); 'a person' for 'persons'. Mapping grade: equivalent. A one-sided stem is the kind of difference that can move a share by itself.",
+      "gallup_readings": [
+        {
+          "year": 2023,
+          "fieldwork": "2023-10-02 to 2023-10-23",
+          "published": "2023-11-06",
+          "n": 1009,
+          "shares": [
+            53,
+            44,
+            2
+          ],
+          "source": "https://news.gallup.com/poll/513806/new-low-say-death-penalty-fairly-applied.aspx",
+          "topline": "https://news.gallup.com/file/poll/513845/2023_11_6%20Death%20Penalty.pdf",
+          "rescaled_without_no_opinion": [
+            54.64,
+            45.36
+          ]
+        },
+        {
+          "year": 2024,
+          "fieldwork": "2024-10-01 to 2024-10-12",
+          "published": "2024-11-14",
+          "n": 1023,
+          "shares": [
+            53,
+            43,
+            4
+          ],
+          "source": "https://news.gallup.com/poll/653429/drop-death-penalty-support-led-younger-generations.aspx",
+          "topline": "https://news.gallup.com/file/poll/653465/241114DeathPenalty.pdf",
+          "rescaled_without_no_opinion": [
+            55.21,
+            44.79
+          ]
+        },
+        {
+          "year": 2025,
+          "fieldwork": "2025-10-01 to 2025-10-16",
+          "published": "2025-10-30",
+          "n": 1000,
+          "shares": [
+            52,
+            44,
+            4
+          ],
+          "source": "https://news.gallup.com/poll/697244/americans-prefer-tempered-crime-fighting-methods.aspx",
+          "topline": "https://news.gallup.com/file/poll/697247/2025_10_30_Crime%20Remedies%20Topline%20and%20Tabs.pdf",
+          "rescaled_without_no_opinion": [
+            54.17,
+            45.83
+          ]
+        }
+      ],
+      "prediction": {
+        "method": "ensemble_mean@0.4.0",
+        "cut": "total",
+        "favor": 61.59,
+        "oppose": 38.41,
+        "band_80_favor": [
+          52.5,
+          70.53
+        ],
+        "band_95_favor": [
+          47.6,
+          74.17
+        ]
+      },
+      "baselines": {
+        "carry_forward_gss_2024": {
+          "method": "carry_forward@0.1.0",
+          "favor": 61.81,
+          "oppose": 38.19,
+          "raw_weighted_share_favor": 61.83,
+          "cases": 1986,
+          "kish_effective_n": 1003
+        },
+        "gallup_previous_reading": {
+          "year": 2025,
+          "fieldwork": "2025-10-01 to 2025-10-16",
+          "published": "2025-10-30",
+          "published_shares": [
+            52,
+            44,
+            4
+          ],
+          "favor": 54.17,
+          "oppose": 45.83,
+          "source": "https://news.gallup.com/poll/697244/americans-prefer-tempered-crime-fighting-methods.aspx",
+          "topline": "https://news.gallup.com/file/poll/697247/2025_10_30_Crime%20Remedies%20Topline%20and%20Tabs.pdf"
+        }
+      },
+      "prediction_minus_baseline_points": {
+        "vs_carry_forward": -0.22,
+        "vs_gallup_previous": 7.42
+      },
+      "house_effect_gallup_minus_gss": {
+        "matched_waves": [
+          {
+            "year": 2000,
+            "gallup_rescaled": 70.53,
+            "gss_weighted": 70.6,
+            "gap_points": -0.07
+          },
+          {
+            "year": 2002,
+            "gallup_rescaled": 73.68,
+            "gss_weighted": 70.25,
+            "gap_points": 3.43
+          },
+          {
+            "year": 2004,
+            "gallup_rescaled": 67.37,
+            "gss_weighted": 67.74,
+            "gap_points": -0.37
+          },
+          {
+            "year": 2006,
+            "gallup_rescaled": 70.53,
+            "gss_weighted": 69.12,
+            "gap_points": 1.41
+          },
+          {
+            "year": 2008,
+            "gallup_rescaled": 68.09,
+            "gss_weighted": 67.26,
+            "gap_points": 0.83
+          },
+          {
+            "year": 2010,
+            "gallup_rescaled": 68.82,
+            "gss_weighted": 68.03,
+            "gap_points": 0.79
+          },
+          {
+            "year": 2012,
+            "gallup_rescaled": 66.32,
+            "gss_weighted": 66.72,
+            "gap_points": -0.4
+          },
+          {
+            "year": 2014,
+            "gallup_rescaled": 65.62,
+            "gss_weighted": 65.64,
+            "gap_points": -0.02
+          },
+          {
+            "year": 2016,
+            "gallup_rescaled": 61.86,
+            "gss_weighted": 61.56,
+            "gap_points": 0.3
+          },
+          {
+            "year": 2018,
+            "gallup_rescaled": 57.73,
+            "gss_weighted": 64.33,
+            "gap_points": -6.6
+          },
+          {
+            "year": 2021,
+            "gallup_rescaled": 55.67,
+            "gss_weighted": 56.73,
+            "gap_points": -1.06
+          },
+          {
+            "year": 2022,
+            "gallup_rescaled": 56.7,
+            "gss_weighted": 61.72,
+            "gap_points": -5.02
+          },
+          {
+            "year": 2024,
+            "gallup_rescaled": 55.21,
+            "gss_weighted": 61.83,
+            "gap_points": -6.62
+          }
+        ],
+        "mean_2018_2024": -4.83,
+        "n_2018_2024": 4,
+        "mean_all_matched": -1.03,
+        "n_all_matched": 13
+      }
+    },
+    "fear_walking": {
+      "gss_variable": "fear",
+      "gss_wording": "Is there any area right around here, that is, within a mile, where you would be afraid to walk alone at night?",
+      "labels": [
+        "yes",
+        "no"
+      ],
+      "gallup_wording": "Is there any area near where you live - that is, within a mile - where you would be afraid to walk alone at night?",
+      "gallup_options": [
+        "Yes",
+        "No",
+        "No opinion"
+      ],
+      "wording_difference": "Gallup says 'any area near where you live', the GSS 'any area right around here'; both say 'within a mile'. Mapping grade: equivalent.",
+      "gallup_readings": [
+        {
+          "year": 2023,
+          "fieldwork": "2023-10-02 to 2023-10-23",
+          "published": "2023-11-16",
+          "n": 1009,
+          "shares": [
+            40,
+            60,
+            0
+          ],
+          "source": "https://news.gallup.com/poll/544415/personal-safety-fears-three-decade-high.aspx",
+          "topline": "https://news.gallup.com/file/poll/544472/20231116_CrimeFear.pdf",
+          "no_opinion_note": "published as '*' (under 0.5%); recorded as 0",
+          "rescaled_without_no_opinion": [
+            40.0,
+            60.0
+          ]
+        },
+        {
+          "year": 2024,
+          "fieldwork": "2024-10-01 to 2024-10-12",
+          "published": "2024-10-29",
+          "n": 1023,
+          "shares": [
+            35,
+            64,
+            0
+          ],
+          "published_note": "in the topline PDF attached to the 2024-10-29 crime release; the article text does not quote it",
+          "source": "https://news.gallup.com/poll/652763/smaller-majorities-say-crime-serious-increasing.aspx",
+          "topline": "https://news.gallup.com/file/poll/652802/2024_10_29%20Crime%20Topline%20and%20Tabs.pdf",
+          "no_opinion_note": "published as '*' (under 0.5%); recorded as 0",
+          "rescaled_without_no_opinion": [
+            35.35,
+            64.65
+          ]
+        },
+        {
+          "year": 2025,
+          "fieldwork": "2025-10-01 to 2025-10-16",
+          "published": "2025-10-30",
+          "n": 1000,
+          "shares": [
+            31,
+            68,
+            1
+          ],
+          "source": "https://news.gallup.com/poll/697124/crime-seen-less-serious-second-straight-year.aspx",
+          "topline": "https://news.gallup.com/file/poll/697166/2025_10_30_Crime%20Rate%20and%20Fears%20Topline%20and%20Tabs.pdf",
+          "rescaled_without_no_opinion": [
+            31.31,
+            68.69
+          ]
+        }
+      ],
+      "prediction": {
+        "method": "ensemble_mean@0.4.0",
+        "cut": "total",
+        "yes": 33.52,
+        "no": 66.48,
+        "band_80_yes": [
+          29.84,
+          37.51
+        ],
+        "band_95_yes": [
+          28.25,
+          39.98
+        ]
+      },
+      "baselines": {
+        "carry_forward_gss_2024": {
+          "method": "carry_forward@0.1.0",
+          "yes": 33.1,
+          "no": 66.9,
+          "raw_weighted_share_yes": 33.06,
+          "cases": 2128,
+          "kish_effective_n": 1058
+        },
+        "gallup_previous_reading": {
+          "year": 2025,
+          "fieldwork": "2025-10-01 to 2025-10-16",
+          "published": "2025-10-30",
+          "published_shares": [
+            31,
+            68,
+            1
+          ],
+          "yes": 31.31,
+          "no": 68.69,
+          "source": "https://news.gallup.com/poll/697124/crime-seen-less-serious-second-straight-year.aspx",
+          "topline": "https://news.gallup.com/file/poll/697166/2025_10_30_Crime%20Rate%20and%20Fears%20Topline%20and%20Tabs.pdf"
+        }
+      },
+      "prediction_minus_baseline_points": {
+        "vs_carry_forward": 0.42,
+        "vs_gallup_previous": 2.21
+      },
+      "house_effect_gallup_minus_gss": {
+        "matched_waves": [
+          {
+            "year": 2000,
+            "gallup_rescaled": 34.0,
+            "gss_weighted": 37.42,
+            "gap_points": -3.42
+          },
+          {
+            "year": 2002,
+            "gallup_rescaled": 35.35,
+            "gss_weighted": 31.07,
+            "gap_points": 4.28
+          },
+          {
+            "year": 2004,
+            "gallup_rescaled": 32.32,
+            "gss_weighted": 31.19,
+            "gap_points": 1.13
+          },
+          {
+            "year": 2006,
+            "gallup_rescaled": 37.0,
+            "gss_weighted": 34.52,
+            "gap_points": 2.48
+          },
+          {
+            "year": 2008,
+            "gallup_rescaled": 37.0,
+            "gss_weighted": 32.76,
+            "gap_points": 4.24
+          },
+          {
+            "year": 2010,
+            "gallup_rescaled": 37.0,
+            "gss_weighted": 32.5,
+            "gap_points": 4.5
+          },
+          {
+            "year": 2014,
+            "gallup_rescaled": 37.0,
+            "gss_weighted": 30.27,
+            "gap_points": 6.73
+          },
+          {
+            "year": 2016,
+            "gallup_rescaled": 35.35,
+            "gss_weighted": 30.83,
+            "gap_points": 4.52
+          },
+          {
+            "year": 2018,
+            "gallup_rescaled": 33.33,
+            "gss_weighted": 32.49,
+            "gap_points": 0.84
+          },
+          {
+            "year": 2021,
+            "gallup_rescaled": 37.0,
+            "gss_weighted": 36.2,
+            "gap_points": 0.8
+          },
+          {
+            "year": 2024,
+            "gallup_rescaled": 35.35,
+            "gss_weighted": 33.06,
+            "gap_points": 2.29
+          }
+        ],
+        "mean_2018_2024": 1.31,
+        "n_2018_2024": 3,
+        "mean_all_matched": 2.58,
+        "n_all_matched": 11
+      }
+    }
+  },
+  "sealed_note": {
+    "what_is_predicted": "Each number predicts how US adults 18+ would answer the GSS version of the question in 2026, from GSS history and the ACS frame. The model learned nothing from Gallup. The score compares these unadjusted numbers with Gallup's October 2026 total.",
+    "mode": "Gallup: live telephone interviews by ReconMR, random-digit-dial cell (at least 80%) and landline samples, English and Spanish, about 1,000 adults, margin of error plus or minus 4 points at 95%, weighted to CPS demographics, population density, phone status and party identification (the average of Gallup's three most recent polls). GSS 2024, the last wave the model learned from: in-person interviewing with web and phone alternatives (mixed mode), weight wtssps; GSS 2021 was fielded online. Interviewer-administered telephone and in-person/web answers to the same question can differ.",
+    "no_opinion": "Gallup records a volunteered 'no opinion' (0 to 4% on these items in 2023-2025). The GSS catalog drops don't-know answers. Both sides drop it: Gallup's two substantive shares are rescaled to 100 before scoring (docs/extend-playbook.md, section 3).",
+    "wording": {
+      "marijuana_legal": "Gallup drops 'made' ('should be legal' for 'should be made legal') since 2021 and offers 'Yes, legal / No, illegal'. Mapping grade: equivalent.",
+      "death_penalty": "Gallup asks 'Are you in favor of...' (one-sided), the GSS 'Do you favor or oppose...' (balanced); 'a person' for 'persons'. Mapping grade: equivalent. A one-sided stem is the kind of difference that can move a share by itself.",
+      "fear_walking": "Gallup says 'any area near where you live', the GSS 'any area right around here'; both say 'within a mile'. Mapping grade: equivalent."
+    },
+    "house_effect": "Gallup minus GSS in the same year, both without no-opinion, on every GSS wave from 2000 to 2024 that Gallup also measured (per item under items.*.house_effect_gallup_minus_gss). Death penalty: near zero through 2016 (mean +0.66 over 9 matched waves), then Gallup 6.60, 5.02 and 6.62 points below the GSS in 2018, 2022 and 2024 (1.06 below in the 2021 online GSS wave). Expect Gallup's 2026 reading to come in about 5 to 7 points below this prediction for that reason alone. Fear of walking alone: Gallup above the GSS on 10 of 11 matched waves, mean +2.58 (all) and +1.31 (2018-2024). Marijuana: no consistent sign, mean +0.24 over 8 matched waves, range -3.29 to +3.89. The sealed numbers are not adjusted for any of this.",
+    "what_it_means": "The served prediction sits within 0.7 points of carry-forward on all three items, so this test mostly measures how far a GSS-trained prediction travels to a different house, not the model's gain over repeating the last wave. Gallup's own previous reading carries Gallup's house effect and is the harder baseline, most of all on the death penalty."
+  },
+  "scoring_plan": {
+    "when": "When Gallup publishes the October 2026 figures. ASSUMPTION: early to mid November. In 2023-2025 the items were first published between 10-29 and 11-16: fear of walking alone 2023-11-16, 2024-10-29, 2025-10-30; death penalty 2023-11-06, 2024-11-14, 2025-10-30; marijuana 2023-11-08, 2024-11-01, 2025-11-05. Late October is possible.",
+    "target": "Gallup's published national total for each item, no opinion dropped, the two substantive shares rescaled to 100.",
+    "metric": "Absolute miss in percentage points on the first answer (legal, favor, yes) per item, and the mean over the three items, for the served prediction, carry-forward from GSS 2024, and Gallup's 2025 reading. Also: whether Gallup's number falls inside the served 80% band.",
+    "procedure": "prior-backtest extend --score-sealed on predictions.json at the same commit, with study.csv holding Gallup's rescaled totals; nothing is predicted again.",
+    "rules": [
+      "The score is posted whatever it shows (02 step 46, post 17).",
+      "An item Gallup does not field in October 2026, or fields with changed wording, is reported as not scored, with the reason.",
+      "If Gallup publishes an item before the digest is posted, that item's test is dropped and the drop is logged (02 step 25).",
+      "No age or other cut is scored; only the national total was predicted.",
+      "Gallup's integers are rounded, so each rescaled target carries about half a point of rounding."
+    ]
+  },
+  "sources": [
+    "https://news.gallup.com/file/poll/513845/2023_11_6%20Death%20Penalty.pdf",
+    "https://news.gallup.com/file/poll/514139/20231108Marijuana.pdf",
+    "https://news.gallup.com/file/poll/544472/20231116_CrimeFear.pdf",
+    "https://news.gallup.com/file/poll/652802/2024_10_29%20Crime%20Topline%20and%20Tabs.pdf",
+    "https://news.gallup.com/file/poll/653465/241114DeathPenalty.pdf",
+    "https://news.gallup.com/file/poll/697166/2025_10_30_Crime%20Rate%20and%20Fears%20Topline%20and%20Tabs.pdf",
+    "https://news.gallup.com/file/poll/697247/2025_10_30_Crime%20Remedies%20Topline%20and%20Tabs.pdf",
+    "https://news.gallup.com/file/poll/697466/2025_11_04%20Drugs%20Topline%20and%20Tabs.pdf",
+    "https://news.gallup.com/opinion/methodology/608690/gallup-poll-methodology.aspx",
+    "https://news.gallup.com/poll/284135/percentage-americans-smoke-marijuana.aspx",
+    "https://news.gallup.com/poll/513806/new-low-say-death-penalty-fairly-applied.aspx",
+    "https://news.gallup.com/poll/514007/grassroots-support-legalizing-marijuana-hits-record.aspx",
+    "https://news.gallup.com/poll/544415/personal-safety-fears-three-decade-high.aspx",
+    "https://news.gallup.com/poll/652763/smaller-majorities-say-crime-serious-increasing.aspx",
+    "https://news.gallup.com/poll/653429/drop-death-penalty-support-led-younger-generations.aspx",
+    "https://news.gallup.com/poll/697124/crime-seen-less-serious-second-straight-year.aspx",
+    "https://news.gallup.com/poll/697244/americans-prefer-tempered-crime-fighting-methods.aspx",
+    "https://news.gallup.com/poll/697445/americans-positive-progress-drugs.aspx",
+    "https://www.gallup.com/175307/gallup-poll-social-series-methodology.aspx"
+  ],
+  "sources_note": "Gallup readings, fieldwork dates and wording are from the final topline PDFs; trend rows for 2000-2022 used in the house-effect table come from the trend tables in the October 2025 toplines. GSS shares are from the model's own GSS snapshots (weight wtssps, don't-know dropped).",
+  "unverified": []
+}

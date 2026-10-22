@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "To cite these seals, please use the metadata below."
+type: dataset
+title: "Forecast seals: GSS 2026, CES 2026 and Gallup October 2026"
+authors:
+  - name: "Nate Grotberg"
+abstract: >-
+  Seal files for model-generated forecasts of the 2026 General Social Survey and the
+  2026 Cooperative Election Study. Each seal is a sha256 digest over every forecast row
+  for one survey wave (protocol forecast-seal-1), sealed on 2026-09-07 and submitted to
+  OpenTimestamps on 2026-09-23. The repository includes the OpenTimestamps proofs and a
+  standard-library Python verifier. The forecasts are model-generated predictions, not
+  measurements.
+keywords:
+  - forecast
+  - timestamping
+  - OpenTimestamps
+  - General Social Survey
+  - Cooperative Election Study
+identifiers:
+  - type: other
+    value: "a90d3004ebd7c584077658e22a42be55a47701a0616c24d384788a64ddba37a6"
+    description: "predictions_sha256 of seals/gss-2026.json (GSS 2026, forecast-seal-1)"
+  - type: other
+    value: "3456fede015f87ab5b89baba5ef707644d799165dc39d3416df327d77455d202"
+    description: "predictions_sha256 of seals/ces-2026.json (CES 2026, forecast-seal-1)"
