@@ -161,6 +161,29 @@ Check it with `shasum -a 256 seals/gallup-2026-10-seal.json`
 (db8c86dbebfb0124b7558ad2ff8e0a0aaf4a456519b722a2d42cb6e198413944) and `ots verify
 seals/gallup-2026-10-seal.json.ots`. `verify.py` covers the ledger seals only.
 
+## Forward seal: Marquette Law School national poll, next wave
+
+`seals/marquette-national-2026-11-seal.json` holds predictions for one item that Marquette asks on
+every national wave: "Generally speaking, would you say that most people can be trusted, or most
+people can't be trusted?" It covers the national total and 12 crosstab groups: sex, age 18-29,
+five education levels and four race and ethnicity groups. The model learns from the GSS, whose
+version of the question reads about 20 points lower, so each prediction is the model's share plus
+one offset learned from Marquette's published history (32 waves, Sept 2021 to Sept 2026). The
+seal file holds that history, the offset, an out-of-time test of the recipe on every past wave,
+and two baselines it will be scored against: Marquette's last wave (fielded Sept 2-9 2026) and
+its 32-wave average. It also states in advance that the test tied the first baseline on the
+groups and lost to the second.
+
+The predictions were made 2026-10-23 17:07 UTC and stamped with OpenTimestamps
+(`seals/marquette-national-2026-11-seal.json.ots`, Bitcoin block 972804, 2026-10-23 17:18:21 UTC).
+They are scored on the first national adult wave Marquette releases after that block. The claim is
+"sealed before fieldwork" only if that wave's published fieldwork start is later than the block
+time; otherwise it is "sealed before publication".
+
+Check it with `shasum -a 256 seals/marquette-national-2026-11-seal.json`
+(5ae9d2d820b6918b70f4891dee15d6c87fffce9590c618a3b4d6811d61d5bc3d) and `ots verify
+seals/marquette-national-2026-11-seal.json.ots`.
+
 ## When the waves resolve
 
 We expect GSS 2026 and CES 2026 data to be released in spring 2027. That is our own
