@@ -184,6 +184,16 @@ Check it with `shasum -a 256 seals/marquette-national-2026-11-seal.json`
 (5ae9d2d820b6918b70f4891dee15d6c87fffce9590c618a3b4d6811d61d5bc3d) and `ots verify
 seals/marquette-national-2026-11-seal.json.ots`.
 
+## Forward seal: Gallup November 2026, physical health
+
+`seals/gallup-health-2026-11-seal.json` holds predictions for Gallup's November Health and Healthcare item: "How would you describe your own physical health at this time? Would you say your physical health is -- excellent, good, only fair, or poor?" It covers the national total, men, women and some college, plus White adults, which are reported but left out of the group mean because Gallup's White mapping is inferred. Each prediction is the model's share of "excellent or good" plus one offset learned from Gallup's own 2019-2025 readings. The file states the expected result in advance: a tie with repeating Gallup's last reading on the total, and a likely miss on women.
+
+The predictions were made 2026-10-26 22:08 UTC and stamped with OpenTimestamps (`seals/gallup-health-2026-11-seal.json.ots`, Bitcoin block 973299, 2026-10-26 22:15:57 UTC). Gallup has started this survey in early November every year since 2018.
+
+Check it with `shasum -a 256 seals/gallup-health-2026-11-seal.json`
+(5ef347dc0087992034227d860495ec8fb9b7d09b9c3d8d26ee44953bafda8493) and `ots verify
+seals/gallup-health-2026-11-seal.json.ots`.
+
 ## When the waves resolve
 
 We expect GSS 2026 and CES 2026 data to be released in spring 2027. That is our own
