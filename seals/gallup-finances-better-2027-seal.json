@@ -1,0 +1,1410 @@
+{
+ "kind": "forward-seal-kit-1",
+ "target_id": "gallup-finances-better-2027",
+ "title": "Gallup April 2027 Economy and Personal Finance: financial situation getting better, next release",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-27T00:46:34Z",
+ "made_at_note": "predictions.json was written at this time (file mtime, UTC)",
+ "sealed_at": "2026-10-27T00:46:38Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof gallup-finances-better-2027-seal.json.ots",
+ "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+ "code_note": "the commit of the private code repository that made the predictions; it cannot be checked from outside",
+ "method": {
+  "served": "ensemble_mean@0.4.0",
+  "members": [
+   "mrp_numpyro@0.5.0",
+   "gbm_pooled@0.1.0"
+  ],
+  "baseline": "carry_forward@0.1.0",
+  "history": "GSS 2000-2024 (13 waves), financial_change; GSS 2024 was released 2025-05-22",
+  "frame": "frame:2023 (published 2024-10-17)",
+  "share": "getting better: the served shares of better",
+  "offset": "forecast = engine share + the mean, over every earlier Gallup wave fielded 2019-2026 that has a history vintage, of Gallup's published total minus the engine's total from the history and frame published before that wave's fieldwork; one offset for every cell",
+  "offset_note": "Declared 2026-10-26, before any engine run on financial_change: the mean of Gallup's total minus the engine's total over every April wave from 2019 that has its own out-of-time engine vintage (GSS 2018 was released 2019-03-19). The May 28-Jun 4 2020 reading is not an April wave and is left out. Same rule as the Gallup health seal.",
+  "bands": "normal: 1.2816 and 1.96 times the root mean square of this method's out-of-time misses (evidence.json; the total's own for the total, every cell's pooled for the cells), centred on the forecast"
+ },
+ "study": {
+  "survey": "Gallup Poll Social Series, Economy and Personal Finance (April), telephone (landline and cell RDD), about 1,000 U.S. adults",
+  "sponsor": "Gallup",
+  "item": {
+   "wording": "Right now, do you think that your financial situation as a whole is getting better or getting worse?",
+   "options": [
+    "Getting better",
+    "Getting worse"
+   ],
+   "headline": {
+    "name": "getting better",
+    "options": [
+     "Getting better"
+    ]
+   },
+   "no_opinion_rule": "Gallup records 'Same' only when volunteered (8-23% since 2001) and prints it with No opinion (0-2%) in the base. Shares are as printed, out of all adults, and are not rescaled without either."
+  },
+  "catalog": {
+   "source": "gss",
+   "item_id": "financial_change",
+   "labels": [
+    "better"
+   ],
+   "wording_match": "near",
+   "wording_note": "GSS FINALTER asks 'During the last few years, has your financial situation been getting better, getting worse, or has it stayed the same?' and offers 'same'; Gallup asks 'right now' and takes 'same' only if volunteered. Gallup is phone; GSS is in person or web."
+  },
+  "expected_fieldwork": "2027-04-01 (inferred: the April survey began Apr 1 in 2019-2022 and 2024-2026, and on the first Monday when Apr 1 fell on a weekend (Apr 2 2018, Apr 3 2023). Apr 1 2027 is a Thursday)",
+  "expected_release": "2027-04-28 (inferred: first release of this item came 2019-04-30, 2020-04-21, 2021-04-29, 2022-04-28, 2023-05-18, 2024-05-02, 2025-04-21 and 2026-04-28)",
+  "cells": [
+   "total",
+   "sex=male",
+   "sex=female",
+   "education=some_college",
+   "race_eth=white_nh"
+  ],
+  "cells_map": {
+   "total": "Total",
+   "sex=male": "Male",
+   "sex=female": "Female",
+   "education=some_college": "Some College",
+   "race_eth=white_nh": "White"
+  },
+  "inferred_cells": [
+   "race_eth=white_nh"
+  ],
+  "inferred_cells_note": "Inferred cells are scored beside the others, not in the cell mean: Gallup's 'White' is read as non-Hispanic white by inference (see history.json how_read).",
+  "not_scored": {
+   "Non-white": "the union of black_nh, hispanic and other; the frame's cuts cannot combine categories",
+   "18-34": "splits the frame's 30-39 band",
+   "35-54": "splits the frame's 30-39 and 50-59 bands",
+   "55+": "splits the frame's 50-59 band",
+   "College Grad": "the union of college and postgrad",
+   "HS Grad or Less": "the union of no_hs and hs",
+   "Republican": "party is not a frame variable (and Gallup weights on party)",
+   "Independent": "party is not a frame variable",
+   "Democrat": "party is not a frame variable",
+   "Less than $50,000": "income is not a frame variable (2022-2026 banners)",
+   "$50,000-100,000": "income is not a frame variable",
+   "$100,000+": "income is not a frame variable",
+   "Conservative": "ideology is not a frame variable (2019-2023 banners)",
+   "Moderate": "ideology is not a frame variable",
+   "Liberal": "ideology is not a frame variable"
+  },
+  "items_assumption": "ASSUMPTION: the next wave asks the item with the wording and options quoted in study.item"
+ },
+ "notes": [],
+ "claim": "before fieldwork",
+ "claim_rule": "'sealed before fieldwork' only if the proof's block time precedes the published fieldwork start; otherwise 'before publication'",
+ "seal_by": "2027-03-26",
+ "void_after": "2027-10-27",
+ "predictions_json": {
+  "file": "predictions.json",
+  "sha256": "b2e7d4de9d6c1780fb62d83873f4f639c063832ffa12a99ad0098f2bfef7ae63",
+  "bytes": 25263,
+  "hash_recipe": "sha256 over the file's bytes exactly as written by `prior-backtest extend --predict-only` (json.dumps(content, indent=2) followed by one newline)",
+  "content": {
+   "kind": "extend-predictions-1",
+   "study": "Gallup April 2027 Economy and Personal Finance: financial situation getting better, next release (predictions)",
+   "fielded": "2027",
+   "history_source": "gss",
+   "frame_wave": "2023",
+   "output_label": "model-generated prediction, not a measurement",
+   "fielded_start": "2027-04-01",
+   "frame_published_on": "2024-10-17",
+   "frame_published_before_fielding": true,
+   "frame_dates_note": "frame:2023 is seeded from acs_pums 2023, published 2024-10-17 (ACS 2023 data release schedule, '1-Year Public Use Microdata Sample (PUMS) Files'; fielded continuously across calendar year 2023); the study's fieldwork began 2027-04-01, as supplied",
+   "history": {
+    "cut_at": "2027-04-01",
+    "start_assumed": false,
+    "before_wave": "2027",
+    "waves": [
+     "2000",
+     "2002",
+     "2004",
+     "2006",
+     "2008",
+     "2010",
+     "2012",
+     "2014",
+     "2016",
+     "2018",
+     "2021",
+     "2022",
+     "2024"
+    ],
+    "withheld": [],
+    "note": "GSS 2000-2016 (9 waves) have no recorded release date and count as released because GSS 2024, released 2025-05-22, came after them"
+   },
+   "ledger": "these predictions are not recorded in the prediction ledger and carry no ledger id; this report and its JSON file are the record",
+   "predictors": [
+    "carry_forward",
+    "mrp_numpyro",
+    "gbm_pooled",
+    "ensemble_mean"
+   ],
+   "method_ids": {
+    "carry_forward": "carry_forward@0.1.0",
+    "mrp_numpyro": "mrp_numpyro@0.5.0",
+    "gbm_pooled": "gbm_pooled@0.1.0",
+    "ensemble_mean": "ensemble_mean@0.4.0"
+   },
+   "git_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+   "git_dirty": false,
+   "started_at": "2026-10-27T00:45:19.855944+00:00",
+   "duration_s": 74.95176033396274,
+   "cells_supplied": {
+    "financial_change": [
+     "total",
+     "sex=male",
+     "sex=female",
+     "education=some_college",
+     "race_eth=white_nh"
+    ]
+   },
+   "unmapped": {},
+   "unscored": [],
+   "notes": [],
+   "failures": [],
+   "predictions": [
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "better",
+     "predicted": 0.3196191914419637,
+     "lower_80": 0.304724701876792,
+     "upper_80": 0.33436253538077254,
+     "lower_95": 0.29786901263166765,
+     "upper_95": 0.3424854678916047,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "same",
+     "predicted": 0.37887346854710086,
+     "lower_80": 0.3632443680986338,
+     "upper_80": 0.39423653801476166,
+     "lower_95": 0.3544703151101827,
+     "upper_95": 0.4024618810565938,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "worse",
+     "predicted": 0.3015073400109354,
+     "lower_80": 0.2871594331019687,
+     "upper_80": 0.3162468003019611,
+     "lower_95": 0.2793598314555993,
+     "upper_95": 0.32510755934764896,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "better",
+     "predicted": 0.3474328388345848,
+     "lower_80": 0.3254511685345607,
+     "upper_80": 0.36980058859866966,
+     "lower_95": 0.3140352879895033,
+     "upper_95": 0.38270648975587135,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "same",
+     "predicted": 0.36437429304549,
+     "lower_80": 0.34188368728545077,
+     "upper_80": 0.38660207857337425,
+     "lower_95": 0.3303528838007364,
+     "upper_95": 0.3988985564715462,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "worse",
+     "predicted": 0.2881928681199253,
+     "lower_80": 0.2674690019360539,
+     "upper_80": 0.30928195895415245,
+     "lower_95": 0.2555945079359301,
+     "upper_95": 0.3202809983659787,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "better",
+     "predicted": 0.29253463249004513,
+     "lower_80": 0.2733581412873795,
+     "upper_80": 0.312467640366156,
+     "lower_95": 0.2623815551467659,
+     "upper_95": 0.3235776560670159,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "same",
+     "predicted": 0.3928960557947929,
+     "lower_80": 0.37242555321601545,
+     "upper_80": 0.4140974773469919,
+     "lower_95": 0.36079596790908225,
+     "upper_95": 0.42590250266226715,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "worse",
+     "predicted": 0.3145693117151621,
+     "lower_80": 0.2946205898692303,
+     "upper_80": 0.33419926583302645,
+     "lower_95": 0.2843778082249883,
+     "upper_95": 0.3438437388952708,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "better",
+     "predicted": 0.31356823987591703,
+     "lower_80": 0.28750390461892006,
+     "upper_80": 0.34040022411530474,
+     "lower_95": 0.27377671793627106,
+     "upper_95": 0.35688795535812995,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "same",
+     "predicted": 0.37476082568883184,
+     "lower_80": 0.3463454936823379,
+     "upper_80": 0.40352255867442755,
+     "lower_95": 0.3321432387576921,
+     "upper_95": 0.41951728221503826,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "worse",
+     "predicted": 0.31167093443525123,
+     "lower_80": 0.2853571956722046,
+     "upper_80": 0.3391756504403213,
+     "lower_95": 0.2694115008620116,
+     "upper_95": 0.3554866082851474,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "better",
+     "predicted": 0.3092438702772124,
+     "lower_80": 0.2899036459642049,
+     "upper_80": 0.32790463957678806,
+     "lower_95": 0.2804877873449861,
+     "upper_95": 0.33889168794114355,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "same",
+     "predicted": 0.3693577808277495,
+     "lower_80": 0.35032053459438983,
+     "upper_80": 0.3886045024184597,
+     "lower_95": 0.3396406727751042,
+     "upper_95": 0.39895586152038937,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "worse",
+     "predicted": 0.3213983488950382,
+     "lower_80": 0.3033195508816371,
+     "upper_80": 0.3392794686494959,
+     "lower_95": 0.293979702756995,
+     "upper_95": 0.3506195637980119,
+     "trained_through": "2024",
+     "n_train": 3150
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "better",
+     "predicted": 0.3104381219318153,
+     "lower_80": 0.21517786344525353,
+     "upper_80": 0.4218035118642634,
+     "lower_95": 0.17645622998236782,
+     "upper_95": 0.4932725093171854,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "same",
+     "predicted": 0.40621362764407176,
+     "lower_80": 0.37191556358896377,
+     "upper_80": 0.4165686679908524,
+     "lower_95": 0.3442376415973592,
+     "upper_95": 0.42643410626565476,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "worse",
+     "predicted": 0.2833482504241129,
+     "lower_80": 0.1940599867840749,
+     "upper_80": 0.38875531591170587,
+     "lower_95": 0.14799108181483817,
+     "upper_95": 0.452721330732173,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "better",
+     "predicted": 0.32809148439502045,
+     "lower_80": 0.23030025964712142,
+     "upper_80": 0.44273256956325535,
+     "lower_95": 0.18734248928119168,
+     "upper_95": 0.5193669578941567,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "same",
+     "predicted": 0.4064969888580268,
+     "lower_80": 0.3650719317689869,
+     "upper_80": 0.4250040848142663,
+     "lower_95": 0.3398363247130648,
+     "upper_95": 0.43761016681536596,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "worse",
+     "predicted": 0.2654115267469527,
+     "lower_80": 0.17871936181397916,
+     "upper_80": 0.370361942499429,
+     "lower_95": 0.14227307237325953,
+     "upper_95": 0.42824636562429985,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "better",
+     "predicted": 0.2934815832223411,
+     "lower_80": 0.2025863344506563,
+     "upper_80": 0.3994063447675387,
+     "lower_95": 0.16506168471578317,
+     "upper_95": 0.4635380143962202,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "same",
+     "predicted": 0.4059414514281688,
+     "lower_80": 0.367092621875964,
+     "upper_80": 0.4208867902111157,
+     "lower_95": 0.3429548844703882,
+     "upper_95": 0.4303051091341635,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "worse",
+     "predicted": 0.3005769653494901,
+     "lower_80": 0.2048108496864022,
+     "upper_80": 0.40545987443366704,
+     "lower_95": 0.1712774013878832,
+     "upper_95": 0.47375572111192366,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "better",
+     "predicted": 0.30012839814841935,
+     "lower_80": 0.20433414965694954,
+     "upper_80": 0.4132381332492295,
+     "lower_95": 0.16368082087820923,
+     "upper_95": 0.4829985360040782,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "same",
+     "predicted": 0.4123576445795168,
+     "lower_80": 0.3682299553926062,
+     "upper_80": 0.43219827532796523,
+     "lower_95": 0.34180600461580296,
+     "upper_95": 0.4494868463541503,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "worse",
+     "predicted": 0.28751395727206397,
+     "lower_80": 0.19333679387842598,
+     "upper_80": 0.4025011033352515,
+     "lower_95": 0.15041527622706374,
+     "upper_95": 0.460235435683846,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "better",
+     "predicted": 0.3059829237268003,
+     "lower_80": 0.21157101261520242,
+     "upper_80": 0.42364022842094434,
+     "lower_95": 0.17256213689608674,
+     "upper_95": 0.4866024520677755,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "same",
+     "predicted": 0.4063766395993718,
+     "lower_80": 0.3684854897653286,
+     "upper_80": 0.42063056431106943,
+     "lower_95": 0.35011609501570784,
+     "upper_95": 0.43222629394804196,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "worse",
+     "predicted": 0.28764043667382777,
+     "lower_80": 0.19620256764810837,
+     "upper_80": 0.3981768573195269,
+     "lower_95": 0.15431441893564699,
+     "upper_95": 0.45204145994370076,
+     "trained_through": "2024",
+     "n_train": 32216
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "better",
+     "predicted": 0.3256774976903147,
+     "lower_80": 0.32368162651756455,
+     "upper_80": 0.32778340142230356,
+     "lower_95": 0.32305952317891856,
+     "upper_95": 0.3288813726809336,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "same",
+     "predicted": 0.3802350716887687,
+     "lower_80": 0.3788584531375351,
+     "upper_80": 0.38118214960026653,
+     "lower_95": 0.37865042193554155,
+     "upper_95": 0.38195008258261104,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "worse",
+     "predicted": 0.2940874306209168,
+     "lower_80": 0.2921517500273553,
+     "upper_80": 0.2958580575388293,
+     "lower_95": 0.29201804150064087,
+     "upper_95": 0.296362582338623,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "better",
+     "predicted": 0.3398715206671853,
+     "lower_80": 0.33795685135148124,
+     "upper_80": 0.34154242083460956,
+     "lower_95": 0.337045706567136,
+     "upper_95": 0.3428050730107502,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "same",
+     "predicted": 0.3693078196824285,
+     "lower_80": 0.36723839206942194,
+     "upper_80": 0.3706472453319215,
+     "lower_95": 0.3666040469366859,
+     "upper_95": 0.3716140048733379,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "worse",
+     "predicted": 0.2908206596503863,
+     "lower_80": 0.28947966338687303,
+     "upper_80": 0.2923859215232164,
+     "lower_95": 0.2881894061304086,
+     "upper_95": 0.29328962053637647,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "better",
+     "predicted": 0.31204374941419316,
+     "lower_80": 0.309469670214299,
+     "upper_80": 0.315828291517849,
+     "lower_95": 0.30919348309009365,
+     "upper_95": 0.315880612281573,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "same",
+     "predicted": 0.3907309968712873,
+     "lower_80": 0.3886250920211428,
+     "upper_80": 0.39260928153119723,
+     "lower_95": 0.38798364184278417,
+     "upper_95": 0.3932275369600208,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "worse",
+     "predicted": 0.2972252537145194,
+     "lower_80": 0.2954812161752325,
+     "upper_80": 0.299356478262429,
+     "lower_95": 0.2945092336446987,
+     "upper_95": 0.29936905245431683,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "better",
+     "predicted": 0.31760558517890597,
+     "lower_80": 0.31374516929679885,
+     "upper_80": 0.3208489908482865,
+     "lower_95": 0.3130477901958777,
+     "upper_95": 0.3233074441962111,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "same",
+     "predicted": 0.3597344466359665,
+     "lower_80": 0.35671474870117414,
+     "upper_80": 0.36168651308753985,
+     "lower_95": 0.3562320417113804,
+     "upper_95": 0.36244708396886144,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "worse",
+     "predicted": 0.3226599681851276,
+     "lower_80": 0.3205137434939716,
+     "upper_80": 0.32562500875611133,
+     "lower_95": 0.31944354375349604,
+     "upper_95": 0.3257206911645355,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "better",
+     "predicted": 0.3174926707311772,
+     "lower_80": 0.3150305312092025,
+     "upper_80": 0.3204428869314301,
+     "lower_95": 0.31415743966046483,
+     "upper_95": 0.32050070765083877,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "same",
+     "predicted": 0.3734987999803288,
+     "lower_80": 0.37171253730618387,
+     "upper_80": 0.37516422501904356,
+     "lower_95": 0.37104530320112267,
+     "upper_95": 0.37673396615213844,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "worse",
+     "predicted": 0.309008529288494,
+     "lower_80": 0.3062058274944537,
+     "upper_80": 0.31210971991024405,
+     "lower_95": 0.3059719603395024,
+     "upper_95": 0.3128033529173656,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "better",
+     "predicted": 0.3183401806170744,
+     "lower_80": 0.22307992213051264,
+     "upper_80": 0.4297055705495225,
+     "lower_95": 0.18435828866762694,
+     "upper_95": 0.5011745680024445,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "same",
+     "predicted": 0.38493980942745454,
+     "lower_80": 0.35064174537234655,
+     "upper_80": 0.3952948497742352,
+     "lower_95": 0.322963823380742,
+     "upper_95": 0.40516028804903753,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "worse",
+     "predicted": 0.29672000995547104,
+     "lower_80": 0.20743174631543307,
+     "upper_80": 0.40212707544306403,
+     "lower_95": 0.16136284134619633,
+     "upper_95": 0.4660930902635312,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "better",
+     "predicted": 0.3394773108751201,
+     "lower_80": 0.2416860861272211,
+     "upper_80": 0.454118396043355,
+     "lower_95": 0.19872831576129135,
+     "upper_95": 0.5307527843742563,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "same",
+     "predicted": 0.37958997632079056,
+     "lower_80": 0.3381649192317506,
+     "upper_80": 0.39809707227703006,
+     "lower_95": 0.31292931217582853,
+     "upper_95": 0.4107031542781297,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "worse",
+     "predicted": 0.2809327128040894,
+     "lower_80": 0.19424054787111586,
+     "upper_80": 0.3858831285565657,
+     "lower_95": 0.15779425843039624,
+     "upper_95": 0.44376755168143656,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "better",
+     "predicted": 0.2960675232035612,
+     "lower_80": 0.20517227443187644,
+     "upper_80": 0.40199228474875887,
+     "lower_95": 0.1676476246970033,
+     "upper_95": 0.46612395437744036,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "same",
+     "predicted": 0.39656090240251096,
+     "lower_80": 0.35771207285030615,
+     "upper_80": 0.41150624118545787,
+     "lower_95": 0.33357433544473036,
+     "upper_95": 0.42092456010850565,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "worse",
+     "predicted": 0.30737157439392787,
+     "lower_80": 0.21160545873084,
+     "upper_80": 0.41225448347810484,
+     "lower_95": 0.178072010432321,
+     "upper_95": 0.48055033015636145,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "better",
+     "predicted": 0.3089413131915745,
+     "lower_80": 0.21314706470010467,
+     "upper_80": 0.4220510482923846,
+     "lower_95": 0.17249373592136436,
+     "upper_95": 0.49181145104723334,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "same",
+     "predicted": 0.38687888417678673,
+     "lower_80": 0.34275119498987616,
+     "upper_80": 0.40671951492523517,
+     "lower_95": 0.3163272442130729,
+     "upper_95": 0.42400808595142025,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "worse",
+     "predicted": 0.3041798026316389,
+     "lower_80": 0.21000263923800092,
+     "upper_80": 0.41916694869482646,
+     "lower_95": 0.16708112158663868,
+     "upper_95": 0.47690128104342094,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "better",
+     "predicted": 0.3095800193656387,
+     "lower_80": 0.21516810825404079,
+     "upper_80": 0.4272373240597827,
+     "lower_95": 0.1761592325349251,
+     "upper_95": 0.4901995477066139,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "same",
+     "predicted": 0.38053185026346154,
+     "lower_80": 0.34264070042941824,
+     "upper_80": 0.3947857749751591,
+     "lower_95": 0.3242713056797975,
+     "upper_95": 0.4063815046121316,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "financial_change",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "worse",
+     "predicted": 0.30988813037089974,
+     "lower_80": 0.21845026134518028,
+     "upper_80": 0.4204245510165988,
+     "lower_95": 0.1765621126327189,
+     "upper_95": 0.4742891536407727,
+     "trained_through": "2024",
+     "n_train": 400000
+    }
+   ]
+  }
+ },
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "4a66764daddc4d5cd2105529709ebb9f22c06a4da5d06f860adad99545c6e9c1"
+  },
+  "history": {
+   "file": "inputs/history.json",
+   "sha256": "05323656c6b15f57a1ae1eaed6e88a61a5680e832a0bbc444ce4ab1dd9ae6f1a",
+   "read_on": "2026-10-26",
+   "how_read": "Public Gallup PDFs, saved and converted with pdftotext -layout, then parsed by a script and checked. Totals: the Q8 trend table of the April 2026 topline (Oct 2001 to Apr 2026, 43 readings), printed 'Getting better' percentages; the 2017, 2019, 2020 (Apr and Jun), 2021-2025 toplines print identical figures for every reading they share (checked). The trend includes monthly readings in 2001-2003, Oct 2011 and May-Jun 2020; the target is the April survey, and non-April readings are marked in 'note'. Cells: the 'Public Release Data' crosstab of the same question in the 2019, 2020 (Apr and May-Jun) and 2021-2026 toplines, printed percentages; each crosstab's Total equals the trend figure (checked). The 2017 topline has no crosstab; no 2018 topline was found. Only Male, Female, Some College and White are kept as cells. 'White' (Gallup's Race I banner) is mapped to race_eth=white_nh by inference: these PDFs do not define Race I, but the 2025 June Confidence topline prints the White crosstab group's figures under 'Non-Hispanic White adults' (https://news.gallup.com/file/poll/692660/2025_07_17_Confidence%20in%20Institutions%20Topline%20and%20Tabs.pdf). 'published' is the date of the Gallup article that first reports the figure (read on the article page; for 2025 the 2025-04-21 economy article preceded the 2025-04-30 personal-finance article), null where none was found or read. 'Same (vol.)' and No opinion are not rescaled."
+  }
+ },
+ "plan_sha256": "82940b3b2ed2c8930207e3585206324768266e60da06696d6cc5669e7d62238c",
+ "questions_sha256": "3c483e7f7ce554e84a502c612d27387778d85285c2f03ac0af0f72fffbbfd6ce",
+ "evidence_sha256": "3060624e850972c7e02acfe0691105ab105b48e4431d88b0e2f326b3878e3930",
+ "method_ids": {
+  "carry_forward": "carry_forward@0.1.0",
+  "mrp_numpyro": "mrp_numpyro@0.5.0",
+  "gbm_pooled": "gbm_pooled@0.1.0",
+  "ensemble_mean": "ensemble_mean@0.4.0"
+ },
+ "offset": {
+  "value_points": 2.7547,
+  "window": [
+   "2019",
+   "2026"
+  ],
+  "waves": [
+   {
+    "wave": "2019 Apr 1-9",
+    "fielded_start": "2019-04-01",
+    "target_total": 57.0,
+    "engine_total": 42.4556,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2020 Apr 1-14",
+    "fielded_start": "2020-04-01",
+    "target_total": 35.0,
+    "engine_total": 42.4556,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2020 May 28-Jun 4",
+    "fielded_start": "2020-05-28",
+    "target_total": 41.0,
+    "engine_total": 42.4556,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2021 Apr 1-21",
+    "fielded_start": "2021-04-01",
+    "target_total": 52.0,
+    "engine_total": 42.4556,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2022 Apr 1-19",
+    "fielded_start": "2022-04-01",
+    "target_total": 37.0,
+    "engine_total": 40.0201,
+    "vintage": "h2021-f2017.json"
+   },
+   {
+    "wave": "2023 Apr 3-25",
+    "fielded_start": "2023-04-03",
+    "target_total": 37.0,
+    "engine_total": 40.065,
+    "vintage": "h2021-f2021.json"
+   },
+   {
+    "wave": "2024 Apr 1-22",
+    "fielded_start": "2024-04-01",
+    "target_total": 43.0,
+    "engine_total": 33.7267,
+    "vintage": "h2022-f2021.json"
+   },
+   {
+    "wave": "2025 Apr 1-14",
+    "fielded_start": "2025-04-01",
+    "target_total": 38.0,
+    "engine_total": 33.7393,
+    "vintage": "h2022-f2023.json"
+   },
+   {
+    "wave": "2026 Apr 1-15",
+    "fielded_start": "2026-04-01",
+    "target_total": 34.0,
+    "engine_total": 31.834,
+    "vintage": "h2024-f2023.json"
+   }
+  ]
+ },
+ "forecast": {
+  "total": {
+   "share": 34.59,
+   "band_80": [
+    22.54,
+    46.64
+   ],
+   "band_95": [
+    16.15,
+    53.03
+   ],
+   "engine_share": 31.83,
+   "band_from_n_misses": 8
+  },
+  "sex=male": {
+   "share": 36.7,
+   "band_80": [
+    23.82,
+    49.58
+   ],
+   "band_95": [
+    17.01,
+    56.39
+   ],
+   "engine_share": 33.95,
+   "band_from_n_misses": 32
+  },
+  "sex=female": {
+   "share": 32.36,
+   "band_80": [
+    19.48,
+    45.24
+   ],
+   "band_95": [
+    12.67,
+    52.05
+   ],
+   "engine_share": 29.61,
+   "band_from_n_misses": 32
+  },
+  "education=some_college": {
+   "share": 33.65,
+   "band_80": [
+    20.77,
+    46.53
+   ],
+   "band_95": [
+    13.96,
+    53.34
+   ],
+   "engine_share": 30.89,
+   "band_from_n_misses": 32
+  },
+  "race_eth=white_nh": {
+   "share": 33.71,
+   "band_80": [
+    20.83,
+    46.59
+   ],
+   "band_95": [
+    14.02,
+    53.4
+   ],
+   "engine_share": 30.96,
+   "band_from_n_misses": 32
+  }
+ },
+ "not_sealed": {},
+ "baselines": {
+  "repeat_last_reading": {
+   "wave": "2026 Apr 1-15",
+   "fielded_start": "2026-04-01",
+   "older_readings": {},
+   "total": 34.0,
+   "sex=male": 42.0,
+   "sex=female": 26.0,
+   "education=some_college": 34.0,
+   "race_eth=white_nh": 36.0
+  },
+  "target_mean": {
+   "total_waves": 43,
+   "cell_waves": [
+    "2019 Apr 1-9",
+    "2020 Apr 1-14",
+    "2020 May 28-Jun 4",
+    "2021 Apr 1-21",
+    "2022 Apr 1-19",
+    "2023 Apr 3-25",
+    "2024 Apr 1-22",
+    "2025 Apr 1-14",
+    "2026 Apr 1-15"
+   ],
+   "total": 46.26,
+   "sex=male": 45.78,
+   "sex=female": 37.33,
+   "education=some_college": 42.67,
+   "race_eth=white_nh": 40.56
+  }
+ },
+ "evidence": {
+  "total": {
+   "repeat_last_reading": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 8,
+    "miss_a": 7.13,
+    "miss_b": 8.62,
+    "gap": -1.5,
+    "gap_95": [
+     -4.1,
+     1.2
+    ],
+    "waves_a_better": 5
+   },
+   "target_mean": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 8,
+    "miss_a": 7.13,
+    "miss_b": 8.7,
+    "gap": -1.57,
+    "gap_95": [
+     -5.87,
+     2.62
+    ],
+    "waves_a_better": 5
+   },
+   "target_mean_paired": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 8,
+    "miss_a": 7.13,
+    "miss_b": 8.14,
+    "gap": -1.01,
+    "gap_95": [
+     -3.68,
+     1.87
+    ],
+    "waves_a_better": 4
+   }
+  },
+  "cells": {
+   "repeat_last_reading": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 24,
+    "miss_a": 8.14,
+    "miss_b": 9.33,
+    "gap": -1.19,
+    "gap_95": [
+     -3.86,
+     0.99
+    ],
+    "waves_a_better": 4
+   },
+   "target_mean": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 24,
+    "miss_a": 8.14,
+    "miss_b": 9.01,
+    "gap": -0.87,
+    "gap_95": [
+     -2.71,
+     0.91
+    ],
+    "waves_a_better": 4
+   },
+   "target_mean_paired": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 24,
+    "miss_a": 8.14,
+    "miss_b": 9.01,
+    "gap": -0.87,
+    "gap_95": [
+     -2.71,
+     0.91
+    ],
+    "waves_a_better": 4
+   }
+  },
+  "inferred cells": {
+   "repeat_last_reading": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 8,
+    "miss_a": 7.8,
+    "miss_b": 7.12,
+    "gap": 0.67,
+    "gap_95": [
+     -1.68,
+     3.54
+    ],
+    "waves_a_better": 4
+   },
+   "target_mean": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 8,
+    "miss_a": 7.8,
+    "miss_b": 6.77,
+    "gap": 1.03,
+    "gap_95": [
+     -0.72,
+     2.92
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean_paired": {
+    "n_waves": 8,
+    "waves": [
+     "2020 Apr 1-14",
+     "2020 May 28-Jun 4",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Apr 1-14",
+     "2026 Apr 1-15"
+    ],
+    "n_cells": 8,
+    "miss_a": 7.8,
+    "miss_b": 6.77,
+    "gap": 1.03,
+    "gap_95": [
+     -0.72,
+     2.92
+    ],
+    "waves_a_better": 3
+   }
+  }
+ },
+ "vintage_inputs": [
+  {
+   "file": "vintages/h2018-f2017.json",
+   "sha256": "a3065b774b2e400f482fa7777ce2b72ff18c70c3d04525d3fb232e4d4930c3ba",
+   "through": "2018",
+   "frame": "2017",
+   "cut_at": "2019-04-01",
+   "available_from": "2019-03-19"
+  },
+  {
+   "file": "vintages/h2021-f2017.json",
+   "sha256": "6d4d7176768ed9747a035172192b6cdafc579e12845b44e0b3495c0f94bd3f07",
+   "through": "2021",
+   "frame": "2017",
+   "cut_at": "2022-04-01",
+   "available_from": "2021-11-01"
+  },
+  {
+   "file": "vintages/h2021-f2021.json",
+   "sha256": "e14c4fc4dbc0dad5494b5212c734f5786f44a7aebfafc29944bfae62009dbfed",
+   "through": "2021",
+   "frame": "2021",
+   "cut_at": "2023-04-03",
+   "available_from": "2022-10-20"
+  },
+  {
+   "file": "vintages/h2022-f2021.json",
+   "sha256": "0f6618162cb28d6c43c291bd8c8e8d864d1e51e3adafffde94c50872e8d73839",
+   "through": "2022",
+   "frame": "2021",
+   "cut_at": "2024-04-01",
+   "available_from": "2023-05-17"
+  },
+  {
+   "file": "vintages/h2022-f2023.json",
+   "sha256": "ff8a87449da6e8ad2161f2edd621ecba4b1cca3fafdfe07c5828d5b2e6e4c258",
+   "through": "2022",
+   "frame": "2023",
+   "cut_at": "2025-04-01",
+   "available_from": "2024-10-17"
+  },
+  {
+   "file": "vintages/h2024-f2023.json",
+   "sha256": "19854c615c692d5fbf97396576bb10f3e73cd919a309054b5ca23fd50d645a2b",
+   "through": "2024",
+   "frame": "2023",
+   "cut_at": "2026-04-01",
+   "available_from": "2025-05-22"
+  }
+ ],
+ "reviewed_evidence": {
+  "evidence_sha256": "6bd57db498551c2c1ad6016e9e3c6c32ab9e53552f9187c8a3b6de421503f5ac",
+  "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+  "same_result": true,
+  "note": "the go/no-go evidence the owner read before sealing states the same backtest and the same forward point predictions as this seal's own run"
+ },
+ "scoring_plan": [
+  "Target: the first Gallup Poll Social Series, Economy and Personal Finance (April), telephone (landline and cell RDD), about 1,000 U.S. adults release of the item quoted in study.item from its next wave (fieldwork expected from 2027-04-01), Gallup's published figures.",
+  "Not scored, with the reason, if Gallup does not ask the item in that wave, changes its wording or answer options, published the wave before this seal's OpenTimestamps attestation, or has not published it by 2027-10-27.",
+  "Share: getting better, the printed percentage of 'Getting better' (Gallup records 'Same' only when volunteered (8-23% since 2001) and prints it with No opinion (0-2%) in the base. Shares are as printed, out of all adults, and are not rescaled without either.). Total: the topline. Cells: the published group each cut in study.cells maps to; a group the release does not publish is not scored.",
+  "Metric: absolute miss in points, for the forecast and for both sealed baselines. Headline = the total. Beside it: the mean over the 3 exactly mapped cells and, separately, the 1 inferred cell(s). Printed integers carry up to half a point of rounding per printed figure.",
+  "Bands: whether each published share falls inside the sealed 80% and 95% bands.",
+  "Claim: 'sealed before fieldwork' only if the wave's published fieldwork start is later than the attestation's block time; otherwise 'sealed before publication'."
+ ]
+}

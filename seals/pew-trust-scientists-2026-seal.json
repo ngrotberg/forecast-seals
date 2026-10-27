@@ -1,0 +1,1129 @@
+{
+ "kind": "forward-seal-kit-1",
+ "target_id": "pew-trust-scientists-2026",
+ "title": "Pew Research Center: confidence in scientists to act in the public's best interests, next release (2026 wave)",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-27T00:14:00Z",
+ "made_at_note": "predictions.json was written at this time (file mtime, UTC)",
+ "sealed_at": "2026-10-27T00:14:07Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof pew-trust-scientists-2026-seal.json.ots",
+ "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+ "code_note": "the commit of the private code repository that made the predictions; it cannot be checked from outside",
+ "method": {
+  "served": "ensemble_mean@0.4.0",
+  "members": [
+   "mrp_numpyro@0.5.0",
+   "gbm_pooled@0.1.0"
+  ],
+  "baseline": "carry_forward@0.1.0",
+  "history": "GSS 2000-2024 (13 waves), confidence_science; GSS 2024 was released 2025-05-22",
+  "frame": "frame:2023 (published 2024-10-17)",
+  "share": "great deal or fair amount: the served shares of great_deal plus only_some",
+  "offset": "forecast = engine share + the mean, over every earlier Pew Research Center wave fielded 2020-2025 that has a history vintage, of Pew Research Center's published total minus the engine's total from the history and frame published before that wave's fieldwork; one offset for every cell",
+  "offset_note": "Declared 2026-10-26, before any engine run on confidence_science: the mean, over the Pew waves Apr 2020 to Oct 2025 (7 waves), of Pew's printed NET minus the engine's great_deal + only_some share from the vintage available at each wave's fieldwork start. Apr 2020 is the first Pew wave after the first engine vintage (GSS 2018, released 2019-03-19); Jun 2016 to Jan 2019 have none. Cells use the same rule over the same waves (all 7 carry the three race cells).",
+  "bands": "normal: 1.2816 and 1.96 times the root mean square of this method's out-of-time misses (evidence.json; the total's own for the total, every cell's pooled for the cells), centred on the forecast"
+ },
+ "study": {
+  "survey": "Pew Research Center American Trends Panel, annual trust-in-science survey (web, with some phone since late 2024; 5,111 U.S. adults in 2025, the scientists item asked of a random half)",
+  "sponsor": "Pew Research Center",
+  "item": {
+   "wording": "How much confidence, if any, do you have in each of the following to act in the best interests of the public? Scientists",
+   "options": [
+    "A great deal of confidence",
+    "A fair amount of confidence",
+    "Not too much confidence",
+    "No confidence at all"
+   ],
+   "headline": {
+    "name": "great deal or fair amount",
+    "options": [
+     "A great deal of confidence",
+     "A fair amount of confidence"
+    ]
+   },
+   "no_opinion_rule": "Pew prints 'No answer' (web skips and phone refusals, <1 or 1 percent) in the topline and keeps it in the base. The headline is Pew's printed NET (great deal plus fair amount, computed by Pew from unrounded data), taken as printed, not rescaled; it can differ by a point from the sum of the printed parts."
+  },
+  "catalog": {
+   "source": "gss",
+   "item_id": "confidence_science",
+   "labels": [
+    "great_deal",
+    "only_some"
+   ],
+   "wording_match": "different",
+   "wording_note": "Pew asks a 4-point confidence that 'scientists' act 'in the best interests of the public'; GSS CONSCI asks a 3-point confidence in 'the people running' 'the scientific community'. The headline pairs Pew's top two answers with GSS great deal plus only some, so each is the complement of its negative tail (Pew not too much or none; GSS hardly any). The level gap is left to the offset."
+  },
+  "expected_fieldwork": "2026-10-19 (inferred: Pew does not announce fieldwork. The last two waves ran Mon Oct 21-27 2024 and Mon Oct 20-26 2025 (2022: Sep 13-18; 2023: Sep 25-Oct 1), so the 2026 wave is probably in the field or done. Pew has not said the 2026 survey repeats the item; it has been asked every year since 2021)",
+  "expected_release": "2026-11-12 (inferred: the earliest plausible date, an Oct 19-25 fieldwork end plus 18 days, the shortest lag in the last four waves (fieldwork end to first release: 37 days in 2022, 44 in 2023, 18 in 2024, 81 in 2025, released 2022-10-25, 2023-11-14, 2024-11-14 and 2026-01-15). Plausible window 2026-11-12 to about 2027-01-14. No 2026 release seen on Pew's trust-in-science topic page on 2026-10-26 (latest item 2026-08-13))",
+  "cells": [
+   "total",
+   "race_eth=white_nh",
+   "race_eth=black_nh",
+   "race_eth=hispanic"
+  ],
+  "cells_map": {
+   "total": "U.S. adults",
+   "race_eth=white_nh": "White",
+   "race_eth=black_nh": "Black",
+   "race_eth=hispanic": "Hispanic"
+  },
+  "inferred_cells": [],
+  "inferred_cells_note": null,
+  "not_scored": {
+   "Asian": "one group inside the frame's other, which also holds multiracial and all other non-Hispanic adults",
+   "Rep/Lean Rep": "party is not a frame variable",
+   "Dem/Lean Dem": "party is not a frame variable",
+   "White, Black, Hispanic and Asian adults within each party": "party is not a frame variable",
+   "College grad+": "the union of college and postgrad",
+   "Some college or less": "the union of no_hs, hs and some_college"
+  },
+  "items_assumption": "ASSUMPTION: the next wave asks the item with the wording and options quoted in study.item"
+ },
+ "notes": [],
+ "claim": "before publication",
+ "claim_rule": "'sealed before fieldwork' only if the proof's block time precedes the published fieldwork start; otherwise 'before publication'",
+ "seal_by": "2026-11-06",
+ "void_after": "2027-05-13",
+ "predictions_json": {
+  "file": "predictions.json",
+  "sha256": "df8cf857a7ba7fd4d186114e5b981c07c336e6fc1ed600a41090ee608ac3b273",
+  "bytes": 21018,
+  "hash_recipe": "sha256 over the file's bytes exactly as written by `prior-backtest extend --predict-only` (json.dumps(content, indent=2) followed by one newline)",
+  "content": {
+   "kind": "extend-predictions-1",
+   "study": "Pew Research Center: confidence in scientists to act in the public's best interests, next release (2026 wave) (predictions)",
+   "fielded": "2026",
+   "history_source": "gss",
+   "frame_wave": "2023",
+   "output_label": "model-generated prediction, not a measurement",
+   "fielded_start": "2026-10-19",
+   "frame_published_on": "2024-10-17",
+   "frame_published_before_fielding": true,
+   "frame_dates_note": "frame:2023 is seeded from acs_pums 2023, published 2024-10-17 (ACS 2023 data release schedule, '1-Year Public Use Microdata Sample (PUMS) Files'; fielded continuously across calendar year 2023); the study's fieldwork began 2026-10-19, as supplied",
+   "history": {
+    "cut_at": "2026-10-19",
+    "start_assumed": false,
+    "before_wave": "2026",
+    "waves": [
+     "2000",
+     "2002",
+     "2004",
+     "2006",
+     "2008",
+     "2010",
+     "2012",
+     "2014",
+     "2016",
+     "2018",
+     "2021",
+     "2022",
+     "2024"
+    ],
+    "withheld": [],
+    "note": "GSS 2000-2016 (9 waves) have no recorded release date and count as released because GSS 2024, released 2025-05-22, came after them"
+   },
+   "ledger": "these predictions are not recorded in the prediction ledger and carry no ledger id; this report and its JSON file are the record",
+   "predictors": [
+    "carry_forward",
+    "mrp_numpyro",
+    "gbm_pooled",
+    "ensemble_mean"
+   ],
+   "method_ids": {
+    "carry_forward": "carry_forward@0.1.0",
+    "mrp_numpyro": "mrp_numpyro@0.5.0",
+    "gbm_pooled": "gbm_pooled@0.1.0",
+    "ensemble_mean": "ensemble_mean@0.4.0"
+   },
+   "git_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+   "git_dirty": false,
+   "started_at": "2026-10-27T00:12:49.916007+00:00",
+   "duration_s": 70.1512102499837,
+   "cells_supplied": {
+    "confidence_science": [
+     "total",
+     "race_eth=white_nh",
+     "race_eth=black_nh",
+     "race_eth=hispanic"
+    ]
+   },
+   "unmapped": {},
+   "unscored": [],
+   "notes": [],
+   "failures": [],
+   "predictions": [
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "great_deal",
+     "predicted": 0.36859824437266747,
+     "lower_80": 0.3493705971515576,
+     "upper_80": 0.387639665188974,
+     "lower_95": 0.34023526910823726,
+     "upper_95": 0.3981387215370778,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "only_some",
+     "predicted": 0.5182116254788657,
+     "lower_80": 0.49841427062638477,
+     "upper_80": 0.5378039865169683,
+     "lower_95": 0.4872663788605228,
+     "upper_95": 0.5483079428358565,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "hardly_any",
+     "predicted": 0.11319013014846677,
+     "lower_80": 0.10084327366008278,
+     "upper_80": 0.12579135469264657,
+     "lower_95": 0.09468765272134448,
+     "upper_95": 0.13354447747757012,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "great_deal",
+     "predicted": 0.38850755485492766,
+     "lower_80": 0.36438222335144593,
+     "upper_80": 0.4130004741054226,
+     "lower_95": 0.35203596551481664,
+     "upper_95": 0.42629938086577135,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "only_some",
+     "predicted": 0.5023973523825027,
+     "lower_80": 0.4779427715710325,
+     "upper_80": 0.5276738449879886,
+     "lower_95": 0.4638734956187939,
+     "upper_95": 0.5410370441144922,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "hardly_any",
+     "predicted": 0.10909509276256965,
+     "lower_80": 0.09385148986239303,
+     "upper_80": 0.12411161084137996,
+     "lower_95": 0.08679085749174244,
+     "upper_95": 0.13268385343461056,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=black_nh",
+     "label": "great_deal",
+     "predicted": 0.22089824375141515,
+     "lower_80": 0.18061392563492482,
+     "upper_80": 0.26303874825676826,
+     "lower_95": 0.15916680852331694,
+     "upper_95": 0.28942773464062965,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=black_nh",
+     "label": "only_some",
+     "predicted": 0.6144402289450874,
+     "lower_80": 0.5645771613061651,
+     "upper_80": 0.6629441126193234,
+     "lower_95": 0.5373766396520119,
+     "upper_95": 0.6906186389197919,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=black_nh",
+     "label": "hardly_any",
+     "predicted": 0.16466152730349745,
+     "lower_80": 0.12706280556848043,
+     "upper_80": 0.20389586941493298,
+     "lower_95": 0.11031358284988504,
+     "upper_95": 0.2266714826591279,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=hispanic",
+     "label": "great_deal",
+     "predicted": 0.3559944526217436,
+     "lower_80": 0.30848392824787035,
+     "upper_80": 0.4052077948852801,
+     "lower_95": 0.28482459569119345,
+     "upper_95": 0.42987088973328763,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=hispanic",
+     "label": "only_some",
+     "predicted": 0.5302636774866648,
+     "lower_80": 0.4810628073607629,
+     "upper_80": 0.5814219453213993,
+     "lower_95": 0.4552021414857809,
+     "upper_95": 0.6078535076142131,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "carry_forward",
+     "cut": "race_eth=hispanic",
+     "label": "hardly_any",
+     "predicted": 0.11374186989159156,
+     "lower_80": 0.08428505291860093,
+     "upper_80": 0.1458406811203037,
+     "lower_95": 0.07071442639516073,
+     "upper_95": 0.16413703719388525,
+     "trained_through": "2024",
+     "n_train": 2040
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "great_deal",
+     "predicted": 0.3733945930009494,
+     "lower_80": 0.2693082406621582,
+     "upper_80": 0.49075407190471637,
+     "lower_95": 0.22492395825410721,
+     "upper_95": 0.5531812596544454,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "only_some",
+     "predicted": 0.5295427292103639,
+     "lower_80": 0.44594589336942636,
+     "upper_80": 0.583273572050805,
+     "lower_95": 0.3994243123868481,
+     "upper_95": 0.6015760955349769,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "hardly_any",
+     "predicted": 0.0970626777886866,
+     "lower_80": 0.05965764460001615,
+     "upper_80": 0.1501581269924082,
+     "lower_95": 0.04497335710187933,
+     "upper_95": 0.1832988900064169,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "great_deal",
+     "predicted": 0.39510300721671765,
+     "lower_80": 0.2887825647143867,
+     "upper_80": 0.5168365850897945,
+     "lower_95": 0.24324189059511014,
+     "upper_95": 0.5805115886358073,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "only_some",
+     "predicted": 0.5176929605009658,
+     "lower_80": 0.4265046966199515,
+     "upper_80": 0.5755888281255283,
+     "lower_95": 0.3740435152407225,
+     "upper_95": 0.6032902275030159,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "hardly_any",
+     "predicted": 0.08720403228231657,
+     "lower_80": 0.0529925609389231,
+     "upper_80": 0.13651931123103603,
+     "lower_95": 0.0401398042488578,
+     "upper_95": 0.1701805240727387,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=black_nh",
+     "label": "great_deal",
+     "predicted": 0.2595696036029525,
+     "lower_80": 0.16804723427754298,
+     "upper_80": 0.37107452999082197,
+     "lower_95": 0.13153081953073947,
+     "upper_95": 0.4364206216743249,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=black_nh",
+     "label": "only_some",
+     "predicted": 0.5892905936462097,
+     "lower_80": 0.5096220146818875,
+     "upper_80": 0.6358304352806498,
+     "lower_95": 0.4734971107603692,
+     "upper_95": 0.6646857900649675,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=black_nh",
+     "label": "hardly_any",
+     "predicted": 0.15113980275083774,
+     "lower_80": 0.08884391488516072,
+     "upper_80": 0.2383995247975661,
+     "lower_95": 0.06266835061109222,
+     "upper_95": 0.2940804261351298,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=hispanic",
+     "label": "great_deal",
+     "predicted": 0.3416577305384796,
+     "lower_80": 0.23078239744184773,
+     "upper_80": 0.4661053247099631,
+     "lower_95": 0.18531814439222638,
+     "upper_95": 0.5333263009750581,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=hispanic",
+     "label": "only_some",
+     "predicted": 0.5516481180050115,
+     "lower_80": 0.4586192982499165,
+     "upper_80": 0.6164449421198361,
+     "lower_95": 0.41263970120866605,
+     "upper_95": 0.6499366295574497,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=hispanic",
+     "label": "hardly_any",
+     "predicted": 0.10669415145650891,
+     "lower_80": 0.056496027708561686,
+     "upper_80": 0.16920284197665997,
+     "lower_95": 0.03908978624460255,
+     "upper_95": 0.2083404757956249,
+     "trained_through": "2024",
+     "n_train": 20748
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "great_deal",
+     "predicted": 0.3971667718230947,
+     "lower_80": 0.39478144513248115,
+     "upper_80": 0.4001941869199031,
+     "lower_95": 0.39330687638006806,
+     "upper_95": 0.4008074530586398,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "only_some",
+     "predicted": 0.49703679015263696,
+     "lower_80": 0.49446812399820966,
+     "upper_80": 0.49969953188658567,
+     "lower_95": 0.49296963607249217,
+     "upper_95": 0.5000447715958795,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "hardly_any",
+     "predicted": 0.10579643802426847,
+     "lower_80": 0.10406907720750841,
+     "upper_80": 0.10703207722042804,
+     "lower_95": 0.10388882077160769,
+     "upper_95": 0.10708123194894703,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "great_deal",
+     "predicted": 0.4069107753627122,
+     "lower_80": 0.4030432304975607,
+     "upper_80": 0.4104060963750331,
+     "lower_95": 0.4019694802269221,
+     "upper_95": 0.41171793665587864,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "only_some",
+     "predicted": 0.4900140672136221,
+     "lower_80": 0.4860834550668762,
+     "upper_80": 0.4927965197627526,
+     "lower_95": 0.4857687640052303,
+     "upper_95": 0.49417303735579327,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "hardly_any",
+     "predicted": 0.10307515742366573,
+     "lower_80": 0.10060719643870734,
+     "upper_80": 0.10463301852075185,
+     "lower_95": 0.10054061369787291,
+     "upper_95": 0.10484885418235122,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=black_nh",
+     "label": "great_deal",
+     "predicted": 0.33403248635819144,
+     "lower_80": 0.3296693380452505,
+     "upper_80": 0.3396034343682024,
+     "lower_95": 0.3294381287038141,
+     "upper_95": 0.33981646814492955,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=black_nh",
+     "label": "only_some",
+     "predicted": 0.5411893201933293,
+     "lower_80": 0.5370587294358569,
+     "upper_80": 0.5458143777192265,
+     "lower_95": 0.5359968512801242,
+     "upper_95": 0.5462066390507925,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=black_nh",
+     "label": "hardly_any",
+     "predicted": 0.12477819344847924,
+     "lower_80": 0.12319477505493852,
+     "upper_80": 0.1265731212490625,
+     "lower_95": 0.12307795673217721,
+     "upper_95": 0.1276732878771554,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=hispanic",
+     "label": "great_deal",
+     "predicted": 0.37983767289938675,
+     "lower_80": 0.377820391288094,
+     "upper_80": 0.3823930014607013,
+     "lower_95": 0.37698102553098334,
+     "upper_95": 0.38253811202754734,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=hispanic",
+     "label": "only_some",
+     "predicted": 0.512257591192182,
+     "lower_80": 0.510485272169467,
+     "upper_80": 0.513925337549686,
+     "lower_95": 0.5092591515771682,
+     "upper_95": 0.5146587467355282,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=hispanic",
+     "label": "hardly_any",
+     "predicted": 0.1079047359084313,
+     "lower_80": 0.10620942359931596,
+     "upper_80": 0.10952901833549072,
+     "lower_95": 0.1059056066524136,
+     "upper_95": 0.10984586075522704,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "great_deal",
+     "predicted": 0.37432551951530735,
+     "lower_80": 0.27023916717651614,
+     "upper_80": 0.4916849984190743,
+     "lower_95": 0.22585488476846516,
+     "upper_95": 0.5541121861688034,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "only_some",
+     "predicted": 0.518191550848361,
+     "lower_80": 0.4345947150074234,
+     "upper_80": 0.571922393688802,
+     "lower_95": 0.38807313402484517,
+     "upper_95": 0.590224917172974,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "hardly_any",
+     "predicted": 0.10748292963633166,
+     "lower_80": 0.07007789644766121,
+     "upper_80": 0.16057837884005324,
+     "lower_95": 0.05539360894952439,
+     "upper_95": 0.19371914185406194,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "great_deal",
+     "predicted": 0.3944401695606421,
+     "lower_80": 0.2881197270583111,
+     "upper_80": 0.5161737474337189,
+     "lower_95": 0.2425790529390346,
+     "upper_95": 0.5798487509797318,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "only_some",
+     "predicted": 0.50549854043424,
+     "lower_80": 0.4143102765532257,
+     "upper_80": 0.5633944080588025,
+     "lower_95": 0.3618490951739967,
+     "upper_95": 0.5910958074362901,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "hardly_any",
+     "predicted": 0.10006129000511782,
+     "lower_80": 0.06584981866172435,
+     "upper_80": 0.14937656895383727,
+     "lower_95": 0.05299706197165904,
+     "upper_95": 0.18303778179553995,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=black_nh",
+     "label": "great_deal",
+     "predicted": 0.2751195341746621,
+     "lower_80": 0.1835971648492526,
+     "upper_80": 0.3866244605625316,
+     "lower_95": 0.1470807501024491,
+     "upper_95": 0.4519705522460345,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=black_nh",
+     "label": "only_some",
+     "predicted": 0.5792731225147036,
+     "lower_80": 0.4996045435503814,
+     "upper_80": 0.6258129641491437,
+     "lower_95": 0.4634796396288631,
+     "upper_95": 0.6546683189334614,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=black_nh",
+     "label": "hardly_any",
+     "predicted": 0.14560734331063416,
+     "lower_80": 0.08331145544495713,
+     "upper_80": 0.2328670653573625,
+     "lower_95": 0.05713589117088863,
+     "upper_95": 0.2885479666949262,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=hispanic",
+     "label": "great_deal",
+     "predicted": 0.35518260926621414,
+     "lower_80": 0.24430727616958228,
+     "upper_80": 0.47963020343769763,
+     "lower_95": 0.19884302311996094,
+     "upper_95": 0.5468511797027926,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=hispanic",
+     "label": "only_some",
+     "predicted": 0.5365981954663479,
+     "lower_80": 0.44356937571125293,
+     "upper_80": 0.6013950195811726,
+     "lower_95": 0.3975897786700025,
+     "upper_95": 0.6348867070187861,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "confidence_science",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=hispanic",
+     "label": "hardly_any",
+     "predicted": 0.10821919526743806,
+     "lower_80": 0.05802107151949083,
+     "upper_80": 0.17072788578758913,
+     "lower_95": 0.040614830055531695,
+     "upper_95": 0.20986551960655403,
+     "trained_through": "2024",
+     "n_train": 400000
+    }
+   ]
+  }
+ },
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "2391a54c6e265bafeac28aa05fffa89f9c20b8e2aa820b9fd2e122e4a079534a"
+  },
+  "history": {
+   "file": "inputs/history.json",
+   "sha256": "122f954b6bf6831c22d0d2738d89d521dbda12fcd86f9e5528646ebf2214fd58",
+   "read_on": "2026-10-26",
+   "how_read": "Public Pew report PDFs, toplines and chart images only, PDFs converted with pdftotext -layout and chart PNGs read by eye. Totals are Pew's printed NET (a great deal plus a fair amount, computed by Pew from unrounded data), from the release named in each wave's source_url; the topline (https://www.pewresearch.org/wp-content/uploads/sites/20/2026/01/PS_2026.1.15-trust-in-science_topline.pdf) carries every wave's four answers, and the NET differs from the sum of the rounded parts in Dec 2018, Dec 2021 and Oct 2024 (noted per wave). Cells: the 2026 report's appendix table prints the White, Black and Hispanic NET for all 11 waves; the 2020 report and the 2016 short read also print sex and education groups, kept where they are one frame category. Pew defines White and Black adults as single-race, non-Hispanic and Hispanic adults as of any race, the frame's own coding (HISP first, then RAC1P). 'College grad' / 'College degree' is a bachelor's degree with postgraduate shown separately, and Pew's 'Some college' includes associate degrees, as the frame's some_college does. Not kept: Asian (inside the frame's other), party, the education unions 'College grad+', 'Some college or less' and 'HS or less', generations and science-knowledge groups. 'published' is the first release found that prints the wave's total. Race NETs appear in the wave's own release for Apr 2020, Oct 2023, Oct 2024 and Oct 2025; for the other seven waves the earliest source found is the 2026 appendix (2026-01-15), so a strict out-of-time cell backtest should treat those cells as published 2026-01-15."
+  }
+ },
+ "plan_sha256": "03cb1118d7d732206705e21b64f01e022f376a922b4f5d41e13740e1062c892f",
+ "questions_sha256": "e24b3d53fa642e5be9c61ec735275bdf0c6f943f835714282c556b19abf1ff46",
+ "evidence_sha256": "8c83048d56cacc5fe4a530a0e29cf596ad2b5ff238d3d41ef647f47b2d9dd26e",
+ "method_ids": {
+  "carry_forward": "carry_forward@0.1.0",
+  "mrp_numpyro": "mrp_numpyro@0.5.0",
+  "gbm_pooled": "gbm_pooled@0.1.0",
+  "ensemble_mean": "ensemble_mean@0.4.0"
+ },
+ "offset": {
+  "value_points": -12.9916,
+  "window": [
+   "2020",
+   "2025"
+  ],
+  "waves": [
+   {
+    "wave": "Apr 2020",
+    "fielded_start": "2020-04-20",
+    "target_total": 87.0,
+    "engine_total": 93.7758,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "Nov 2020",
+    "fielded_start": "2020-11-18",
+    "target_total": 84.0,
+    "engine_total": 93.7758,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "Dec 2021",
+    "fielded_start": "2021-11-30",
+    "target_total": 77.0,
+    "engine_total": 93.7758,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "Sep 2022",
+    "fielded_start": "2022-09-13",
+    "target_total": 77.0,
+    "engine_total": 93.4385,
+    "vintage": "h2021-f2017.json"
+   },
+   {
+    "wave": "Oct 2023",
+    "fielded_start": "2023-09-25",
+    "target_total": 73.0,
+    "engine_total": 88.9477,
+    "vintage": "h2022-f2021.json"
+   },
+   {
+    "wave": "Oct 2024",
+    "fielded_start": "2024-10-21",
+    "target_total": 76.0,
+    "engine_total": 88.9759,
+    "vintage": "h2022-f2023.json"
+   },
+   {
+    "wave": "Oct 2025",
+    "fielded_start": "2025-10-20",
+    "target_total": 77.0,
+    "engine_total": 89.2517,
+    "vintage": "h2024-f2023.json"
+   }
+  ]
+ },
+ "forecast": {
+  "total": {
+   "share": 76.26,
+   "band_80": [
+    70.46,
+    82.06
+   ],
+   "band_95": [
+    67.4,
+    85.12
+   ],
+   "engine_share": 89.25,
+   "band_from_n_misses": 6
+  },
+  "race_eth=white_nh": {
+   "share": 77.0,
+   "band_80": [
+    70.6,
+    83.4
+   ],
+   "band_95": [
+    67.21,
+    86.79
+   ],
+   "engine_share": 89.99,
+   "band_from_n_misses": 18
+  },
+  "race_eth=black_nh": {
+   "share": 72.45,
+   "band_80": [
+    66.05,
+    78.85
+   ],
+   "band_95": [
+    62.66,
+    82.24
+   ],
+   "engine_share": 85.44,
+   "band_from_n_misses": 18
+  },
+  "race_eth=hispanic": {
+   "share": 76.19,
+   "band_80": [
+    69.79,
+    82.59
+   ],
+   "band_95": [
+    66.4,
+    85.98
+   ],
+   "engine_share": 89.18,
+   "band_from_n_misses": 18
+  }
+ },
+ "not_sealed": {},
+ "baselines": {
+  "repeat_last_reading": {
+   "wave": "Oct 2025",
+   "fielded_start": "2025-10-20",
+   "older_readings": {},
+   "total": 77.0,
+   "race_eth=white_nh": 77.0,
+   "race_eth=black_nh": 75.0,
+   "race_eth=hispanic": 75.0
+  },
+  "target_mean": {
+   "total_waves": 11,
+   "cell_waves": [
+    "Jun 2016",
+    "Feb 2018",
+    "Dec 2018",
+    "Jan 2019",
+    "Apr 2020",
+    "Nov 2020",
+    "Dec 2021",
+    "Sep 2022",
+    "Oct 2023",
+    "Oct 2024",
+    "Oct 2025"
+   ],
+   "total": 79.55,
+   "race_eth=white_nh": 80.55,
+   "race_eth=black_nh": 75.0,
+   "race_eth=hispanic": 78.18
+  }
+ },
+ "evidence": {
+  "total": {
+   "repeat_last_reading": {
+    "n_waves": 6,
+    "waves": [
+     "Dec 2021",
+     "Nov 2020",
+     "Oct 2023",
+     "Oct 2024",
+     "Oct 2025",
+     "Sep 2022"
+    ],
+    "n_cells": 6,
+    "miss_a": 3.56,
+    "miss_b": 3.0,
+    "gap": 0.56,
+    "gap_95": [
+     -1.17,
+     2.62
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean": {
+    "n_waves": 6,
+    "waves": [
+     "Dec 2021",
+     "Nov 2020",
+     "Oct 2023",
+     "Oct 2024",
+     "Oct 2025",
+     "Sep 2022"
+    ],
+    "n_cells": 6,
+    "miss_a": 3.56,
+    "miss_b": 4.53,
+    "gap": -0.97,
+    "gap_95": [
+     -3.2,
+     1.13
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean_paired": {
+    "n_waves": 6,
+    "waves": [
+     "Dec 2021",
+     "Nov 2020",
+     "Oct 2023",
+     "Oct 2024",
+     "Oct 2025",
+     "Sep 2022"
+    ],
+    "n_cells": 6,
+    "miss_a": 3.56,
+    "miss_b": 5.17,
+    "gap": -1.61,
+    "gap_95": [
+     -3.13,
+     -0.28
+    ],
+    "waves_a_better": 4
+   }
+  },
+  "cells": {
+   "repeat_last_reading": {
+    "n_waves": 6,
+    "waves": [
+     "Dec 2021",
+     "Nov 2020",
+     "Oct 2023",
+     "Oct 2024",
+     "Oct 2025",
+     "Sep 2022"
+    ],
+    "n_cells": 18,
+    "miss_a": 4.25,
+    "miss_b": 3.83,
+    "gap": 0.42,
+    "gap_95": [
+     -0.88,
+     1.81
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean": {
+    "n_waves": 6,
+    "waves": [
+     "Dec 2021",
+     "Nov 2020",
+     "Oct 2023",
+     "Oct 2024",
+     "Oct 2025",
+     "Sep 2022"
+    ],
+    "n_cells": 18,
+    "miss_a": 4.25,
+    "miss_b": 4.43,
+    "gap": -0.18,
+    "gap_95": [
+     -1.84,
+     1.68
+    ],
+    "waves_a_better": 4
+   },
+   "target_mean_paired": {
+    "n_waves": 6,
+    "waves": [
+     "Dec 2021",
+     "Nov 2020",
+     "Oct 2023",
+     "Oct 2024",
+     "Oct 2025",
+     "Sep 2022"
+    ],
+    "n_cells": 18,
+    "miss_a": 4.25,
+    "miss_b": 4.82,
+    "gap": -0.57,
+    "gap_95": [
+     -2.03,
+     0.48
+    ],
+    "waves_a_better": 3
+   }
+  }
+ },
+ "vintage_inputs": [
+  {
+   "file": "vintages/h2018-f2017.json",
+   "sha256": "638b0ff6e8d96d32e6d28a55cc11f9f5f17ee0c13ddd38493b9498a34c6800e2",
+   "through": "2018",
+   "frame": "2017",
+   "cut_at": "2020-04-20",
+   "available_from": "2019-03-19"
+  },
+  {
+   "file": "vintages/h2021-f2017.json",
+   "sha256": "5a19d7f8eef3810cd6a1a28246892a7c9373070ae68f83b4461f682b996a633d",
+   "through": "2021",
+   "frame": "2017",
+   "cut_at": "2022-09-13",
+   "available_from": "2021-11-01"
+  },
+  {
+   "file": "vintages/h2022-f2021.json",
+   "sha256": "bc171a15f6b08b93541a0729c5509c378844f8d5df015a861c8265057ddb652f",
+   "through": "2022",
+   "frame": "2021",
+   "cut_at": "2023-09-25",
+   "available_from": "2023-05-17"
+  },
+  {
+   "file": "vintages/h2022-f2023.json",
+   "sha256": "9b0830d35726dcc98e54fc89f60363ac9f26361583264808dc7fabb46272d4b2",
+   "through": "2022",
+   "frame": "2023",
+   "cut_at": "2024-10-21",
+   "available_from": "2024-10-17"
+  },
+  {
+   "file": "vintages/h2024-f2023.json",
+   "sha256": "090e511f37bc4a63c8e1831c5ee286dc2b450c125a3bdce3cce423126f8e005e",
+   "through": "2024",
+   "frame": "2023",
+   "cut_at": "2025-10-20",
+   "available_from": "2025-05-22"
+  }
+ ],
+ "reviewed_evidence": {
+  "evidence_sha256": "db7806aa7dbca89d7de5af9d9f784c87e78d9503890d48bce426ad8708618606",
+  "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+  "same_result": true,
+  "note": "the go/no-go evidence the owner read before sealing states the same backtest and the same forward point predictions as this seal's own run"
+ },
+ "scoring_plan": [
+  "Target: the first Pew Research Center American Trends Panel, annual trust-in-science survey (web, with some phone since late 2024; 5,111 U.S. adults in 2025, the scientists item asked of a random half) release of the item quoted in study.item from its next wave (fieldwork expected from 2026-10-19), Pew Research Center's published figures.",
+  "Not scored, with the reason, if Pew Research Center does not ask the item in that wave, changes its wording or answer options, published the wave before this seal's OpenTimestamps attestation, or has not published it by 2027-05-13.",
+  "Share: great deal or fair amount, the printed percentage of 'A great deal of confidence' plus 'A fair amount of confidence' (Pew prints 'No answer' (web skips and phone refusals, <1 or 1 percent) in the topline and keeps it in the base. The headline is Pew's printed NET (great deal plus fair amount, computed by Pew from unrounded data), taken as printed, not rescaled; it can differ by a point from the sum of the printed parts.). Total: the topline. Cells: the published group each cut in study.cells maps to; a group the release does not publish is not scored.",
+  "Metric: absolute miss in points, for the forecast and for both sealed baselines. Headline = the total. Beside it: the mean over the 3 exactly mapped cells. Printed integers carry up to half a point of rounding per printed figure.",
+  "Bands: whether each published share falls inside the sealed 80% and 95% bands.",
+  "Claim: 'sealed before fieldwork' only if the wave's published fieldwork start is later than the attestation's block time; otherwise 'sealed before publication'."
+ ]
+}

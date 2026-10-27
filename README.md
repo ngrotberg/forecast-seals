@@ -3,7 +3,9 @@
 This repository holds the seals for a set of model forecasts of two 2026 surveys, the
 General Social Survey (GSS) and the Cooperative Election Study (CES), with their
 OpenTimestamps proofs and a script, `verify.py`, that checks a seal against the published
-forecast rows.
+forecast rows. It also holds forward seals: predictions of the next published reading of
+recurring Gallup, Marquette, Pew, Ipsos and Federal Reserve survey items, each made and
+timestamped before that reading was published (sections below).
 
 Every figure in these forecasts is a model-generated prediction, not a measurement.
 
@@ -193,6 +195,39 @@ The predictions were made 2026-10-26 22:08 UTC and stamped with OpenTimestamps (
 Check it with `shasum -a 256 seals/gallup-health-2026-11-seal.json`
 (5ef347dc0087992034227d860495ec8fb9b7d09b9c3d8d26ee44953bafda8493) and `ots verify
 seals/gallup-health-2026-11-seal.json.ots`.
+
+## Forward seals: seven survey readings, sealed 2026-10-27
+
+Seven seal files, each holding predictions for the next published reading of one recurring survey
+item. Each prediction is the model's share plus one offset learned from that survey's own published
+history, the same recipe as the Marquette and Gallup health seals. Each file holds the item's
+wording, the history it learned from, an out-of-time test of the recipe on every past wave, and two
+baselines it will be scored against: repeating the survey's last reading, and the average of its
+earlier readings. All figures are percentages of U.S. adults.
+
+| Seal file | Survey and item | Cells | Forecast, total (80% band) | Repeat last reading | Average of earlier readings | Expected release (our estimate) | Digest (sha256 of the file) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `seals/pew-trust-scientists-2026-seal.json` | Pew Research Center: confidence in scientists to act in the public's best interests, a great deal or a fair amount | 4 | 76.26 (70.46-82.06) | 77 (Oct 2025) | 79.55 (11 waves) | 2026-11-12 or later | `5948b75430338f0324a39ecc8505d16e3e2f90b9e084b52d2c21227d3d47c0e4` |
+| `seals/ipsos-happiness-2027-seal.json` | Ipsos Happiness Index 2027: very or rather happy | 1 | 70.82 (62.55-79.09) | 73 (Jan 2026) | 82.32 (47 readings) | ~2027-03-15 | `6d5f4b2a054dc89716a65a7ae15a5de85642585141df9115c0a5e2f8cc12297c` |
+| `seals/fed-shed-2026-seal.json` | Federal Reserve SHED 2026: much or somewhat worse off than 12 months ago | 8 | 33.76 (25.15-42.37) | 28 (2025) | 22.17 (12 waves) | ~2027-05-19 | `f5425c9c0ebe07bf7a9e5d2689e2668a721b917f06141f2a4dbbb2f0d35df9fc` |
+| `seals/gallup-income-tax-2027-seal.json` | Gallup March 2027: federal income tax too high | 5 | 63.57 (57.43-69.71) | 59 (Mar 2026) | 55.38 (53 readings) | ~2027-04-09 | `d72bc4626dd097868f9e197ed263e8b9e8ec281af7d8a5b087121084fa5df40c` |
+| `seals/gallup-finances-better-2027-seal.json` | Gallup April 2027: personal financial situation getting better | 5 | 34.59 (22.54-46.64) | 34 (Apr 2026) | 46.26 (43 readings) | ~2027-04-28 | `089d2e571603e279a9093c93a568e923483523d1bd34e11b901c620dc5a1af2e` |
+| `seals/gallup-moral-acceptability-2027-seal.json` | Gallup May 2027: sex between an unmarried man and woman morally acceptable | 5 | 69.98 (64.22-75.74) | 65 (May 2026) | 64.0 (26 readings) | ~2027-06-10 | `9997e2dd4a644f83d8a4b2315bf06c4538d412f981bb28ef642b522fec6fbfa0` |
+| `seals/gallup-confidence-institutions-2027-seal.json` | Gallup June 2027: confidence in the medical system, a great deal or quite a lot | 7 | 29.87 (21.84-37.90) | 28 (Jun 2026) | 38.12 (34 readings) | ~2027-07-13 | `ee406e98c6b3dfba146446eeaab9fe1ce5227bf1d6d081c7b08ca4f2c6d1d1ff` |
+
+The predictions were made between 2026-10-27 00:14 and 01:00 UTC and stamped with
+OpenTimestamps. All seven proofs are anchored in Bitcoin block 973320, mined 2026-10-27 01:18:59
+UTC. Cells beyond the total are the groups each survey publishes that the model's population frame
+can build; each file lists the groups it leaves out and why. Each file also states its void rules:
+a seal is void if the item is not asked, is reworded, is published before the block time, or is not
+published by the file's `void_after` date.
+
+The claim for Pew and the Federal Reserve is "sealed before publication": their fieldwork may have
+begun before the block. For the five others it is "sealed before fieldwork", which holds only if
+the published fieldwork start is later than the block time.
+
+Check each with `shasum -a 256 seals/<file>` against the digest above and `ots verify
+seals/<file>.ots`.
 
 ## When the waves resolve
 

@@ -1,0 +1,1380 @@
+{
+ "kind": "forward-seal-kit-1",
+ "target_id": "gallup-income-tax-2027",
+ "title": "Gallup March 2027 survey: federal income tax too high, next release",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-27T00:37:26Z",
+ "made_at_note": "predictions.json was written at this time (file mtime, UTC)",
+ "sealed_at": "2026-10-27T00:37:32Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof gallup-income-tax-2027-seal.json.ots",
+ "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+ "code_note": "the commit of the private code repository that made the predictions; it cannot be checked from outside",
+ "method": {
+  "served": "ensemble_mean@0.4.0",
+  "members": [
+   "mrp_numpyro@0.5.0",
+   "gbm_pooled@0.1.0"
+  ],
+  "baseline": "carry_forward@0.1.0",
+  "history": "GSS 2000-2024 (13 waves), tax_level; GSS 2024 was released 2025-05-22",
+  "frame": "frame:2023 (published 2024-10-17)",
+  "share": "too high: the served shares of too_high",
+  "offset": "forecast = engine share + the mean, over every earlier Gallup wave fielded 2019-2026 that has a history vintage, of Gallup's published total minus the engine's total from the history and frame published before that wave's fieldwork; one offset for every cell",
+  "offset_note": "Declared 2026-10-26, before any engine run on tax_level: the mean of Gallup's total minus the engine's total over every Gallup wave from 2019 that has its own out-of-time engine vintage (GSS 2018 was released 2019-03-19, before the Apr 1-9 2019 wave). Same rule as the Gallup health seal.",
+  "bands": "normal: 1.2816 and 1.96 times the root mean square of this method's out-of-time misses (evidence.json; the total's own for the total, every cell's pooled for the cells), centred on the forecast"
+ },
+ "study": {
+  "survey": "Gallup Poll Social Series, March survey (Environment; carries the federal income tax items since 2025), telephone (landline and cell RDD), about 1,000 U.S. adults",
+  "sponsor": "Gallup",
+  "item": {
+   "wording": "Do you consider the amount of federal income tax you have to pay as too high, about right, or too low?",
+   "options": [
+    "Too high",
+    "About right",
+    "Too low"
+   ],
+   "headline": {
+    "name": "too high",
+    "options": [
+     "Too high"
+    ]
+   },
+   "no_opinion_rule": "Gallup prints No opinion (don't know or refused) as a fourth column, 1-4% since 2017. Shares are as printed, out of all adults, and are not rescaled without it."
+  },
+  "catalog": {
+   "source": "gss",
+   "item_id": "tax_level",
+   "labels": [
+    "too_high"
+   ],
+   "wording_match": "near",
+   "wording_note": "Same question and the same three options; GSS says 'federal income tax which you have to pay', Gallup drops 'which' and leads in with 'Now, thinking about taxes,'. GSS's volunteered 'pays no income tax' code is dropped from the catalog. Gallup is phone; GSS is in person or web."
+  },
+  "expected_fieldwork": "2027-03-01 (inferred: the item moved to Gallup's March survey in 2025; fieldwork began Mon Mar 3 2025 and Mon Mar 2 2026, the first weekday of March. Mar 1 2027 is a Monday. If Gallup returns the item to its April survey (2020-2024 starts Apr 1-3), the start is about Apr 1)",
+  "expected_release": "2027-04-09 (inferred: the tax release came 2025-04-08 and 2026-04-10, the week before the April 15 filing deadline (2016-2021 releases: Apr 12 to May 6))",
+  "cells": [
+   "total",
+   "sex=male",
+   "sex=female",
+   "education=some_college",
+   "race_eth=white_nh"
+  ],
+  "cells_map": {
+   "total": "Total",
+   "sex=male": "Male",
+   "sex=female": "Female",
+   "education=some_college": "Some College",
+   "race_eth=white_nh": "White"
+  },
+  "inferred_cells": [
+   "race_eth=white_nh"
+  ],
+  "inferred_cells_note": "Inferred cells are scored beside the others, not in the cell mean: Gallup's 'White' is read as non-Hispanic white by inference (see history.json how_read).",
+  "not_scored": {
+   "Non-white": "the union of black_nh, hispanic and other; the frame's cuts cannot combine categories",
+   "18-34": "splits the frame's 30-39 band",
+   "35-54": "splits the frame's 30-39 and 50-59 bands",
+   "55+": "splits the frame's 50-59 band",
+   "College Grad": "the union of college and postgrad",
+   "HS Grad or Less": "the union of no_hs and hs",
+   "Republican": "party is not a frame variable (and Gallup weights on party)",
+   "Independent": "party is not a frame variable",
+   "Democrat": "party is not a frame variable",
+   "Less than $50,000": "income is not a frame variable (2022-2026 banners)",
+   "$50,000-100,000": "income is not a frame variable",
+   "$100,000+": "income is not a frame variable",
+   "Conservative": "ideology is not a frame variable (2019-2023 banners)",
+   "Moderate": "ideology is not a frame variable",
+   "Liberal": "ideology is not a frame variable"
+  },
+  "items_assumption": "ASSUMPTION: the next wave asks the item with the wording and options quoted in study.item"
+ },
+ "notes": [],
+ "claim": "before fieldwork",
+ "claim_rule": "'sealed before fieldwork' only if the proof's block time precedes the published fieldwork start; otherwise 'before publication'",
+ "seal_by": "2027-02-26",
+ "void_after": "2027-10-08",
+ "predictions_json": {
+  "file": "predictions.json",
+  "sha256": "97370bc9160494671b9a2ee631caf149273a3101ab758fc3e5c0e30152bbe05a",
+  "bytes": 25116,
+  "hash_recipe": "sha256 over the file's bytes exactly as written by `prior-backtest extend --predict-only` (json.dumps(content, indent=2) followed by one newline)",
+  "content": {
+   "kind": "extend-predictions-1",
+   "study": "Gallup March 2027 survey: federal income tax too high, next release (predictions)",
+   "fielded": "2027",
+   "history_source": "gss",
+   "frame_wave": "2023",
+   "output_label": "model-generated prediction, not a measurement",
+   "fielded_start": "2027-03-01",
+   "frame_published_on": "2024-10-17",
+   "frame_published_before_fielding": true,
+   "frame_dates_note": "frame:2023 is seeded from acs_pums 2023, published 2024-10-17 (ACS 2023 data release schedule, '1-Year Public Use Microdata Sample (PUMS) Files'; fielded continuously across calendar year 2023); the study's fieldwork began 2027-03-01, as supplied",
+   "history": {
+    "cut_at": "2027-03-01",
+    "start_assumed": false,
+    "before_wave": "2027",
+    "waves": [
+     "2000",
+     "2002",
+     "2004",
+     "2006",
+     "2008",
+     "2010",
+     "2012",
+     "2014",
+     "2016",
+     "2018",
+     "2021",
+     "2022",
+     "2024"
+    ],
+    "withheld": [],
+    "note": "GSS 2000-2016 (9 waves) have no recorded release date and count as released because GSS 2024, released 2025-05-22, came after them"
+   },
+   "ledger": "these predictions are not recorded in the prediction ledger and carry no ledger id; this report and its JSON file are the record",
+   "predictors": [
+    "carry_forward",
+    "mrp_numpyro",
+    "gbm_pooled",
+    "ensemble_mean"
+   ],
+   "method_ids": {
+    "carry_forward": "carry_forward@0.1.0",
+    "mrp_numpyro": "mrp_numpyro@0.5.0",
+    "gbm_pooled": "gbm_pooled@0.1.0",
+    "ensemble_mean": "ensemble_mean@0.4.0"
+   },
+   "git_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+   "git_dirty": false,
+   "started_at": "2026-10-27T00:36:14.802193+00:00",
+   "duration_s": 71.86748920899117,
+   "cells_supplied": {
+    "tax_level": [
+     "total",
+     "sex=male",
+     "sex=female",
+     "education=some_college",
+     "race_eth=white_nh"
+    ]
+   },
+   "unmapped": {},
+   "unscored": [],
+   "notes": [],
+   "failures": [],
+   "predictions": [
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "too_high",
+     "predicted": 0.7013041547089822,
+     "lower_80": 0.6829316467396438,
+     "upper_80": 0.719086348353437,
+     "lower_95": 0.6736476486811723,
+     "upper_95": 0.7290254787261045,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "about_right",
+     "predicted": 0.2784396679182768,
+     "lower_80": 0.26095016726466214,
+     "upper_80": 0.29639767971654585,
+     "lower_95": 0.2508156826492371,
+     "upper_95": 0.3058067698235812,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "too_low",
+     "predicted": 0.020256177372741043,
+     "lower_80": 0.014955691570994578,
+     "upper_80": 0.026107091674989924,
+     "lower_95": 0.0125527506048671,
+     "upper_95": 0.02984083091442322,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "too_high",
+     "predicted": 0.6705005729497363,
+     "lower_80": 0.6431590142454766,
+     "upper_80": 0.6976392574143312,
+     "lower_95": 0.628307648783142,
+     "upper_95": 0.7126096267047162,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "about_right",
+     "predicted": 0.3104882796889412,
+     "lower_80": 0.28414191535441274,
+     "upper_80": 0.33754916544836805,
+     "lower_95": 0.26964561351606076,
+     "upper_95": 0.35148519475926326,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "too_low",
+     "predicted": 0.01901114736132245,
+     "lower_80": 0.011606192217331925,
+     "upper_80": 0.02716637845776986,
+     "lower_95": 0.008961669154432283,
+     "upper_95": 0.032741213623517604,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "too_high",
+     "predicted": 0.7279124615288841,
+     "lower_80": 0.7046983191238075,
+     "upper_80": 0.7520732938113522,
+     "lower_95": 0.6893684672855023,
+     "upper_95": 0.763166289319976,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "about_right",
+     "predicted": 0.24902891830892318,
+     "lower_80": 0.22599577192925588,
+     "upper_80": 0.2723599934004234,
+     "lower_95": 0.2141642970891639,
+     "upper_95": 0.28626790318128503,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "too_low",
+     "predicted": 0.023058620162192834,
+     "lower_80": 0.015536037183482622,
+     "upper_80": 0.031204325685740147,
+     "lower_95": 0.012171907044420695,
+     "upper_95": 0.037229744983450316,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "too_high",
+     "predicted": 0.7610485713718489,
+     "lower_80": 0.7306160949034096,
+     "upper_80": 0.7917898519948482,
+     "lower_95": 0.7147384934100325,
+     "upper_95": 0.8055605544145177,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "about_right",
+     "predicted": 0.21936208097523469,
+     "lower_80": 0.18998799284079393,
+     "upper_80": 0.25006939938728445,
+     "lower_95": 0.17397873185822021,
+     "upper_95": 0.2653542220032972,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "too_low",
+     "predicted": 0.01958934765291641,
+     "lower_80": 0.010394853684090025,
+     "upper_80": 0.029875572290800453,
+     "lower_95": 0.007368308699075948,
+     "upper_95": 0.03753215879730528,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "too_high",
+     "predicted": 0.6857498686554182,
+     "lower_80": 0.6626053240554508,
+     "upper_80": 0.708263481297006,
+     "lower_95": 0.6514028654840605,
+     "upper_95": 0.7197975051054213,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "about_right",
+     "predicted": 0.29521542562442815,
+     "lower_80": 0.272673076453086,
+     "upper_80": 0.31792327019298156,
+     "lower_95": 0.26200988240448025,
+     "upper_95": 0.3290761556656349,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "too_low",
+     "predicted": 0.019034705720153672,
+     "lower_80": 0.012827073673782927,
+     "upper_80": 0.025885863217371317,
+     "lower_95": 0.01027399536893555,
+     "upper_95": 0.03043717742820338,
+     "trained_through": "2024",
+     "n_train": 2083
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "too_high",
+     "predicted": 0.6997934212166685,
+     "lower_80": 0.603669681351387,
+     "upper_80": 0.7824736856227412,
+     "lower_95": 0.5439716099574602,
+     "upper_95": 0.824553719000599,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "about_right",
+     "predicted": 0.29022067853995837,
+     "lower_80": 0.21078820956313993,
+     "upper_80": 0.3813192441555865,
+     "lower_95": 0.1699227594911056,
+     "upper_95": 0.4329023186885751,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "too_low",
+     "predicted": 0.009985900243373062,
+     "lower_80": 0.004922828976461089,
+     "upper_80": 0.017243650707361412,
+     "lower_95": 0.0031416678147866656,
+     "upper_95": 0.022633895030348232,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "too_high",
+     "predicted": 0.6762508862286948,
+     "lower_80": 0.5754145383025503,
+     "upper_80": 0.7693304745414605,
+     "lower_95": 0.516147666846813,
+     "upper_95": 0.8061539291608248,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "about_right",
+     "predicted": 0.31262545630514044,
+     "lower_80": 0.22399125803728492,
+     "upper_80": 0.40557653183621595,
+     "lower_95": 0.1844936628654193,
+     "upper_95": 0.4624875404496355,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "too_low",
+     "predicted": 0.011123657466164687,
+     "lower_80": 0.004714691184777663,
+     "upper_80": 0.0205347247834834,
+     "lower_95": 0.002617860841550208,
+     "upper_95": 0.026608862682421984,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "too_high",
+     "predicted": 0.722406671620084,
+     "lower_80": 0.6266827095969785,
+     "upper_80": 0.8036808597059449,
+     "lower_95": 0.575803061571982,
+     "upper_95": 0.8408222130520699,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "about_right",
+     "predicted": 0.2687002751468767,
+     "lower_80": 0.18861643875206927,
+     "upper_80": 0.35917507011603494,
+     "lower_95": 0.154210130639358,
+     "upper_95": 0.4098410104799502,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "too_low",
+     "predicted": 0.008893053233039405,
+     "lower_80": 0.0034247990306397144,
+     "upper_80": 0.016218442877808437,
+     "lower_95": 0.0018974457381753147,
+     "upper_95": 0.02197595408263698,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "too_high",
+     "predicted": 0.7315493286961069,
+     "lower_80": 0.6371723407706887,
+     "upper_80": 0.8142449275511234,
+     "lower_95": 0.5831888095931104,
+     "upper_95": 0.8554498249721934,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "about_right",
+     "predicted": 0.260037712609236,
+     "lower_80": 0.1796852992614723,
+     "upper_80": 0.35100825720027784,
+     "lower_95": 0.14227501462989472,
+     "upper_95": 0.39945864713285084,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "too_low",
+     "predicted": 0.008412958694657089,
+     "lower_80": 0.002403404182065838,
+     "upper_80": 0.016380122041039155,
+     "lower_95": 0.0009674433353099685,
+     "upper_95": 0.023515919631559704,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "too_high",
+     "predicted": 0.6834324628686202,
+     "lower_80": 0.5803119826601403,
+     "upper_80": 0.7714511458564588,
+     "lower_95": 0.5249769420798471,
+     "upper_95": 0.8084277749293712,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "about_right",
+     "predicted": 0.30579798924540874,
+     "lower_80": 0.2198835571949163,
+     "upper_80": 0.4045555342269107,
+     "lower_95": 0.18577414424906202,
+     "upper_95": 0.45706244440861116,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "too_low",
+     "predicted": 0.010769547885971053,
+     "lower_80": 0.004696168182930162,
+     "upper_80": 0.018475756519092838,
+     "lower_95": 0.0026338131271371567,
+     "upper_95": 0.02603492302201826,
+     "trained_through": "2024",
+     "n_train": 20911
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "too_high",
+     "predicted": 0.6614192857683336,
+     "lower_80": 0.6578314189364043,
+     "upper_80": 0.6664265187301027,
+     "lower_95": 0.6567720360338243,
+     "upper_95": 0.6671649920023462,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "about_right",
+     "predicted": 0.3199034946616874,
+     "lower_80": 0.31544992900626545,
+     "upper_80": 0.32296579186827845,
+     "lower_95": 0.31377100098316,
+     "upper_95": 0.323755521867231,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "too_low",
+     "predicted": 0.018677219569978996,
+     "lower_80": 0.01796062149845375,
+     "upper_80": 0.01939597537831793,
+     "lower_95": 0.0178012935843613,
+     "upper_95": 0.01952073864469479,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "too_high",
+     "predicted": 0.6386359985322785,
+     "lower_80": 0.635229002362949,
+     "upper_80": 0.6415828921181255,
+     "lower_95": 0.632756883672054,
+     "upper_95": 0.6433682449228968,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "about_right",
+     "predicted": 0.340886467296269,
+     "lower_80": 0.33717674678280135,
+     "upper_80": 0.3443312696321087,
+     "lower_95": 0.33638302845628426,
+     "upper_95": 0.34622125645750007,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "too_low",
+     "predicted": 0.020477534171452524,
+     "lower_80": 0.019526377324511582,
+     "upper_80": 0.021233040434118316,
+     "lower_95": 0.019440913345613636,
+     "upper_95": 0.02134871254152872,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "too_high",
+     "predicted": 0.6833032578870979,
+     "lower_80": 0.6794115987957225,
+     "upper_80": 0.6882570525603101,
+     "lower_95": 0.6788312754136049,
+     "upper_95": 0.6914197299840339,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "about_right",
+     "predicted": 0.29974877408311806,
+     "lower_80": 0.2954842959921173,
+     "upper_80": 0.30307256913146696,
+     "lower_95": 0.291430323349065,
+     "upper_95": 0.30418234820007695,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "too_low",
+     "predicted": 0.016947968029784086,
+     "lower_80": 0.016147332356443014,
+     "upper_80": 0.01797853723113449,
+     "lower_95": 0.016131788872642445,
+     "upper_95": 0.018009028938709714,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "too_high",
+     "predicted": 0.6924838601468633,
+     "lower_80": 0.6862296838502707,
+     "upper_80": 0.6967291043547241,
+     "lower_95": 0.6857596578982015,
+     "upper_95": 0.699918724391798,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "about_right",
+     "predicted": 0.29157455947006844,
+     "lower_80": 0.28777136057597236,
+     "upper_80": 0.2974052168359176,
+     "lower_95": 0.28362910999579255,
+     "upper_95": 0.29760880572556825,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "too_low",
+     "predicted": 0.01594158038306841,
+     "lower_80": 0.015338172343006091,
+     "upper_80": 0.01672528477001001,
+     "lower_95": 0.015201604483602594,
+     "upper_95": 0.016758603037585505,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "too_high",
+     "predicted": 0.6465257102672382,
+     "lower_80": 0.6442049916656812,
+     "upper_80": 0.6498711562019106,
+     "lower_95": 0.6431770870408403,
+     "upper_95": 0.6530862869062036,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "about_right",
+     "predicted": 0.33458963335959824,
+     "lower_80": 0.3318337276853586,
+     "upper_80": 0.33700569639944916,
+     "lower_95": 0.3275661049966787,
+     "upper_95": 0.3372759013462828,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "too_low",
+     "predicted": 0.018884656373163677,
+     "lower_80": 0.018174751670951925,
+     "upper_80": 0.01970855269994335,
+     "lower_95": 0.018148081448465546,
+     "upper_95": 0.019776821804145302,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "too_high",
+     "predicted": 0.694816047615528,
+     "lower_80": 0.5986923077502464,
+     "upper_80": 0.7774963120216006,
+     "lower_95": 0.5389942363563196,
+     "upper_95": 0.8195763453994585,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "about_right",
+     "predicted": 0.2880665171994429,
+     "lower_80": 0.20863404822262444,
+     "upper_80": 0.379165082815071,
+     "lower_95": 0.16776859815059011,
+     "upper_95": 0.4307481573480596,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "too_low",
+     "predicted": 0.017117435185029225,
+     "lower_80": 0.01205436391811725,
+     "upper_80": 0.024375185649017576,
+     "lower_95": 0.010273202756442829,
+     "upper_95": 0.029765429972004397,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "too_high",
+     "predicted": 0.6658715575644597,
+     "lower_80": 0.5650352096383151,
+     "upper_80": 0.7589511458772253,
+     "lower_95": 0.5057683381825778,
+     "upper_95": 0.7957746004965897,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "about_right",
+     "predicted": 0.3179975208100512,
+     "lower_80": 0.22936332254219566,
+     "upper_80": 0.4109485963411267,
+     "lower_95": 0.18986572737033003,
+     "upper_95": 0.46785960495454626,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "too_low",
+     "predicted": 0.01613092162548915,
+     "lower_80": 0.009721955344102123,
+     "upper_80": 0.02554198894280786,
+     "lower_95": 0.007625125000874668,
+     "upper_95": 0.031616126841746445,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "too_high",
+     "predicted": 0.7166544668388791,
+     "lower_80": 0.6209305048157736,
+     "upper_80": 0.7979286549247401,
+     "lower_95": 0.5700508567907772,
+     "upper_95": 0.8350700082708651,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "about_right",
+     "predicted": 0.2669426660833716,
+     "lower_80": 0.18685882968856413,
+     "upper_80": 0.3574174610525298,
+     "lower_95": 0.15245252157585287,
+     "upper_95": 0.40808340141644506,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "too_low",
+     "predicted": 0.016402867077749368,
+     "lower_80": 0.010934612875349676,
+     "upper_80": 0.0237282567225184,
+     "lower_95": 0.009407259582885278,
+     "upper_95": 0.029485767927346942,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "too_high",
+     "predicted": 0.7300430256562254,
+     "lower_80": 0.6356660377308072,
+     "upper_80": 0.8127386245112419,
+     "lower_95": 0.5816825065532288,
+     "upper_95": 0.8539435219323118,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "about_right",
+     "predicted": 0.2565019016690609,
+     "lower_80": 0.17614948832129718,
+     "upper_80": 0.3474724462601027,
+     "lower_95": 0.1387392036897196,
+     "upper_95": 0.3959228361926757,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "too_low",
+     "predicted": 0.013455072674713828,
+     "lower_80": 0.0074455181621225774,
+     "upper_80": 0.021422236021095893,
+     "lower_95": 0.006009557315366708,
+     "upper_95": 0.02855803361161644,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "too_high",
+     "predicted": 0.6775120161272183,
+     "lower_80": 0.5743915359187384,
+     "upper_80": 0.7655306991150569,
+     "lower_95": 0.5190564953384452,
+     "upper_95": 0.8025073281879693,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "about_right",
+     "predicted": 0.3063866522879922,
+     "lower_80": 0.2204722202374998,
+     "upper_80": 0.4051441972694942,
+     "lower_95": 0.1863628072916455,
+     "upper_95": 0.45765110745119464,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "tax_level",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "too_low",
+     "predicted": 0.016101331584789456,
+     "lower_80": 0.010027951881748567,
+     "upper_80": 0.02380754021791124,
+     "lower_95": 0.007965596825955561,
+     "upper_95": 0.03136670672083666,
+     "trained_through": "2024",
+     "n_train": 400000
+    }
+   ]
+  }
+ },
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "73360dbb591753b8691c79b6e40ba37c5d88ac84ee035a23368d49521b9c105a"
+  },
+  "history": {
+   "file": "inputs/history.json",
+   "sha256": "5d855b962ec0d91dbd7df8e90cb5f5ecdbb989fb44562fbd6152744e838f4b2a",
+   "read_on": "2026-10-26",
+   "how_read": "Public Gallup PDFs, saved and converted with pdftotext -layout, then parsed by a script and checked. Totals: the Q44 trend table of the March 2026 topline (1956-2026, 53 readings), printed 'Too high' percentages; the 2016, 2017, 2019, 2020, 2021, 2023 and 2025 toplines print identical figures for every year they share (checked). Gallup's separate 1943-1953 'earlier trend (asked of taxpayers)' is a different universe and is left out. The item sat in the April Economy and Personal Finance survey through 2024 and moved to the March survey in 2025. Cells: the 'Public Release Data' crosstab of the same question in the 2019, 2020, 2021, 2023, 2025 and 2026 toplines, printed percentages; each crosstab's Total equals the trend figure (checked). No topline PDF was found for 2018, 2022 or 2024, and the 2016-2017 toplines carry no crosstab. Only Male, Female, Some College and White are kept as cells. 'White' (Gallup's Race I banner) is mapped to race_eth=white_nh by inference: these PDFs do not define Race I, but the 2025 June Confidence topline prints the White crosstab group's figures under 'Non-Hispanic White adults' (https://news.gallup.com/file/poll/692660/2025_07_17_Confidence%20in%20Institutions%20Topline%20and%20Tabs.pdf). 'published' is the date of the Gallup article that first reports the figure (read on the article page), null where none was found or read. No opinion is not rescaled."
+  }
+ },
+ "plan_sha256": "4b39ccc27bc6f23bca4c075d248947345b85189a3d1a09a622845d0cb80dd0c6",
+ "questions_sha256": "d8bcb6ef33ffd5abab0530662344e73f09359a9bc29a2a2d2360881591a3ecb8",
+ "evidence_sha256": "487e7716c9295c6c7ce7a8d92df48ec6e4289fc25dfd122db3735582c7e4e432",
+ "method_ids": {
+  "carry_forward": "carry_forward@0.1.0",
+  "mrp_numpyro": "mrp_numpyro@0.5.0",
+  "gbm_pooled": "gbm_pooled@0.1.0",
+  "ensemble_mean": "ensemble_mean@0.4.0"
+ },
+ "offset": {
+  "value_points": -5.9067,
+  "window": [
+   "2019",
+   "2026"
+  ],
+  "waves": [
+   {
+    "wave": "2019 Apr 1-9",
+    "fielded_start": "2019-04-01",
+    "target_total": 45.0,
+    "engine_total": 53.4919,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2020 Apr 1-14",
+    "fielded_start": "2020-04-01",
+    "target_total": 46.0,
+    "engine_total": 53.4919,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2021 Apr 1-21",
+    "fielded_start": "2021-04-01",
+    "target_total": 50.0,
+    "engine_total": 53.4919,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2022 Apr 1-19",
+    "fielded_start": "2022-04-01",
+    "target_total": 54.0,
+    "engine_total": 57.5285,
+    "vintage": "h2021-f2017.json"
+   },
+   {
+    "wave": "2023 Apr 3-25",
+    "fielded_start": "2023-04-03",
+    "target_total": 60.0,
+    "engine_total": 57.4418,
+    "vintage": "h2021-f2021.json"
+   },
+   {
+    "wave": "2024 Apr 1-22",
+    "fielded_start": "2024-04-01",
+    "target_total": 56.0,
+    "engine_total": 65.6983,
+    "vintage": "h2022-f2021.json"
+   },
+   {
+    "wave": "2025 Mar 3-16",
+    "fielded_start": "2025-03-03",
+    "target_total": 59.0,
+    "engine_total": 65.6273,
+    "vintage": "h2022-f2023.json"
+   },
+   {
+    "wave": "2026 Mar 2-18",
+    "fielded_start": "2026-03-02",
+    "target_total": 59.0,
+    "engine_total": 69.4816,
+    "vintage": "h2024-f2023.json"
+   }
+  ]
+ },
+ "forecast": {
+  "total": {
+   "share": 63.57,
+   "band_80": [
+    57.43,
+    69.71
+   ],
+   "band_95": [
+    54.19,
+    72.95
+   ],
+   "engine_share": 69.48,
+   "band_from_n_misses": 7
+  },
+  "sex=male": {
+   "share": 60.68,
+   "band_80": [
+    52.48,
+    68.88
+   ],
+   "band_95": [
+    48.15,
+    73.21
+   ],
+   "engine_share": 66.59,
+   "band_from_n_misses": 20
+  },
+  "sex=female": {
+   "share": 65.76,
+   "band_80": [
+    57.56,
+    73.96
+   ],
+   "band_95": [
+    53.23,
+    78.29
+   ],
+   "engine_share": 71.67,
+   "band_from_n_misses": 20
+  },
+  "education=some_college": {
+   "share": 67.1,
+   "band_80": [
+    58.9,
+    75.3
+   ],
+   "band_95": [
+    54.57,
+    79.63
+   ],
+   "engine_share": 73.0,
+   "band_from_n_misses": 20
+  },
+  "race_eth=white_nh": {
+   "share": 61.84,
+   "band_80": [
+    53.64,
+    70.04
+   ],
+   "band_95": [
+    49.31,
+    74.37
+   ],
+   "engine_share": 67.75,
+   "band_from_n_misses": 20
+  }
+ },
+ "not_sealed": {},
+ "baselines": {
+  "repeat_last_reading": {
+   "wave": "2026 Mar 2-18",
+   "fielded_start": "2026-03-02",
+   "older_readings": {},
+   "total": 59.0,
+   "sex=male": 61.0,
+   "sex=female": 57.0,
+   "education=some_college": 58.0,
+   "race_eth=white_nh": 54.0
+  },
+  "target_mean": {
+   "total_waves": 53,
+   "cell_waves": [
+    "2019 Apr 1-9",
+    "2020 Apr 1-14",
+    "2021 Apr 1-21",
+    "2023 Apr 3-25",
+    "2025 Mar 3-16",
+    "2026 Mar 2-18"
+   ],
+   "total": 55.38,
+   "sex=male": 54.17,
+   "sex=female": 51.83,
+   "education=some_college": 51.83,
+   "race_eth=white_nh": 50.17
+  }
+ },
+ "evidence": {
+  "total": {
+   "repeat_last_reading": {
+    "n_waves": 7,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 7,
+    "miss_a": 4.17,
+    "miss_b": 3.14,
+    "gap": 1.03,
+    "gap_95": [
+     -0.42,
+     2.69
+    ],
+    "waves_a_better": 2
+   },
+   "target_mean": {
+    "n_waves": 7,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 7,
+    "miss_a": 4.17,
+    "miss_b": 4.14,
+    "gap": 0.03,
+    "gap_95": [
+     -3.23,
+     2.8
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean_paired": {
+    "n_waves": 7,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2022 Apr 1-19",
+     "2023 Apr 3-25",
+     "2024 Apr 1-22",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 7,
+    "miss_a": 4.17,
+    "miss_b": 6.01,
+    "gap": -1.84,
+    "gap_95": [
+     -3.51,
+     -0.38
+    ],
+    "waves_a_better": 4
+   }
+  },
+  "cells": {
+   "repeat_last_reading": {
+    "n_waves": 5,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2023 Apr 3-25",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 15,
+    "miss_a": 5.29,
+    "miss_b": 4.47,
+    "gap": 0.83,
+    "gap_95": [
+     -2.2,
+     3.93
+    ],
+    "waves_a_better": 2
+   },
+   "target_mean": {
+    "n_waves": 5,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2023 Apr 3-25",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 15,
+    "miss_a": 5.29,
+    "miss_b": 7.7,
+    "gap": -2.4,
+    "gap_95": [
+     -4.93,
+     -0.33
+    ],
+    "waves_a_better": 4
+   },
+   "target_mean_paired": {
+    "n_waves": 5,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2023 Apr 3-25",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 15,
+    "miss_a": 5.29,
+    "miss_b": 7.7,
+    "gap": -2.4,
+    "gap_95": [
+     -4.93,
+     -0.33
+    ],
+    "waves_a_better": 4
+   }
+  },
+  "inferred cells": {
+   "repeat_last_reading": {
+    "n_waves": 5,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2023 Apr 3-25",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 5,
+    "miss_a": 5.45,
+    "miss_b": 4.6,
+    "gap": 0.85,
+    "gap_95": [
+     -1.73,
+     3.8
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean": {
+    "n_waves": 5,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2023 Apr 3-25",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 5,
+    "miss_a": 5.45,
+    "miss_b": 7.37,
+    "gap": -1.92,
+    "gap_95": [
+     -5.77,
+     1.94
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean_paired": {
+    "n_waves": 5,
+    "waves": [
+     "2020 Apr 1-14",
+     "2021 Apr 1-21",
+     "2023 Apr 3-25",
+     "2025 Mar 3-16",
+     "2026 Mar 2-18"
+    ],
+    "n_cells": 5,
+    "miss_a": 5.45,
+    "miss_b": 7.37,
+    "gap": -1.92,
+    "gap_95": [
+     -5.77,
+     1.94
+    ],
+    "waves_a_better": 3
+   }
+  }
+ },
+ "vintage_inputs": [
+  {
+   "file": "vintages/h2018-f2017.json",
+   "sha256": "d9c40e8893046aed13f4853d1bae3a9a24014c0baf68228ffd2ca01ad8422a67",
+   "through": "2018",
+   "frame": "2017",
+   "cut_at": "2019-04-01",
+   "available_from": "2019-03-19"
+  },
+  {
+   "file": "vintages/h2021-f2017.json",
+   "sha256": "a8d0009d98fc5d5600cb58c4d98cf2f3ee4351ea34f38bd2a42a154d693cc6fd",
+   "through": "2021",
+   "frame": "2017",
+   "cut_at": "2022-04-01",
+   "available_from": "2021-11-01"
+  },
+  {
+   "file": "vintages/h2021-f2021.json",
+   "sha256": "76c0d594c735a7fbbb7d11820c207db9c2d2ac42e60f128bde89bf0c4686e6f1",
+   "through": "2021",
+   "frame": "2021",
+   "cut_at": "2023-04-03",
+   "available_from": "2022-10-20"
+  },
+  {
+   "file": "vintages/h2022-f2021.json",
+   "sha256": "7220da705e2d92be4cc5f0d4598e726a8c54accebd69c11466e3994c8e35f095",
+   "through": "2022",
+   "frame": "2021",
+   "cut_at": "2024-04-01",
+   "available_from": "2023-05-17"
+  },
+  {
+   "file": "vintages/h2022-f2023.json",
+   "sha256": "15811215d353dc522a9b14efe41d7631cc18359e9420ac7a1c1cb1987048745b",
+   "through": "2022",
+   "frame": "2023",
+   "cut_at": "2025-03-03",
+   "available_from": "2024-10-17"
+  },
+  {
+   "file": "vintages/h2024-f2023.json",
+   "sha256": "ecff6d3518de89313a12bea8972a4e2608b563c7bb5a002fc74fab2947308563",
+   "through": "2024",
+   "frame": "2023",
+   "cut_at": "2026-03-02",
+   "available_from": "2025-05-22"
+  }
+ ],
+ "reviewed_evidence": {
+  "evidence_sha256": "3389f11fe8bf309e7d2dfcd480e96e501269e968d689613f8d18a7a0b4bdd2ec",
+  "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+  "same_result": true,
+  "note": "the go/no-go evidence the owner read before sealing states the same backtest and the same forward point predictions as this seal's own run"
+ },
+ "scoring_plan": [
+  "Target: the first Gallup Poll Social Series, March survey (Environment; carries the federal income tax items since 2025), telephone (landline and cell RDD), about 1,000 U.S. adults release of the item quoted in study.item from its next wave (fieldwork expected from 2027-03-01), Gallup's published figures.",
+  "Not scored, with the reason, if Gallup does not ask the item in that wave, changes its wording or answer options, published the wave before this seal's OpenTimestamps attestation, or has not published it by 2027-10-08.",
+  "Share: too high, the printed percentage of 'Too high' (Gallup prints No opinion (don't know or refused) as a fourth column, 1-4% since 2017. Shares are as printed, out of all adults, and are not rescaled without it.). Total: the topline. Cells: the published group each cut in study.cells maps to; a group the release does not publish is not scored.",
+  "Metric: absolute miss in points, for the forecast and for both sealed baselines. Headline = the total. Beside it: the mean over the 3 exactly mapped cells and, separately, the 1 inferred cell(s). Printed integers carry up to half a point of rounding per printed figure.",
+  "Bands: whether each published share falls inside the sealed 80% and 95% bands.",
+  "Claim: 'sealed before fieldwork' only if the wave's published fieldwork start is later than the attestation's block time; otherwise 'sealed before publication'."
+ ]
+}

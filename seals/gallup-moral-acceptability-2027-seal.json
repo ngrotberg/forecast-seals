@@ -1,0 +1,1647 @@
+{
+ "kind": "forward-seal-kit-1",
+ "target_id": "gallup-moral-acceptability-2027",
+ "title": "Gallup May 2027 Values and Beliefs: sex between an unmarried man and woman morally acceptable, next release",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-27T00:53:34Z",
+ "made_at_note": "predictions.json was written at this time (file mtime, UTC)",
+ "sealed_at": "2026-10-27T00:53:42Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof gallup-moral-acceptability-2027-seal.json.ots",
+ "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+ "code_note": "the commit of the private code repository that made the predictions; it cannot be checked from outside",
+ "method": {
+  "served": "ensemble_mean@0.4.0",
+  "members": [
+   "mrp_numpyro@0.5.0",
+   "gbm_pooled@0.1.0"
+  ],
+  "baseline": "carry_forward@0.1.0",
+  "history": "GSS 2000-2024 (13 waves), premarital_sex; GSS 2024 was released 2025-05-22",
+  "frame": "frame:2023 (published 2024-10-17)",
+  "share": "morally acceptable: the served shares of not_wrong plus sometimes_wrong",
+  "offset": "forecast = engine share + the mean, over every earlier Gallup wave fielded 2019-2026 that has a history vintage, of Gallup's published total minus the engine's total from the history and frame published before that wave's fieldwork; one offset for every cell",
+  "offset_note": "Declared 2026-10-26, before any engine run on premarital_sex: the mean of Gallup's total minus the engine's 'not wrong at all' plus 'wrong only sometimes' share over every Gallup wave from 2019 that has its own out-of-time engine vintage (GSS 2018 was released 2019-03-19). Same rule as the Gallup health seal.",
+  "bands": "normal: 1.2816 and 1.96 times the root mean square of this method's out-of-time misses (evidence.json; the total's own for the total, every cell's pooled for the cells), centred on the forecast"
+ },
+ "study": {
+  "survey": "Gallup Poll Social Series, Values and Beliefs (May), telephone (landline and cell RDD), about 1,000 U.S. adults; each moral item asked of about 750",
+  "sponsor": "Gallup",
+  "item": {
+   "wording": "Next, I'm going to read you a list of issues. Regardless of whether or not you think it should be legal, for each one, please tell me whether you personally believe that in general it is morally acceptable or morally wrong. How about -- sex between an unmarried man and woman?",
+   "options": [
+    "Morally acceptable",
+    "Morally wrong"
+   ],
+   "headline": {
+    "name": "morally acceptable",
+    "options": [
+     "Morally acceptable"
+    ]
+   },
+   "no_opinion_rule": "Gallup prints 'Depends on situation (vol.)' (1-3%), 'Not a moral issue (vol.)' (0-1%) and No opinion (0-3%) in the base. Shares are as printed, out of all adults asked, and are not rescaled without them."
+  },
+  "catalog": {
+   "source": "gss",
+   "item_id": "premarital_sex",
+   "labels": [
+    "not_wrong",
+    "sometimes_wrong"
+   ],
+   "wording_match": "different",
+   "wording_note": "GSS PREMARSX asks whether sex before marriage is always wrong, almost always wrong, wrong only sometimes, or not wrong at all; Gallup asks a two-way acceptable-or-wrong judgment 'in general'. The cut, declared here before any engine run, is the scale's midpoint: 'not wrong at all' plus 'wrong only sometimes' against acceptable. Gallup is phone; GSS is in person or web."
+  },
+  "expected_fieldwork": "2027-05-03 (inferred: Values and Beliefs began May 1 in 2019, 2020 and 2023-2026, and on the first Monday when May 1 fell on a weekend (May 3 2021, May 2 2022). May 1 2027 is a Saturday, so Mon May 3; May 1 is the earliest plausible start)",
+  "expected_release": "2027-06-10 (inferred: this item's first release came 2019-05-29, 2020-06-23, 2021-06-11, 2022-06-09, 2023-06-16, 2024-06-13, 2025-07-22 and 2026-06-09. 2025 shows it can slip to late July)",
+  "cells": [
+   "total",
+   "sex=male",
+   "sex=female",
+   "education=some_college",
+   "race_eth=white_nh"
+  ],
+  "cells_map": {
+   "total": "Total",
+   "sex=male": "Male",
+   "sex=female": "Female",
+   "education=some_college": "Some College",
+   "race_eth=white_nh": "White"
+  },
+  "inferred_cells": [
+   "race_eth=white_nh"
+  ],
+  "inferred_cells_note": "Inferred cells are scored beside the others, not in the cell mean: Gallup's 'White' is read as non-Hispanic white by inference (see history.json how_read).",
+  "not_scored": {
+   "Non-white": "the union of black_nh, hispanic and other; the frame's cuts cannot combine categories",
+   "18-34": "splits the frame's 30-39 band",
+   "35-54": "splits the frame's 30-39 and 50-59 bands",
+   "55+": "splits the frame's 50-59 band",
+   "College Grad": "the union of college and postgrad",
+   "HS Grad or Less": "the union of no_hs and hs",
+   "Republican": "party is not a frame variable (and Gallup weights on party)",
+   "Independent": "party is not a frame variable",
+   "Democrat": "party is not a frame variable",
+   "Less than $50,000": "income is not a frame variable (2022-2026 banners)",
+   "$50,000-100,000": "income is not a frame variable",
+   "$100,000+": "income is not a frame variable",
+   "Conservative": "ideology is not a frame variable (2019-2023 banners)",
+   "Moderate": "ideology is not a frame variable",
+   "Liberal": "ideology is not a frame variable"
+  },
+  "items_assumption": "ASSUMPTION: the next wave asks the item with the wording and options quoted in study.item"
+ },
+ "notes": [],
+ "claim": "before fieldwork",
+ "claim_rule": "'sealed before fieldwork' only if the proof's block time precedes the published fieldwork start; otherwise 'before publication'",
+ "seal_by": "2027-04-15",
+ "void_after": "2027-12-09",
+ "predictions_json": {
+  "file": "predictions.json",
+  "sha256": "fd6483128c1e374a47cf601313256c1b08d28eb839b59bbaca0997da2919381a",
+  "bytes": 33649,
+  "hash_recipe": "sha256 over the file's bytes exactly as written by `prior-backtest extend --predict-only` (json.dumps(content, indent=2) followed by one newline)",
+  "content": {
+   "kind": "extend-predictions-1",
+   "study": "Gallup May 2027 Values and Beliefs: sex between an unmarried man and woman morally acceptable, next release (predictions)",
+   "fielded": "2027",
+   "history_source": "gss",
+   "frame_wave": "2023",
+   "output_label": "model-generated prediction, not a measurement",
+   "fielded_start": "2027-05-03",
+   "frame_published_on": "2024-10-17",
+   "frame_published_before_fielding": true,
+   "frame_dates_note": "frame:2023 is seeded from acs_pums 2023, published 2024-10-17 (ACS 2023 data release schedule, '1-Year Public Use Microdata Sample (PUMS) Files'; fielded continuously across calendar year 2023); the study's fieldwork began 2027-05-03, as supplied",
+   "history": {
+    "cut_at": "2027-05-03",
+    "start_assumed": false,
+    "before_wave": "2027",
+    "waves": [
+     "2000",
+     "2002",
+     "2004",
+     "2006",
+     "2008",
+     "2010",
+     "2012",
+     "2014",
+     "2016",
+     "2018",
+     "2021",
+     "2022",
+     "2024"
+    ],
+    "withheld": [],
+    "note": "GSS 2000-2016 (9 waves) have no recorded release date and count as released because GSS 2024, released 2025-05-22, came after them"
+   },
+   "ledger": "these predictions are not recorded in the prediction ledger and carry no ledger id; this report and its JSON file are the record",
+   "predictors": [
+    "carry_forward",
+    "mrp_numpyro",
+    "gbm_pooled",
+    "ensemble_mean"
+   ],
+   "method_ids": {
+    "carry_forward": "carry_forward@0.1.0",
+    "mrp_numpyro": "mrp_numpyro@0.5.0",
+    "gbm_pooled": "gbm_pooled@0.1.0",
+    "ensemble_mean": "ensemble_mean@0.4.0"
+   },
+   "git_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+   "git_dirty": false,
+   "started_at": "2026-10-27T00:52:54.871941+00:00",
+   "duration_s": 39.44722929096315,
+   "cells_supplied": {
+    "premarital_sex": [
+     "total",
+     "sex=male",
+     "sex=female",
+     "education=some_college",
+     "race_eth=white_nh"
+    ]
+   },
+   "unmapped": {},
+   "unscored": [],
+   "notes": [],
+   "failures": [],
+   "predictions": [
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "always_wrong",
+     "predicted": 0.17427047527648573,
+     "lower_80": 0.15906814260570845,
+     "upper_80": 0.18939381722230533,
+     "lower_95": 0.15210749397627757,
+     "upper_95": 0.1974880227685689,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "almost_always_wrong",
+     "predicted": 0.052055435147531824,
+     "lower_80": 0.04365175068430516,
+     "upper_80": 0.06091641358872552,
+     "lower_95": 0.039553634326049567,
+     "upper_95": 0.06644655565747028,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "sometimes_wrong",
+     "predicted": 0.12299782405160188,
+     "lower_80": 0.1099637563272252,
+     "upper_80": 0.13619569215048513,
+     "lower_95": 0.10330651514078397,
+     "upper_95": 0.14277469683978308,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "not_wrong",
+     "predicted": 0.6506762655243805,
+     "lower_80": 0.6321461593283308,
+     "upper_80": 0.6691964344804148,
+     "lower_95": 0.6225222574188676,
+     "upper_95": 0.6784002780915712,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "always_wrong",
+     "predicted": 0.18221645458994984,
+     "lower_80": 0.15963560630983345,
+     "upper_80": 0.20481840388355638,
+     "lower_95": 0.1497486805175445,
+     "upper_95": 0.21902678249038915,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "almost_always_wrong",
+     "predicted": 0.04205598013008092,
+     "lower_80": 0.030831621635823595,
+     "upper_80": 0.053969690749636146,
+     "lower_95": 0.025628419635575186,
+     "upper_95": 0.06152492912712647,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "sometimes_wrong",
+     "predicted": 0.13155162995177613,
+     "lower_80": 0.11305596799647162,
+     "upper_80": 0.15112610198561002,
+     "lower_95": 0.10386704946632475,
+     "upper_95": 0.16151887469836615,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "sex=male",
+     "label": "not_wrong",
+     "predicted": 0.6441759353281932,
+     "lower_80": 0.6164965391101368,
+     "upper_80": 0.6718677003058777,
+     "lower_95": 0.600537359457777,
+     "upper_95": 0.6855850683225228,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "always_wrong",
+     "predicted": 0.1679172909071168,
+     "lower_80": 0.14856565692289625,
+     "upper_80": 0.18785539677728258,
+     "lower_95": 0.13913245525561982,
+     "upper_95": 0.19860993020049372,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "almost_always_wrong",
+     "predicted": 0.06256381964155625,
+     "lower_80": 0.05016431612783327,
+     "upper_80": 0.07530335443167867,
+     "lower_95": 0.04432057289945578,
+     "upper_95": 0.08466518150942287,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "sometimes_wrong",
+     "predicted": 0.11567464443337187,
+     "lower_80": 0.09868794476512242,
+     "upper_80": 0.13269590750519886,
+     "lower_95": 0.09121130212136126,
+     "upper_95": 0.14320710233290462,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "sex=female",
+     "label": "not_wrong",
+     "predicted": 0.6538442450179551,
+     "lower_80": 0.6287385871483063,
+     "upper_80": 0.6790807131301017,
+     "lower_95": 0.6125854964206467,
+     "upper_95": 0.6911362989955793,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "always_wrong",
+     "predicted": 0.19100642462746323,
+     "lower_80": 0.1625734077864202,
+     "upper_80": 0.2212950616470192,
+     "lower_95": 0.14864577755487016,
+     "upper_95": 0.23885887315573068,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "almost_always_wrong",
+     "predicted": 0.05568867567582753,
+     "lower_80": 0.03956244795191302,
+     "upper_80": 0.07304964942039839,
+     "lower_95": 0.03177541017903773,
+     "upper_95": 0.0851065510065207,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "sometimes_wrong",
+     "predicted": 0.09544355830683028,
+     "lower_80": 0.07424477661819895,
+     "upper_80": 0.11665398789740167,
+     "lower_95": 0.06571651734072473,
+     "upper_95": 0.12952467504154236,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "education=some_college",
+     "label": "not_wrong",
+     "predicted": 0.6578613413898791,
+     "lower_80": 0.6235404790461605,
+     "upper_80": 0.6919267058999647,
+     "lower_95": 0.6013667675200419,
+     "upper_95": 0.71169959434551,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "always_wrong",
+     "predicted": 0.18945695409087845,
+     "lower_80": 0.1701856777039991,
+     "upper_80": 0.20813513263214448,
+     "lower_95": 0.16032224935173994,
+     "upper_95": 0.2197222363545715,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "almost_always_wrong",
+     "predicted": 0.04138158939852816,
+     "lower_80": 0.0317756743654276,
+     "upper_80": 0.051516618499084954,
+     "lower_95": 0.027770842240884424,
+     "upper_95": 0.05847399722262138,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "sometimes_wrong",
+     "predicted": 0.1130041038537706,
+     "lower_80": 0.09790216470540786,
+     "upper_80": 0.12812913014632757,
+     "lower_95": 0.08981116867331176,
+     "upper_95": 0.13738679599660927,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "carry_forward",
+     "cut": "race_eth=white_nh",
+     "label": "not_wrong",
+     "predicted": 0.6561573526568228,
+     "lower_80": 0.6332789791200507,
+     "upper_80": 0.6788888922122217,
+     "lower_95": 0.6201298184557916,
+     "upper_95": 0.6908538895303983,
+     "trained_through": "2024",
+     "n_train": 2037
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "always_wrong",
+     "predicted": 0.16507986317551726,
+     "lower_80": 0.13455974174651056,
+     "upper_80": 0.19648360851450192,
+     "lower_95": 0.11874572182726749,
+     "upper_95": 0.21369287490407088,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "almost_always_wrong",
+     "predicted": 0.05515798475485713,
+     "lower_80": 0.03658260462915606,
+     "upper_80": 0.07512207285154165,
+     "lower_95": 0.02863119981116667,
+     "upper_95": 0.09063835816701783,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "sometimes_wrong",
+     "predicted": 0.12760625517667423,
+     "lower_80": 0.09305237666724474,
+     "upper_80": 0.1712313969249415,
+     "lower_95": 0.07692331343102361,
+     "upper_95": 0.19785225181928087,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "not_wrong",
+     "predicted": 0.6521558968929514,
+     "lower_80": 0.5817746442427315,
+     "upper_80": 0.7156248470511519,
+     "lower_95": 0.5477400796469486,
+     "upper_95": 0.7495937487197253,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "always_wrong",
+     "predicted": 0.146554739301941,
+     "lower_80": 0.11508861589319878,
+     "upper_80": 0.1789308129639201,
+     "lower_95": 0.10005749445027479,
+     "upper_95": 0.19710660600012517,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "almost_always_wrong",
+     "predicted": 0.04786201022256109,
+     "lower_80": 0.02839088327320067,
+     "upper_80": 0.0677434411513028,
+     "lower_95": 0.0211262730129672,
+     "upper_95": 0.08498901115986271,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "sometimes_wrong",
+     "predicted": 0.12834241682069952,
+     "lower_80": 0.09110974261743977,
+     "upper_80": 0.17556022707196242,
+     "lower_95": 0.07089244686030075,
+     "upper_95": 0.20544564217255912,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=male",
+     "label": "not_wrong",
+     "predicted": 0.6772408336547984,
+     "lower_80": 0.6056630742400192,
+     "upper_80": 0.740738370035993,
+     "lower_95": 0.5688382128256467,
+     "upper_95": 0.7715015617422666,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "always_wrong",
+     "predicted": 0.1828737526237638,
+     "lower_80": 0.14619944577724148,
+     "upper_80": 0.21880438317663298,
+     "lower_95": 0.12848176156144203,
+     "upper_95": 0.23870775451895523,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "almost_always_wrong",
+     "predicted": 0.06216596835220703,
+     "lower_80": 0.038433629229538406,
+     "upper_80": 0.08537698904875203,
+     "lower_95": 0.029868361621664043,
+     "upper_95": 0.10094217884364749,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "sometimes_wrong",
+     "predicted": 0.1268991517316867,
+     "lower_80": 0.09130174163690005,
+     "upper_80": 0.1724754344359357,
+     "lower_95": 0.0763041894856606,
+     "upper_95": 0.202344625495306,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "sex=female",
+     "label": "not_wrong",
+     "predicted": 0.6280611272923424,
+     "lower_80": 0.5548521714067406,
+     "upper_80": 0.6942765822248921,
+     "lower_95": 0.5208734778935529,
+     "upper_95": 0.7380834664238909,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "always_wrong",
+     "predicted": 0.1577134315813366,
+     "lower_80": 0.12254817875313691,
+     "upper_80": 0.19790285282881476,
+     "lower_95": 0.10096144470598305,
+     "upper_95": 0.22345056130852492,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "almost_always_wrong",
+     "predicted": 0.05333064502907705,
+     "lower_80": 0.03013928353070044,
+     "upper_80": 0.08022918580948189,
+     "lower_95": 0.02344576946478526,
+     "upper_95": 0.0993935484799137,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "sometimes_wrong",
+     "predicted": 0.12127365971569909,
+     "lower_80": 0.08139861486107793,
+     "upper_80": 0.17088873321603412,
+     "lower_95": 0.06431058061770652,
+     "upper_95": 0.20458876031905587,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "education=some_college",
+     "label": "not_wrong",
+     "predicted": 0.6676822636738872,
+     "lower_80": 0.5838309187777442,
+     "upper_80": 0.7341128697174182,
+     "lower_95": 0.5560468417886596,
+     "upper_95": 0.7683175851508636,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "always_wrong",
+     "predicted": 0.15440034948016035,
+     "lower_80": 0.12428170524259907,
+     "upper_80": 0.18619838312718967,
+     "lower_95": 0.11014493225485718,
+     "upper_95": 0.207081405651128,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "almost_always_wrong",
+     "predicted": 0.04748759014097057,
+     "lower_80": 0.029651345953202297,
+     "upper_80": 0.06659139201322262,
+     "lower_95": 0.02371305401506153,
+     "upper_95": 0.07819737617709592,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "sometimes_wrong",
+     "predicted": 0.11996642912678956,
+     "lower_80": 0.08528778701455986,
+     "upper_80": 0.16508359663856298,
+     "lower_95": 0.06760382437534894,
+     "upper_95": 0.1904235394001419,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "mrp_numpyro",
+     "cut": "race_eth=white_nh",
+     "label": "not_wrong",
+     "predicted": 0.6781456312520795,
+     "lower_80": 0.6074746098532354,
+     "upper_80": 0.741154775421145,
+     "lower_95": 0.5718894992161186,
+     "upper_95": 0.7717198579800438,
+     "trained_through": "2024",
+     "n_train": 21039
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "always_wrong",
+     "predicted": 0.15994486861629484,
+     "lower_80": 0.15804075782618468,
+     "upper_80": 0.16170738303943627,
+     "lower_95": 0.15799596596682985,
+     "upper_95": 0.16327427506503178,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "almost_always_wrong",
+     "predicted": 0.06233162817540226,
+     "lower_80": 0.06119125329110466,
+     "upper_80": 0.06368402097870982,
+     "lower_95": 0.06107829472000083,
+     "upper_95": 0.0640183237003452,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "sometimes_wrong",
+     "predicted": 0.13922955885210211,
+     "lower_80": 0.13792819890877075,
+     "upper_80": 0.14009328465228968,
+     "lower_95": 0.13792392888717125,
+     "upper_95": 0.1407183364051179,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "not_wrong",
+     "predicted": 0.6384939443562009,
+     "lower_80": 0.6358844346253155,
+     "upper_80": 0.6410546181672268,
+     "lower_95": 0.6350130435045024,
+     "upper_95": 0.6413928243117956,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "always_wrong",
+     "predicted": 0.1560528344762468,
+     "lower_80": 0.1542967458795279,
+     "upper_80": 0.15757679896522472,
+     "lower_95": 0.15427869140659206,
+     "upper_95": 0.15973178020382872,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "almost_always_wrong",
+     "predicted": 0.05738025159802945,
+     "lower_80": 0.05589903268565394,
+     "upper_80": 0.05875828490562371,
+     "lower_95": 0.05573171662174603,
+     "upper_95": 0.05914811660332624,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "sometimes_wrong",
+     "predicted": 0.14245157204699418,
+     "lower_80": 0.14108786471889,
+     "upper_80": 0.1436253564875156,
+     "lower_95": 0.1407567754264627,
+     "upper_95": 0.14386574228405244,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "sex=male",
+     "label": "not_wrong",
+     "predicted": 0.6441153418787297,
+     "lower_80": 0.6403782291114769,
+     "upper_80": 0.6464232588594053,
+     "lower_95": 0.6399671363583839,
+     "upper_95": 0.6470658309804506,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "always_wrong",
+     "predicted": 0.16368327412923167,
+     "lower_80": 0.16162264716084807,
+     "upper_80": 0.16567492230528952,
+     "lower_95": 0.1614553998905795,
+     "upper_95": 0.16667693851610577,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "almost_always_wrong",
+     "predicted": 0.06708756114706127,
+     "lower_80": 0.06593380969038012,
+     "upper_80": 0.06797928255137808,
+     "lower_95": 0.06578747214155262,
+     "upper_95": 0.06906139832604974,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "sometimes_wrong",
+     "predicted": 0.13613472682927957,
+     "lower_80": 0.13481762717435775,
+     "upper_80": 0.1371481675875067,
+     "lower_95": 0.13470051489949528,
+     "upper_95": 0.139061491974132,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "sex=female",
+     "label": "not_wrong",
+     "predicted": 0.6330944378944274,
+     "lower_80": 0.6297195046836463,
+     "upper_80": 0.6352134133236563,
+     "lower_95": 0.6290636970738975,
+     "upper_95": 0.6368111208465104,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "always_wrong",
+     "predicted": 0.15710898530870762,
+     "lower_80": 0.15484445738724623,
+     "upper_80": 0.15989066082591927,
+     "lower_95": 0.1545353370970595,
+     "upper_95": 0.1616518338206656,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "almost_always_wrong",
+     "predicted": 0.05941233126789673,
+     "lower_80": 0.05779787268234916,
+     "upper_80": 0.060580351714218765,
+     "lower_95": 0.057232890808970004,
+     "upper_95": 0.060819232593315765,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "sometimes_wrong",
+     "predicted": 0.1305422061976816,
+     "lower_80": 0.12935907972730226,
+     "upper_80": 0.13199284320089033,
+     "lower_95": 0.12865052862244494,
+     "upper_95": 0.13277806005385676,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "education=some_college",
+     "label": "not_wrong",
+     "predicted": 0.6529364772257141,
+     "lower_80": 0.6497131497609527,
+     "upper_80": 0.656498285377794,
+     "lower_95": 0.6492114925144833,
+     "upper_95": 0.6584188882598012,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "always_wrong",
+     "predicted": 0.15300954724563237,
+     "lower_80": 0.1513806897533827,
+     "upper_80": 0.15510371661125458,
+     "lower_95": 0.15127882122844183,
+     "upper_95": 0.15702318597536416,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "almost_always_wrong",
+     "predicted": 0.05414248021608089,
+     "lower_80": 0.05217946609070507,
+     "upper_80": 0.05526692780124762,
+     "lower_95": 0.05205270835360838,
+     "upper_95": 0.05577904162598894,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "sometimes_wrong",
+     "predicted": 0.13153448690987138,
+     "lower_80": 0.13057481598660473,
+     "upper_80": 0.13240861520697797,
+     "lower_95": 0.13053053697650094,
+     "upper_95": 0.13325657218690812,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "gbm_pooled",
+     "cut": "race_eth=white_nh",
+     "label": "not_wrong",
+     "predicted": 0.6613134856284153,
+     "lower_80": 0.6594293111085667,
+     "upper_80": 0.6631752792835998,
+     "lower_95": 0.6564280997518209,
+     "upper_95": 0.6635605549078298,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "always_wrong",
+     "predicted": 0.1695445383720809,
+     "lower_80": 0.13902441694307419,
+     "upper_80": 0.20094828371106555,
+     "lower_95": 0.12321039702383112,
+     "upper_95": 0.2181575501006345,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "almost_always_wrong",
+     "predicted": 0.054469755895628885,
+     "lower_80": 0.035894375769927815,
+     "upper_80": 0.07443384399231341,
+     "lower_95": 0.02794297095193843,
+     "upper_95": 0.08995012930778959,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "sometimes_wrong",
+     "predicted": 0.12672967028172588,
+     "lower_80": 0.09217579177229639,
+     "upper_80": 0.17035481202999314,
+     "lower_95": 0.07604672853607526,
+     "upper_95": 0.19697566692433252,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "not_wrong",
+     "predicted": 0.6492560354505643,
+     "lower_80": 0.5788747828003444,
+     "upper_80": 0.7127249856087648,
+     "lower_95": 0.5448402182045615,
+     "upper_95": 0.7466938872773382,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "always_wrong",
+     "predicted": 0.16203746068378588,
+     "lower_80": 0.13057133727504366,
+     "upper_80": 0.194413534345765,
+     "lower_95": 0.11554021583211968,
+     "upper_95": 0.21258932738197006,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "almost_always_wrong",
+     "predicted": 0.047757858938199504,
+     "lower_80": 0.028286731988839083,
+     "upper_80": 0.06763928986694122,
+     "lower_95": 0.021022121728605615,
+     "upper_95": 0.08488485987550112,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "sometimes_wrong",
+     "predicted": 0.13263054545815878,
+     "lower_80": 0.09539787125489903,
+     "upper_80": 0.17984835570942168,
+     "lower_95": 0.07518057549776,
+     "upper_95": 0.20973377081001837,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "sex=male",
+     "label": "not_wrong",
+     "predicted": 0.6575741349198558,
+     "lower_80": 0.5859963755050767,
+     "upper_80": 0.7210716713010504,
+     "lower_95": 0.5491715140907042,
+     "upper_95": 0.751834863007324,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "always_wrong",
+     "predicted": 0.17268763145859062,
+     "lower_80": 0.1360133246120683,
+     "upper_80": 0.2086182620114598,
+     "lower_95": 0.11829564039626886,
+     "upper_95": 0.22852163335378206,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "almost_always_wrong",
+     "predicted": 0.06333074408950551,
+     "lower_80": 0.039598404966836885,
+     "upper_80": 0.08654176478605051,
+     "lower_95": 0.03103313735896252,
+     "upper_95": 0.10210695458094597,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "sometimes_wrong",
+     "predicted": 0.12404434563444731,
+     "lower_80": 0.08844693553966067,
+     "upper_80": 0.1696206283386963,
+     "lower_95": 0.07344938338842122,
+     "upper_95": 0.1994898193980666,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "sex=female",
+     "label": "not_wrong",
+     "predicted": 0.6399372788174565,
+     "lower_80": 0.5667283229318547,
+     "upper_80": 0.7061527337500062,
+     "lower_95": 0.532749629418667,
+     "upper_95": 0.749959617949005,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "always_wrong",
+     "predicted": 0.16645398486332197,
+     "lower_80": 0.13128873203512226,
+     "upper_80": 0.2066434061108001,
+     "lower_95": 0.10970199798796838,
+     "upper_95": 0.23219111459051026,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "almost_always_wrong",
+     "predicted": 0.05552053960837389,
+     "lower_80": 0.032329178109997275,
+     "upper_80": 0.08241908038877872,
+     "lower_95": 0.02563566404408209,
+     "upper_95": 0.10158344305921053,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "sometimes_wrong",
+     "predicted": 0.1167493190265636,
+     "lower_80": 0.07687427417194242,
+     "upper_80": 0.1663643925268986,
+     "lower_95": 0.05978623992857102,
+     "upper_95": 0.2000644196299204,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "education=some_college",
+     "label": "not_wrong",
+     "predicted": 0.6612761565017407,
+     "lower_80": 0.5774248116055976,
+     "upper_80": 0.7277067625452716,
+     "lower_95": 0.549640734616513,
+     "upper_95": 0.7619114779787169,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "always_wrong",
+     "predicted": 0.17031582369874435,
+     "lower_80": 0.14019717946118307,
+     "upper_80": 0.20211385734577367,
+     "lower_95": 0.1260604064734412,
+     "upper_95": 0.222996879869712,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "almost_always_wrong",
+     "predicted": 0.045924192646270665,
+     "lower_80": 0.02808794845850239,
+     "upper_80": 0.0650279945185227,
+     "lower_95": 0.022149656520361622,
+     "upper_95": 0.07663397868239602,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "sometimes_wrong",
+     "predicted": 0.11893392087591007,
+     "lower_80": 0.08425527876368036,
+     "upper_80": 0.16405108838768348,
+     "lower_95": 0.06657131612446944,
+     "upper_95": 0.1893910311492624,
+     "trained_through": "2024",
+     "n_train": 188950
+    },
+    {
+     "item_id": "premarital_sex",
+     "predictor": "ensemble_mean",
+     "cut": "race_eth=white_nh",
+     "label": "not_wrong",
+     "predicted": 0.664826062779075,
+     "lower_80": 0.5941550413802309,
+     "upper_80": 0.7278352069481405,
+     "lower_95": 0.5585699307431141,
+     "upper_95": 0.7584002895070393,
+     "trained_through": "2024",
+     "n_train": 188950
+    }
+   ]
+  }
+ },
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "0146385b9564e1e1dc7e9a9c0b2e11c38b9e78e179faa720c3669adbc71e8b52"
+  },
+  "history": {
+   "file": "inputs/history.json",
+   "sha256": "960baed1b88db58c74cbc1ffdedf52a5ff438d719174d481409b3f3eeef07fb3",
+   "read_on": "2026-10-26",
+   "how_read": "Public Gallup PDFs, saved and converted with pdftotext -layout, then parsed by a script and checked. Totals: the Q21F trend table ('Sex between an unmarried man and woman') of the May 2026 Values and Beliefs topline (2001-2026, 26 readings), printed 'Morally acceptable' percentages; the 2019, 2020, 2021, 2023, 2024 and 2025 toplines print identical figures for every year they share (checked), and the question stem ('Regardless of whether or not you think it should be legal...') reads the same in each. Cells: the 'Public Release Data' crosstab of the same item in the 2019, 2020, 2021, 2023, 2024 (the IVF release's full topline), 2025 and 2026 toplines, printed percentages; each crosstab's Total equals the trend figure (checked). No 2022 topline was found. Only Male, Female, Some College and White are kept as cells. 'White' (Gallup's Race I banner) is mapped to race_eth=white_nh by inference: these PDFs do not define Race I, but the 2025 June Confidence topline prints the White crosstab group's figures under 'Non-Hispanic White adults' (https://news.gallup.com/file/poll/692660/2025_07_17_Confidence%20in%20Institutions%20Topline%20and%20Tabs.pdf). 'published' is the date of the first Gallup article found that reports this item's figure (read on the article page), null where none was read. Volunteered answers and No opinion are not rescaled."
+  }
+ },
+ "plan_sha256": "cbdfb65a4ed62e137d4fa77ed12367c3767a93716dab9886d71a0c79e0170e16",
+ "questions_sha256": "85b33cc367135852ad1a0f201418eb77800193084453308e2ef8aeb7c1242a41",
+ "evidence_sha256": "59a3e982236a498e96084659146b81e6b851da92c6e47739ff8cf052c1a358ed",
+ "method_ids": {
+  "carry_forward": "carry_forward@0.1.0",
+  "mrp_numpyro": "mrp_numpyro@0.5.0",
+  "gbm_pooled": "gbm_pooled@0.1.0",
+  "ensemble_mean": "ensemble_mean@0.4.0"
+ },
+ "offset": {
+  "value_points": -7.6181,
+  "window": [
+   "2019",
+   "2026"
+  ],
+  "waves": [
+   {
+    "wave": "2019 May 1-12",
+    "fielded_start": "2019-05-01",
+    "target_total": 71.0,
+    "engine_total": 76.0248,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2020 May 1-13",
+    "fielded_start": "2020-05-01",
+    "target_total": 72.0,
+    "engine_total": 76.0248,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2021 May 3-18",
+    "fielded_start": "2021-05-03",
+    "target_total": 73.0,
+    "engine_total": 76.0248,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "2022 May 2-22",
+    "fielded_start": "2022-05-02",
+    "target_total": 76.0,
+    "engine_total": 80.0637,
+    "vintage": "h2021-f2017.json"
+   },
+   {
+    "wave": "2023 May 1-24",
+    "fielded_start": "2023-05-01",
+    "target_total": 72.0,
+    "engine_total": 79.9874,
+    "vintage": "h2021-f2021.json"
+   },
+   {
+    "wave": "2024 May 1-23",
+    "fielded_start": "2024-05-01",
+    "target_total": 69.0,
+    "engine_total": 80.646,
+    "vintage": "h2022-f2021.json"
+   },
+   {
+    "wave": "2025 May 1-18",
+    "fielded_start": "2025-05-01",
+    "target_total": 68.0,
+    "engine_total": 80.5744,
+    "vintage": "h2022-f2023.json"
+   },
+   {
+    "wave": "2026 May 1-17",
+    "fielded_start": "2026-05-01",
+    "target_total": 65.0,
+    "engine_total": 77.5986,
+    "vintage": "h2024-f2023.json"
+   }
+  ]
+ },
+ "forecast": {
+  "total": {
+   "share": 69.98,
+   "band_80": [
+    64.22,
+    75.74
+   ],
+   "band_95": [
+    61.17,
+    78.79
+   ],
+   "engine_share": 77.6,
+   "band_from_n_misses": 7
+  },
+  "sex=male": {
+   "share": 71.4,
+   "band_80": [
+    63.9,
+    78.9
+   ],
+   "band_95": [
+    59.92,
+    82.88
+   ],
+   "engine_share": 79.02,
+   "band_from_n_misses": 24
+  },
+  "sex=female": {
+   "share": 68.78,
+   "band_80": [
+    61.28,
+    76.28
+   ],
+   "band_95": [
+    57.3,
+    80.26
+   ],
+   "engine_share": 76.4,
+   "band_from_n_misses": 24
+  },
+  "education=some_college": {
+   "share": 70.18,
+   "band_80": [
+    62.68,
+    77.68
+   ],
+   "band_95": [
+    58.7,
+    81.66
+   ],
+   "engine_share": 77.8,
+   "band_from_n_misses": 24
+  },
+  "race_eth=white_nh": {
+   "share": 70.76,
+   "band_80": [
+    63.26,
+    78.26
+   ],
+   "band_95": [
+    59.28,
+    82.24
+   ],
+   "engine_share": 78.38,
+   "band_from_n_misses": 24
+  }
+ },
+ "not_sealed": {},
+ "baselines": {
+  "repeat_last_reading": {
+   "wave": "2026 May 1-17",
+   "fielded_start": "2026-05-01",
+   "older_readings": {},
+   "total": 65.0,
+   "sex=male": 62.0,
+   "sex=female": 68.0,
+   "education=some_college": 64.0,
+   "race_eth=white_nh": 67.0
+  },
+  "target_mean": {
+   "total_waves": 26,
+   "cell_waves": [
+    "2019 May 1-12",
+    "2020 May 1-13",
+    "2021 May 3-18",
+    "2023 May 1-24",
+    "2024 May 1-23",
+    "2025 May 1-18",
+    "2026 May 1-17"
+   ],
+   "total": 64.0,
+   "sex=male": 69.43,
+   "sex=female": 70.43,
+   "education=some_college": 70.43,
+   "race_eth=white_nh": 72.43
+  }
+ },
+ "evidence": {
+  "total": {
+   "repeat_last_reading": {
+    "n_waves": 7,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2022 May 2-22",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 7,
+    "miss_a": 3.66,
+    "miss_b": 2.29,
+    "gap": 1.37,
+    "gap_95": [
+     -0.65,
+     3.32
+    ],
+    "waves_a_better": 2
+   },
+   "target_mean": {
+    "n_waves": 7,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2022 May 2-22",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 7,
+    "miss_a": 3.66,
+    "miss_b": 7.76,
+    "gap": -4.11,
+    "gap_95": [
+     -8.8,
+     0.77
+    ],
+    "waves_a_better": 4
+   },
+   "target_mean_paired": {
+    "n_waves": 7,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2022 May 2-22",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 7,
+    "miss_a": 3.66,
+    "miss_b": 3.15,
+    "gap": 0.51,
+    "gap_95": [
+     -1.27,
+     2.13
+    ],
+    "waves_a_better": 2
+   }
+  },
+  "cells": {
+   "repeat_last_reading": {
+    "n_waves": 6,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 18,
+    "miss_a": 4.89,
+    "miss_b": 3.44,
+    "gap": 1.44,
+    "gap_95": [
+     -0.29,
+     3.06
+    ],
+    "waves_a_better": 2
+   },
+   "target_mean": {
+    "n_waves": 6,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 18,
+    "miss_a": 4.89,
+    "miss_b": 3.9,
+    "gap": 0.99,
+    "gap_95": [
+     -0.55,
+     2.49
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean_paired": {
+    "n_waves": 6,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 18,
+    "miss_a": 4.89,
+    "miss_b": 3.9,
+    "gap": 0.99,
+    "gap_95": [
+     -0.55,
+     2.49
+    ],
+    "waves_a_better": 3
+   }
+  },
+  "inferred cells": {
+   "repeat_last_reading": {
+    "n_waves": 6,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 6,
+    "miss_a": 3.87,
+    "miss_b": 2.83,
+    "gap": 1.04,
+    "gap_95": [
+     -0.68,
+     3.1
+    ],
+    "waves_a_better": 3
+   },
+   "target_mean": {
+    "n_waves": 6,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 6,
+    "miss_a": 3.87,
+    "miss_b": 4.09,
+    "gap": -0.22,
+    "gap_95": [
+     -2.06,
+     1.62
+    ],
+    "waves_a_better": 4
+   },
+   "target_mean_paired": {
+    "n_waves": 6,
+    "waves": [
+     "2020 May 1-13",
+     "2021 May 3-18",
+     "2023 May 1-24",
+     "2024 May 1-23",
+     "2025 May 1-18",
+     "2026 May 1-17"
+    ],
+    "n_cells": 6,
+    "miss_a": 3.87,
+    "miss_b": 4.09,
+    "gap": -0.22,
+    "gap_95": [
+     -2.06,
+     1.62
+    ],
+    "waves_a_better": 4
+   }
+  }
+ },
+ "vintage_inputs": [
+  {
+   "file": "vintages/h2018-f2017.json",
+   "sha256": "a06a72d684cd87ff8e105e0ed15f269b3865bff6f394645b36e57c46ad7d3108",
+   "through": "2018",
+   "frame": "2017",
+   "cut_at": "2019-05-01",
+   "available_from": "2019-03-19"
+  },
+  {
+   "file": "vintages/h2021-f2017.json",
+   "sha256": "9d51cc15bfc5cecfc6a774e95636f6c291b85dcf7e031bcd0c633c78dd0d454b",
+   "through": "2021",
+   "frame": "2017",
+   "cut_at": "2022-05-02",
+   "available_from": "2021-11-01"
+  },
+  {
+   "file": "vintages/h2021-f2021.json",
+   "sha256": "a5a9b379ea745a4912b8eb603d41f3474c75121933dade292f2e70e201a0c363",
+   "through": "2021",
+   "frame": "2021",
+   "cut_at": "2023-05-01",
+   "available_from": "2022-10-20"
+  },
+  {
+   "file": "vintages/h2022-f2021.json",
+   "sha256": "fe56ece6724a61a41b36d1077e39209750ceda236deb48fb4aaccdfe2e55dc0c",
+   "through": "2022",
+   "frame": "2021",
+   "cut_at": "2024-05-01",
+   "available_from": "2023-05-17"
+  },
+  {
+   "file": "vintages/h2022-f2023.json",
+   "sha256": "0e735b8ca7414765aa3cfb1e220e07b1088a84d55472eef78b707a69f4c8504d",
+   "through": "2022",
+   "frame": "2023",
+   "cut_at": "2025-05-01",
+   "available_from": "2024-10-17"
+  },
+  {
+   "file": "vintages/h2024-f2023.json",
+   "sha256": "f5057616b5acc1232dcea74c90643e3d9fac5f234ff5adb5f559ab0b604b2d49",
+   "through": "2024",
+   "frame": "2023",
+   "cut_at": "2026-05-01",
+   "available_from": "2025-05-22"
+  }
+ ],
+ "reviewed_evidence": {
+  "evidence_sha256": "4a3e397629d5960fcccba70010331b3f9b86a6b07f6dcabb5330271c5cab7d2e",
+  "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+  "same_result": true,
+  "note": "the go/no-go evidence the owner read before sealing states the same backtest and the same forward point predictions as this seal's own run"
+ },
+ "scoring_plan": [
+  "Target: the first Gallup Poll Social Series, Values and Beliefs (May), telephone (landline and cell RDD), about 1,000 U.S. adults; each moral item asked of about 750 release of the item quoted in study.item from its next wave (fieldwork expected from 2027-05-03), Gallup's published figures.",
+  "Not scored, with the reason, if Gallup does not ask the item in that wave, changes its wording or answer options, published the wave before this seal's OpenTimestamps attestation, or has not published it by 2027-12-09.",
+  "Share: morally acceptable, the printed percentage of 'Morally acceptable' (Gallup prints 'Depends on situation (vol.)' (1-3%), 'Not a moral issue (vol.)' (0-1%) and No opinion (0-3%) in the base. Shares are as printed, out of all adults asked, and are not rescaled without them.). Total: the topline. Cells: the published group each cut in study.cells maps to; a group the release does not publish is not scored.",
+  "Metric: absolute miss in points, for the forecast and for both sealed baselines. Headline = the total. Beside it: the mean over the 3 exactly mapped cells and, separately, the 1 inferred cell(s). Printed integers carry up to half a point of rounding per printed figure.",
+  "Bands: whether each published share falls inside the sealed 80% and 95% bands.",
+  "Claim: 'sealed before fieldwork' only if the wave's published fieldwork start is later than the attestation's block time; otherwise 'sealed before publication'."
+ ]
+}

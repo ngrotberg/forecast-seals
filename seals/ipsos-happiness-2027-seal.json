@@ -1,0 +1,540 @@
+{
+ "kind": "forward-seal-kit-1",
+ "target_id": "ipsos-happiness-2027",
+ "title": "Ipsos Happiness Index 2027: share of U.S. adults who say they are happy",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-27T00:21:54Z",
+ "made_at_note": "predictions.json was written at this time (file mtime, UTC)",
+ "sealed_at": "2026-10-27T00:22:02Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof ipsos-happiness-2027-seal.json.ots",
+ "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+ "code_note": "the commit of the private code repository that made the predictions; it cannot be checked from outside",
+ "method": {
+  "served": "ensemble_mean@0.4.0",
+  "members": [
+   "mrp_numpyro@0.5.0",
+   "gbm_pooled@0.1.0"
+  ],
+  "baseline": "carry_forward@0.1.0",
+  "history": "GSS 2000-2024 (13 waves), happiness; GSS 2024 was released 2025-05-22",
+  "frame": "frame:2023 (published 2024-10-17)",
+  "share": "happy (very or rather): the served shares of very_happy plus pretty_happy",
+  "offset": "forecast = engine share + the mean, over every earlier Ipsos wave fielded 2019-2026 that has a history vintage, of Ipsos's published total minus the engine's total from the history and frame published before that wave's fieldwork; one offset for every cell",
+  "offset_note": "Declared 2026-10-26, before any engine run for this target: the mean, over the Happiness Index waves Jun 2019, Aug 2020, Dec 2021, Jan 2023, Jan 2024, Jan 2025 and Jan 2026 (7 waves, all U.S. 18-74 and all after the first engine vintage, GSS 2018 released 2019-03-19), of Ipsos's printed U.S. happy share minus the engine's very_happy + pretty_happy share for the frame total from the vintage available at each wave's fieldwork start. The 18-64 tracker waves and Mar 2017 and Feb 2018 (age range not verified) stay out of the offset and baselines.",
+  "bands": "normal: 1.2816 and 1.96 times the root mean square of this method's out-of-time misses (evidence.json; the total's own for the total, every cell's pooled for the cells), centred on the forecast"
+ },
+ "study": {
+  "survey": "Ipsos Global Advisor online survey, Happiness Index 2027 edition, United States sample (about 1,000 adults aged 18-74, nonprobability online panel)",
+  "sponsor": "Ipsos",
+  "item": {
+   "wording": "Taking all things together, would you say you are: very happy, rather happy, not very happy, not happy at all?",
+   "options": [
+    "Very happy",
+    "Rather happy",
+    "Not very happy",
+    "Not happy at all"
+   ],
+   "headline": {
+    "name": "happy (very or rather)",
+    "options": [
+     "Very happy",
+     "Rather happy"
+    ]
+   },
+   "no_opinion_rule": "Ipsos prints the four answers for the U.S. without a don't-know row. The headline is Ipsos's printed 'happy' (very or rather) share, computed by Ipsos and taken as printed, not rescaled; it can differ by a point from the sum of the printed parts (Jan 2025: 15 + 53, printed 69)."
+  },
+  "catalog": {
+   "source": "gss",
+   "item_id": "happiness",
+   "labels": [
+    "very_happy",
+    "pretty_happy"
+   ],
+   "wording_match": "near",
+   "wording_note": "GSS HAPPY asks 'Taken all together, how would you say things are these days' with very happy, pretty happy, not too happy; Ipsos's 'not very happy' and 'not happy at all' fold into 'not too happy', 'rather' stands for 'pretty'. Ipsos is an online nonprobability panel of U.S. adults 18-74; the frame total is all adults 18+, and its 70+ band cannot be cut at 74. Declared treatment: score the frame total against Ipsos's U.S. total and leave the 75+ gap to the offset."
+  },
+  "expected_fieldwork": "2026-12-18 (inferred: the last four editions started Dec 22 2022, Dec 22 2023, Dec 20 2024 and Dec 24 2025; set to Fri Dec 18 as the earliest plausible start on that cadence. The edition before (2022) started Nov 19 2021, so seal_by is moved from 2026-12-04 to 2026-11-13 to keep 'before fieldwork' if Ipsos returns to a November start)",
+  "expected_release": "2027-03-15 (inferred: published 2023-03-14, 2024-03-18, 2025-03-18 and 2026-03-19, around the International Day of Happiness (Mar 20); 2022 came 2022-04-14. Set to Mon Mar 15 2027, the earliest weekday on that cadence)",
+  "cells": [
+   "total"
+  ],
+  "cells_map": {
+   "total": "United States"
+  },
+  "inferred_cells": [],
+  "inferred_cells_note": null,
+  "not_scored": {
+   "U.S. adults 75 and older": "outside Ipsos's U.S. universe (18-74); the frame's 70+ band cannot be split at 74 (see wording_note)",
+   "Age, gender and income groups": "the 2022-2026 reports print these only as multi-country averages or for other countries; no U.S. breakdown was found"
+  },
+  "items_assumption": "ASSUMPTION: the next wave asks the item with the wording and options quoted in study.item"
+ },
+ "notes": [],
+ "claim": "before fieldwork",
+ "claim_rule": "'sealed before fieldwork' only if the proof's block time precedes the published fieldwork start; otherwise 'before publication'",
+ "seal_by": "2026-11-13",
+ "void_after": "2027-09-13",
+ "predictions_json": {
+  "file": "predictions.json",
+  "sha256": "97ede335bdedf79be1463572c611e7fc8e73c6a1f1e5dca14267cf9bb01f3db5",
+  "bytes": 6448,
+  "hash_recipe": "sha256 over the file's bytes exactly as written by `prior-backtest extend --predict-only` (json.dumps(content, indent=2) followed by one newline)",
+  "content": {
+   "kind": "extend-predictions-1",
+   "study": "Ipsos Happiness Index 2027: share of U.S. adults who say they are happy (predictions)",
+   "fielded": "2026",
+   "history_source": "gss",
+   "frame_wave": "2023",
+   "output_label": "model-generated prediction, not a measurement",
+   "fielded_start": "2026-12-18",
+   "frame_published_on": "2024-10-17",
+   "frame_published_before_fielding": true,
+   "frame_dates_note": "frame:2023 is seeded from acs_pums 2023, published 2024-10-17 (ACS 2023 data release schedule, '1-Year Public Use Microdata Sample (PUMS) Files'; fielded continuously across calendar year 2023); the study's fieldwork began 2026-12-18, as supplied",
+   "history": {
+    "cut_at": "2026-12-18",
+    "start_assumed": false,
+    "before_wave": "2026",
+    "waves": [
+     "2000",
+     "2002",
+     "2004",
+     "2006",
+     "2008",
+     "2010",
+     "2012",
+     "2014",
+     "2016",
+     "2018",
+     "2021",
+     "2022",
+     "2024"
+    ],
+    "withheld": [],
+    "note": "GSS 2000-2016 (9 waves) have no recorded release date and count as released because GSS 2024, released 2025-05-22, came after them"
+   },
+   "ledger": "these predictions are not recorded in the prediction ledger and carry no ledger id; this report and its JSON file are the record",
+   "predictors": [
+    "carry_forward",
+    "mrp_numpyro",
+    "gbm_pooled",
+    "ensemble_mean"
+   ],
+   "method_ids": {
+    "carry_forward": "carry_forward@0.1.0",
+    "mrp_numpyro": "mrp_numpyro@0.5.0",
+    "gbm_pooled": "gbm_pooled@0.1.0",
+    "ensemble_mean": "ensemble_mean@0.4.0"
+   },
+   "git_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+   "git_dirty": false,
+   "started_at": "2026-10-27T00:20:44.678545+00:00",
+   "duration_s": 69.52730000001611,
+   "cells_supplied": {
+    "happiness": [
+     "total"
+    ]
+   },
+   "unmapped": {},
+   "unscored": [],
+   "notes": [],
+   "failures": [],
+   "predictions": [
+    {
+     "item_id": "happiness",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "very_happy",
+     "predicted": 0.2326954660899456,
+     "lower_80": 0.21936102961795917,
+     "upper_80": 0.24619060240328058,
+     "lower_95": 0.21283754047728262,
+     "upper_95": 0.25348238474259294,
+     "trained_through": "2024",
+     "n_train": 3146
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "pretty_happy",
+     "predicted": 0.563042838087324,
+     "lower_80": 0.5470467128072851,
+     "upper_80": 0.5788222958562587,
+     "lower_95": 0.5382562832800072,
+     "upper_95": 0.5864127188127134,
+     "trained_through": "2024",
+     "n_train": 3146
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "carry_forward",
+     "cut": "total",
+     "label": "not_too_happy",
+     "predicted": 0.2042616958227305,
+     "lower_80": 0.1918280932654303,
+     "upper_80": 0.21728534369434585,
+     "lower_95": 0.1846597855911286,
+     "upper_95": 0.22488068731951016,
+     "trained_through": "2024",
+     "n_train": 3146
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "very_happy",
+     "predicted": 0.22919225902952017,
+     "lower_80": 0.12798181381902954,
+     "upper_80": 0.37118656125830224,
+     "lower_95": 0.09465726969673888,
+     "upper_95": 0.4678600221059026,
+     "trained_through": "2024",
+     "n_train": 32185
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "pretty_happy",
+     "predicted": 0.5761878041155624,
+     "lower_80": 0.5055284439743012,
+     "upper_80": 0.5839123710502895,
+     "lower_95": 0.4496691989470719,
+     "upper_95": 0.5941990784707301,
+     "trained_through": "2024",
+     "n_train": 32185
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "mrp_numpyro",
+     "cut": "total",
+     "label": "not_too_happy",
+     "predicted": 0.19461993685491744,
+     "lower_80": 0.10853901173468251,
+     "upper_80": 0.3241407696660752,
+     "lower_95": 0.07091101516379447,
+     "upper_95": 0.4069843024893648,
+     "trained_through": "2024",
+     "n_train": 32185
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "very_happy",
+     "predicted": 0.2324027971023107,
+     "lower_80": 0.23043200688942245,
+     "upper_80": 0.23465986589000712,
+     "lower_95": 0.2303454670049905,
+     "upper_95": 0.23484419150272806,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "pretty_happy",
+     "predicted": 0.5563469295917522,
+     "lower_80": 0.5555350354650517,
+     "upper_80": 0.5571795242837758,
+     "lower_95": 0.5552094177139945,
+     "upper_95": 0.558398599964203,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "gbm_pooled",
+     "cut": "total",
+     "label": "not_too_happy",
+     "predicted": 0.21125027330593704,
+     "lower_80": 0.2099725559940793,
+     "upper_80": 0.2124544428693526,
+     "lower_95": 0.20983126385574408,
+     "upper_95": 0.21349232056829065,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "very_happy",
+     "predicted": 0.2319008029864288,
+     "lower_80": 0.13069035777593815,
+     "upper_80": 0.37389510521521085,
+     "lower_95": 0.09736581365364749,
+     "upper_95": 0.4705685660628112,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "pretty_happy",
+     "predicted": 0.5651136079464975,
+     "lower_80": 0.4944542478052363,
+     "upper_80": 0.5728381748812246,
+     "lower_95": 0.438595002778007,
+     "upper_95": 0.5831248823016651,
+     "trained_through": "2024",
+     "n_train": 400000
+    },
+    {
+     "item_id": "happiness",
+     "predictor": "ensemble_mean",
+     "cut": "total",
+     "label": "not_too_happy",
+     "predicted": 0.2029855890670738,
+     "lower_80": 0.11690466394683889,
+     "upper_80": 0.33250642187823154,
+     "lower_95": 0.07927666737595085,
+     "upper_95": 0.41534995470152114,
+     "trained_through": "2024",
+     "n_train": 400000
+    }
+   ]
+  }
+ },
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "1dbfc8951c6b9e9642b478ba4681b90a28986284e584a5002eacec3c475f4940"
+  },
+  "history": {
+   "file": "inputs/history.json",
+   "sha256": "57d107ca01ff317005d126cd0cab40583de013de85526e671e15aafed111797f",
+   "read_on": "2026-10-26",
+   "how_read": "Public Ipsos PDFs and pages only, PDFs converted with pdftotext -layout; the 2013 tracker chart rendered with pdftoppm and read by eye at 300 dpi (each total is within a point of its printed very + rather parts). Totals are Ipsos's printed U.S. 'happy' (very or rather) share. Happiness Index waves (Mar 2017 to Jan 2026): the trend table of the 2026 report, cross-checked against the 2022, 2023, 2024 and 2025 reports and releases, which print the same U.S. figures for every wave they share (the 2019 release prints only the U.S. change, -3 points from 2018). Fieldwork dates are from each edition's release; the 2019 release gives the 2011-2018 dates. 2010-2013: Ipsos's Global @dvisor monthly tracker asked the same question; its U.S. chart (Nov 2010 to Dec 2013) is in the Dec 2013 tracking report; those waves sampled U.S. adults 18-64, not 18-74, and their fieldwork and publication dates are not printed. Readings before Nov 2010 were not located. No U.S. subgroup results for this item were found in the 2022-2026 reports, so there are no cells. 'published' is the first release found (U.S. release where one exists), null where none was found."
+  }
+ },
+ "plan_sha256": "fb8faa15302b078a2a4556cc5f23f1c20e531996ecacf67a3038f194626b473e",
+ "questions_sha256": "2759e472c08b953e1daaf9ecf1b4d8a2daee8fbb9008a33bc37cea7c6e67aaa7",
+ "evidence_sha256": "a9216fe29ba066f6137f384f9b13895c62e42573891b55e81ef2753930e57cd5",
+ "method_ids": {
+  "carry_forward": "carry_forward@0.1.0",
+  "mrp_numpyro": "mrp_numpyro@0.5.0",
+  "gbm_pooled": "gbm_pooled@0.1.0",
+  "ensemble_mean": "ensemble_mean@0.4.0"
+ },
+ "offset": {
+  "value_points": -8.8858,
+  "window": [
+   "2019",
+   "2026"
+  ],
+  "waves": [
+   {
+    "wave": "Jun 2019",
+    "fielded_start": "2019-05-24",
+    "target_total": 79.0,
+    "engine_total": 87.291,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "Aug 2020",
+    "fielded_start": "2020-07-24",
+    "target_total": 70.0,
+    "engine_total": 87.291,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "Dec 2021",
+    "fielded_start": "2021-11-19",
+    "target_total": 76.0,
+    "engine_total": 87.291,
+    "vintage": "h2018-f2017.json"
+   },
+   {
+    "wave": "Jan 2023",
+    "fielded_start": "2022-12-22",
+    "target_total": 76.0,
+    "engine_total": 75.8681,
+    "vintage": "h2021-f2021.json"
+   },
+   {
+    "wave": "Jan 2024",
+    "fielded_start": "2023-12-22",
+    "target_total": 72.0,
+    "engine_total": 79.8587,
+    "vintage": "h2022-f2021.json"
+   },
+   {
+    "wave": "Jan 2025",
+    "fielded_start": "2024-12-20",
+    "target_total": 69.0,
+    "engine_total": 79.8994,
+    "vintage": "h2022-f2023.json"
+   },
+   {
+    "wave": "Jan 2026",
+    "fielded_start": "2025-12-24",
+    "target_total": 73.0,
+    "engine_total": 79.7014,
+    "vintage": "h2024-f2023.json"
+   }
+  ]
+ },
+ "forecast": {
+  "total": {
+   "share": 70.82,
+   "band_80": [
+    62.55,
+    79.09
+   ],
+   "band_95": [
+    58.17,
+    83.47
+   ],
+   "engine_share": 79.7,
+   "band_from_n_misses": 6
+  }
+ },
+ "not_sealed": {},
+ "baselines": {
+  "repeat_last_reading": {
+   "wave": "Jan 2026",
+   "fielded_start": "2025-12-24",
+   "older_readings": {},
+   "total": 73.0
+  },
+  "target_mean": {
+   "total_waves": 47,
+   "cell_waves": [],
+   "total": 82.32
+  }
+ },
+ "evidence": {
+  "total": {
+   "repeat_last_reading": {
+    "n_waves": 6,
+    "waves": [
+     "Aug 2020",
+     "Dec 2021",
+     "Jan 2023",
+     "Jan 2024",
+     "Jan 2025",
+     "Jan 2026"
+    ],
+    "n_cells": 6,
+    "miss_a": 4.8,
+    "miss_b": 4.33,
+    "gap": 0.46,
+    "gap_95": [
+     -2.9,
+     5.52
+    ],
+    "waves_a_better": 4
+   },
+   "target_mean": {
+    "n_waves": 6,
+    "waves": [
+     "Aug 2020",
+     "Dec 2021",
+     "Jan 2023",
+     "Jan 2024",
+     "Jan 2025",
+     "Jan 2026"
+    ],
+    "n_cells": 6,
+    "miss_a": 4.8,
+    "miss_b": 10.46,
+    "gap": -5.67,
+    "gap_95": [
+     -9.34,
+     -0.96
+    ],
+    "waves_a_better": 5
+   },
+   "target_mean_paired": {
+    "n_waves": 6,
+    "waves": [
+     "Aug 2020",
+     "Dec 2021",
+     "Jan 2023",
+     "Jan 2024",
+     "Jan 2025",
+     "Jan 2026"
+    ],
+    "n_cells": 6,
+    "miss_a": 4.8,
+    "miss_b": 3.5,
+    "gap": 1.29,
+    "gap_95": [
+     -1.85,
+     5.7
+    ],
+    "waves_a_better": 2
+   }
+  },
+  "cells": {
+   "repeat_last_reading": {
+    "n_cells": 0
+   },
+   "target_mean": {
+    "n_cells": 0
+   },
+   "target_mean_paired": {
+    "n_cells": 0
+   }
+  }
+ },
+ "vintage_inputs": [
+  {
+   "file": "vintages/h2018-f2017.json",
+   "sha256": "349bb0e000ba29fca6165e57ab1a624cc796f782092e28490234b9a154318445",
+   "through": "2018",
+   "frame": "2017",
+   "cut_at": "2019-05-24",
+   "available_from": "2019-03-19"
+  },
+  {
+   "file": "vintages/h2021-f2021.json",
+   "sha256": "61af9a2a3b20b81645da27b1fbb397c760828b59c5063e8476d9ff9b0b55f4a7",
+   "through": "2021",
+   "frame": "2021",
+   "cut_at": "2022-12-22",
+   "available_from": "2022-10-20"
+  },
+  {
+   "file": "vintages/h2022-f2021.json",
+   "sha256": "3221fea4f4d11bc217952032928ac04bf934c22fc14c1fd356e3f2503028c0f8",
+   "through": "2022",
+   "frame": "2021",
+   "cut_at": "2023-12-22",
+   "available_from": "2023-05-17"
+  },
+  {
+   "file": "vintages/h2022-f2023.json",
+   "sha256": "81647200bf9afd0b7d6cee2bb8467c41cdfa54ae238749826713a7f76ebb745f",
+   "through": "2022",
+   "frame": "2023",
+   "cut_at": "2024-12-20",
+   "available_from": "2024-10-17"
+  },
+  {
+   "file": "vintages/h2024-f2023.json",
+   "sha256": "b435dd53d8520b41d75e5be27739381034b0dedcd74c9347bcf1f490827be58d",
+   "through": "2024",
+   "frame": "2023",
+   "cut_at": "2025-12-24",
+   "available_from": "2025-05-22"
+  }
+ ],
+ "reviewed_evidence": {
+  "evidence_sha256": "cc2500e38629706b8e6e0ca7a7e077f9467c4542e990f19f22b9f099a5988915",
+  "code_commit": "ea6ac2f2f785f18c88e3fc95963dc2f9630c2c72",
+  "same_result": true,
+  "note": "the go/no-go evidence the owner read before sealing states the same backtest and the same forward point predictions as this seal's own run"
+ },
+ "scoring_plan": [
+  "Target: the first Ipsos Global Advisor online survey, Happiness Index 2027 edition, United States sample (about 1,000 adults aged 18-74, nonprobability online panel) release of the item quoted in study.item from its next wave (fieldwork expected from 2026-12-18), Ipsos's published figures.",
+  "Not scored, with the reason, if Ipsos does not ask the item in that wave, changes its wording or answer options, published the wave before this seal's OpenTimestamps attestation, or has not published it by 2027-09-13.",
+  "Share: happy (very or rather), the printed percentage of 'Very happy' plus 'Rather happy' (Ipsos prints the four answers for the U.S. without a don't-know row. The headline is Ipsos's printed 'happy' (very or rather) share, computed by Ipsos and taken as printed, not rescaled; it can differ by a point from the sum of the printed parts (Jan 2025: 15 + 53, printed 69).). Total: the topline. Cells: the published group each cut in study.cells maps to; a group the release does not publish is not scored.",
+  "Metric: absolute miss in points, for the forecast and for both sealed baselines. Headline = the total. Printed integers carry up to half a point of rounding per printed figure.",
+  "Bands: whether each published share falls inside the sealed 80% and 95% bands.",
+  "Claim: 'sealed before fieldwork' only if the wave's published fieldwork start is later than the attestation's block time; otherwise 'sealed before publication'."
+ ]
+}
