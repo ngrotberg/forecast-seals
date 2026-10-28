@@ -5,7 +5,8 @@ General Social Survey (GSS) and the Cooperative Election Study (CES), with their
 OpenTimestamps proofs and a script, `verify.py`, that checks a seal against the published
 forecast rows. It also holds forward seals: predictions of the next published reading of
 recurring Gallup, Marquette, Pew, Ipsos and Federal Reserve survey items, each made and
-timestamped before that reading was published (sections below).
+timestamped before that reading was published, and a series seal of Census Bureau
+American Community Survey estimates (sections below).
 
 Every figure in these forecasts is a model-generated prediction, not a measurement.
 
@@ -228,6 +229,39 @@ the published fieldwork start is later than the block time.
 
 Check each with `shasum -a 256 seals/<file>` against the digest above and `ots verify
 seals/<file>.ots`.
+
+## Series seal: ACS 2025 1-year estimates, sealed 2026-10-27
+
+One seal file holding forecasts of six headline indicators from the Census Bureau's American
+Community Survey 2025 1-year estimates, for every state, DC and the US (52 geographies, 312
+cells). Each indicator's method was chosen by a rule stated in the file before sealing: serve the
+method with the lowest out-of-time error over past years, or the ensemble where its gap to that
+method cannot be told from zero, and do not seal an indicator where repeating last year's value
+wins. Two indicators failed that test and are not sealed: the uninsured rate and work from home.
+Each forecast will be scored by absolute error against the value Census first publishes, beside
+two baselines: repeating the 2024 value (`random_walk`) and a straight-line trend (`drift`).
+
+| Indicator | US 2024 | US forecast, 2025 (80% band) | Method served |
+| --- | --- | --- | --- |
+| Households with a broadband subscription, % | 93.2 | 93.97 (93.31-94.64) | `ensemble_mean` |
+| Median household income, nominal $ | 81,604 | 85,098 (82,199-88,100) | `drift` |
+| People below the poverty level, % | 12.1 | 11.97 (11.40-12.54) | `ensemble_mean` |
+| Adults 25+ with a bachelor's degree or higher, % | 36.8 | 37.22 (36.84-37.60) | `ensemble_mean` |
+| Population born outside the US, % | 14.8 | 14.90 (14.46-15.34) | `ensemble_mean` |
+| Median gross rent, nominal $ | 1,487 | 1,558 (1,460-1,662) | `drift` |
+
+| Seal file | Release (announced by Census) | Digest (sha256 of the file) |
+| --- | --- | --- |
+| `seals/acs-2025-seal.json` | 2026-10-29 | `f06878108f0101d5c7781202df647daf07afbd7a535775765551bbbc989e216f` |
+
+The forecasts were sealed at 2026-10-27 21:18 UTC and the proof is anchored in Bitcoin block
+973461, mined 2026-10-27 21:27:06 UTC, two days before the release. The claim is "sealed before
+publication"; the file states that the seal is void if the block time is on or after the release.
+The file also lists its caveats, including the October-November 2025 federal shutdown during
+collection and the 2024 change to the contract-rent cap.
+
+Check it with `shasum -a 256 seals/acs-2025-seal.json` against the digest above and `ots verify
+seals/acs-2025-seal.json.ots`.
 
 ## When the waves resolve
 
