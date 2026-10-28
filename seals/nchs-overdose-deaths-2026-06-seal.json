@@ -1,0 +1,348 @@
+{
+ "kind": "series-seal-2",
+ "target_id": "nchs-overdose-deaths-2026-06",
+ "title": "US drug overdose deaths, 12 months ending June 2026 (provisional, predicted)",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-28T21:17:08Z",
+ "made_at_note": "evidence.json, which holds the forecast, was written at this time (UTC)",
+ "sealed_at": "2026-10-28T21:17:08Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof nchs-overdose-deaths-2026-06-seal.json.ots",
+ "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_dirty": false,
+ "evidence_code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_note": "the commit of the private code repository that built the seal and the one that ran the evidence; the seal's numbers recompute from its inputs either way",
+ "series": {
+  "id": "xkb8-kh2a:US:predicted_value",
+  "name": "Provisional drug overdose deaths, 12-month-ending, United States (predicted value, adjusted for reporting delays)",
+  "publisher": "CDC National Center for Health Statistics",
+  "program": "NVSS Vital Statistics Rapid Release: Provisional Drug Overdose Death Counts",
+  "units": "deaths in the 12 months ending in the period",
+  "frequency": "monthly",
+  "seasonal_adjustment": "not applicable",
+  "decimals": 0
+ },
+ "target": {
+  "period": "2026-06",
+  "release": "2026-11-18",
+  "release_basis": "inferred: NCHS updates the counts monthly with no announced date (https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm 'updated on a monthly basis'); the 2026-10-14 update (dataset Last-Modified) carried data through May 2026, so June is expected in mid-November"
+ },
+ "vintage": {
+  "rule": "first_print",
+  "first_print_until": "2026-12-09",
+  "note": "Provisional counts are revised at every monthly update as delayed records arrive. The first print is the predicted value in the first update that holds June 2026, read before the next update (inferred mid-December; 2026-12-09 is a conservative bound)."
+ },
+ "notes": [
+  "The release date is inferred, not announced: if NCHS publishes June before the seal's attestation, the seal is void. The scorer also checks the file's Last-Modified header against the attestation.",
+  "A 12-month-ending total has no seasonal pattern, so the spec says 'not applicable' and the defaults add no seasonal term.",
+  "The predicted value is scored, not the reported count: it is the figure NCHS leads with."
+ ],
+ "claim": "before publication",
+ "claim_rule": "'sealed before publication' only if the OpenTimestamps attestation's block time precedes the release; a seal attested on or after the release is void",
+ "seal_by": "2026-11-08",
+ "void_after": "2027-05-19",
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "3b322525f4d39ed7636bdb61cb5cb4d1237d596bec326e94cc9fa8af3125bfb3"
+  },
+  "fetch_record": {
+   "file": "inputs/fetch.json",
+   "sha256": "3904f80ae7dc3688a74d303e2d0a7d004a9124c42acd3ed7e0a8dda9d0f58fb4"
+  },
+  "data": {
+   "file": "inputs/20261028T211638Z.csv",
+   "url": "https://data.cdc.gov/resource/xkb8-kh2a.csv?state=US&indicator=Number%20of%20Drug%20Overdose%20Deaths&$limit=50000",
+   "retrieved_at": "2026-10-28T21:16:38Z",
+   "bytes": 28028,
+   "sha256": "94bf6813a606917bd039794e5046c4f37489a1ffa90d07e4a8817c56088b8196",
+   "last_modified": "Wed, 14 Oct 2026 14:05:28 GMT"
+  },
+  "evidence": {
+   "file": "evidence.json",
+   "sha256": "6b4dcd1ac4725f5585a2db4e3e3ff5042a1955a5374b808c59011c14ffe807ee"
+  }
+ },
+ "horizon": 1,
+ "data": {
+  "last_observation": "2026-05",
+  "last_value": 66478.0,
+  "n_observed": 137,
+  "gaps_on_grid": []
+ },
+ "forecast": {
+  "period": "2026-06",
+  "served": "ets",
+  "point": 65780.93,
+  "band_80": [
+   65202.29,
+   66364.7
+  ],
+  "band_95": [
+   64884.02,
+   66690.23
+  ],
+  "units": "deaths in the 12 months ending in the period",
+  "published_decimals": 0,
+  "change_from_last": -697.07,
+  "band_from_n_residuals": 60
+ },
+ "methods": {
+  "random_walk": {
+   "point": 66478.0,
+   "band_80": [
+    65167.24,
+    67815.12
+   ],
+   "band_95": [
+    64552.51,
+    68460.93
+   ]
+  },
+  "seasonal_naive": {
+   "point": 74120.0,
+   "band_80": [
+    59340.45,
+    92580.6
+   ],
+   "band_95": [
+    55526.79,
+    98939.16
+   ]
+  },
+  "drift": {
+   "point": 66638.85,
+   "band_80": [
+    65048.35,
+    68268.25
+   ],
+   "band_95": [
+    64359.46,
+    68998.98
+   ]
+  },
+  "ets": {
+   "point": 65780.93,
+   "band_80": [
+    65202.29,
+    66364.7
+   ],
+   "band_95": [
+    64884.02,
+    66690.23
+   ]
+  },
+  "ensemble_mean": {
+   "point": 66298.21,
+   "band_80": [
+    65331.08,
+    67279.66
+   ],
+   "band_95": [
+    64684.79,
+    67951.87
+   ]
+  }
+ },
+ "selection": {
+  "rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "mae": {
+   "random_walk": 904.116,
+   "seasonal_naive": 9828.248,
+   "drift": 947.188,
+   "ets": 451.442,
+   "ensemble_mean": 681.536
+  },
+  "winner": "ets",
+  "served": "ets",
+  "basis": "ets has the lowest MAE; the ensemble is worse by +230.094 (95% interval +105.65 to +364.735)",
+  "sealed": true,
+  "reason": null
+ },
+ "evidence": {
+  "origins": {
+   "first": "2015-08",
+   "last": "2026-04",
+   "n": 129
+  },
+  "by_method": {
+   "random_walk": {
+    "mae": 904.116,
+    "rmse": 1175.111,
+    "median_ae": 759.0,
+    "coverage_80": 0.8091,
+    "coverage_95": 0.9727,
+    "n_banded": 110
+   },
+   "seasonal_naive": {
+    "mae": 9828.248,
+    "rmse": 12510.388,
+    "median_ae": 8616.0,
+    "coverage_80": 0.7818,
+    "coverage_95": 0.8727,
+    "n_banded": 110
+   },
+   "drift": {
+    "mae": 947.188,
+    "rmse": 1249.358,
+    "median_ae": 776.932,
+    "coverage_80": 0.6909,
+    "coverage_95": 0.9091,
+    "n_banded": 110
+   },
+   "ets": {
+    "mae": 451.442,
+    "rmse": 605.429,
+    "median_ae": 348.678,
+    "coverage_80": 0.7909,
+    "coverage_95": 0.9636,
+    "n_banded": 110
+   },
+   "ensemble_mean": {
+    "mae": 681.536,
+    "rmse": 918.979,
+    "median_ae": 473.726,
+    "coverage_80": 0.7545,
+    "coverage_95": 0.9364,
+    "n_banded": 110
+   }
+  },
+  "served_against": {
+   "random_walk": {
+    "gap": -452.674,
+    "gap_95": [
+     -639.585,
+     -256.943
+    ],
+    "relative_mae": 0.4993,
+    "verdict": "better"
+   },
+   "seasonal_naive": {
+    "gap": -9376.806,
+    "gap_95": [
+     -12275.615,
+     -6721.47
+    ],
+    "relative_mae": 0.0459,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": -495.746,
+    "gap_95": [
+     -726.176,
+     -283.928
+    ],
+    "relative_mae": 0.4766,
+    "verdict": "better"
+   },
+   "ensemble_mean": {
+    "gap": -230.094,
+    "gap_95": [
+     -364.735,
+     -105.65
+    ],
+    "relative_mae": 0.6624,
+    "verdict": "better"
+   }
+  },
+  "ensemble_against": {
+   "random_walk": {
+    "gap": -222.58,
+    "gap_95": [
+     -343.683,
+     -98.111
+    ],
+    "relative_mae": 0.7538,
+    "verdict": "better"
+   },
+   "seasonal_naive": {
+    "gap": -9146.712,
+    "gap_95": [
+     -12000.08,
+     -6542.617
+    ],
+    "relative_mae": 0.0693,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": -265.653,
+    "gap_95": [
+     -391.459,
+     -142.214
+    ],
+    "relative_mae": 0.7195,
+    "verdict": "better"
+   },
+   "ets": {
+    "gap": 230.094,
+    "gap_95": [
+     105.65,
+     364.735
+    ],
+    "relative_mae": 1.5097,
+    "verdict": "worse"
+   }
+  }
+ },
+ "method": {
+  "served": "series.ets@0.1.0",
+  "selection_rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "methods": {
+   "random_walk": "series.random_walk@0.1.0",
+   "seasonal_naive": "series.seasonal_naive@0.1.0",
+   "drift": "series.drift@0.1.0",
+   "ets": "series.ets@0.1.0",
+   "ensemble_mean": "series.ensemble_mean@0.1.0"
+  },
+  "members": [
+   "series.random_walk@0.1.0",
+   "series.drift@0.1.0",
+   "series.ets@0.1.0"
+  ],
+  "baselines": [
+   "series.random_walk@0.1.0",
+   "series.seasonal_naive@0.1.0",
+   "series.drift@0.1.0"
+  ],
+  "ets": {
+   "alpha": 0.99,
+   "beta": 0.2,
+   "phi": 0.98,
+   "gamma": null,
+   "seasonal": false
+  },
+  "config": {
+   "transform": "log",
+   "ensemble": [
+    "random_walk",
+    "drift",
+    "ets"
+   ],
+   "ets_seasonal": false,
+   "season": 12,
+   "fit_window": 240,
+   "origins": 180,
+   "calibration_window": 60,
+   "void_after": "2027-05-19"
+  },
+  "point": {
+   "random_walk": "the last value",
+   "seasonal_naive": "the value one season before the target",
+   "drift": "the last value plus h times the mean change over the fit window",
+   "ets": "damped-trend exponential smoothing, weights from a fixed grid by the least in-sample one-step squared error",
+   "ensemble_mean": "the mean of random_walk, drift, ets on the log scale (a geometric mean)"
+  },
+  "bands": "split-conformal, every method its own: the point plus or minus the ceil((n+1)*level)-th smallest absolute 1-step-ahead residual of that method over its newest 60 rolling-origin backtest origins, on the log scale"
+ },
+ "reviewed_evidence": {
+  "evidence_sha256": "6b474b97a91aa79c2671f6c67db0a524f6d48010d4cdef8289abf539e6243202",
+  "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+  "same_result": true
+ },
+ "scoring_plan": [
+  "Target: Provisional drug overdose deaths, 12-month-ending, United States (predicted value, adjusted for reporting delays) (xkb8-kh2a:US:predicted_value), 2026-06, as published by CDC National Center for Health Statistics and read from https://data.cdc.gov/resource/xkb8-kh2a.csv?state=US&indicator=Number%20of%20Drug%20Overdose%20Deaths&$limit=50000.",
+  "Value scored against: the first print: the value CDC National Center for Health Statistics publishes for 2026-06 on release day, read from the spec's URL on or after the release and before 2026-12-09, when the next release may revise it. The scorer records the value, the retrieval time and the sha256 of the raw response. Vintage note: Provisional counts are revised at every monthly update as delayed records arrive. The first print is the predicted value in the first update that holds June 2026, read before the next update (inferred mid-December; 2026-12-09 is a conservative bound).",
+  "Not scored, with the reason, if the period is not published by 2027-05-19, if it was published before this seal's OpenTimestamps attestation, or if the series is redefined.",
+  "Metric: absolute error in deaths in the 12 months ending in the period for the served forecast (ets, the headline) and for every other sealed method, the three baselines (random walk, seasonal naive, drift) among them; whether the published value falls inside each method's sealed 80% and 95% bands; the interval score at both levels. Published to 0 decimal place(s), so the published value carries up to half a unit of rounding in its last place.",
+  "Claim: 'sealed before publication' when the attestation's block time precedes the release."
+ ]
+}

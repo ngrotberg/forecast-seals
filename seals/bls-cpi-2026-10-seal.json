@@ -1,0 +1,349 @@
+{
+ "kind": "series-seal-2",
+ "target_id": "bls-cpi-2026-10",
+ "title": "US consumer price index (CPI-U, all items), October 2026",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-28T21:17:09Z",
+ "made_at_note": "evidence.json, which holds the forecast, was written at this time (UTC)",
+ "sealed_at": "2026-10-28T21:17:09Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof bls-cpi-2026-10-seal.json.ots",
+ "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_dirty": false,
+ "evidence_code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_note": "the commit of the private code repository that built the seal and the one that ran the evidence; the seal's numbers recompute from its inputs either way",
+ "series": {
+  "id": "CPIAUCSL",
+  "name": "Consumer Price Index for All Urban Consumers: all items in U.S. city average",
+  "publisher": "U.S. Bureau of Labor Statistics",
+  "program": "Consumer Price Index",
+  "units": "index 1982-1984=100",
+  "frequency": "monthly",
+  "seasonal_adjustment": "seasonally adjusted",
+  "decimals": 3
+ },
+ "target": {
+  "period": "2026-10",
+  "release": "2026-11-10",
+  "release_time": "08:30 America/New_York",
+  "release_basis": "announced: https://www.bls.gov/schedule/news_release/cpi.htm ('October 2026 / Nov. 10, 2026 / 08:30 AM')"
+ },
+ "vintage": {
+  "rule": "first_print",
+  "first_print_until": "2026-12-10",
+  "note": "Seasonally adjusted indexes are revised for five years each February; the next CPI release (2026-12-10, announced) is the bound."
+ },
+ "notes": [
+  "The month-over-month change is the headline; it follows from the sealed level and September's index (336.298 on 2026-10-27)."
+ ],
+ "claim": "before publication",
+ "claim_rule": "'sealed before publication' only if the OpenTimestamps attestation's block time precedes the release; a seal attested on or after the release is void",
+ "seal_by": "2026-11-09",
+ "void_after": "2027-05-11",
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "9bbf8279f93dcf0f8c203a473318a40fb2987f789a2c269c5407b1b1135db12e"
+  },
+  "fetch_record": {
+   "file": "inputs/fetch.json",
+   "sha256": "3b59408539ea7293d251dc1bdd32ff25a54c7571ad6bc1a197f9edab84596617"
+  },
+  "data": {
+   "file": "inputs/20261028T211639Z.csv",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL",
+   "retrieved_at": "2026-10-28T21:16:39Z",
+   "bytes": 17763,
+   "sha256": "8556b710094027fa4724641d48be620cc37c04abfa15a0c496378cf1146c1549",
+   "last_modified": "Wed, 14 Oct 2026 13:08:29 GMT"
+  },
+  "evidence": {
+   "file": "evidence.json",
+   "sha256": "ed5e5b908a8d7f3a0ac55637c36fa1a3ff74f6c08f1f7fe2ee751997772a551f"
+  }
+ },
+ "horizon": 1,
+ "data": {
+  "last_observation": "2026-09",
+  "last_value": 336.298,
+  "n_observed": 956,
+  "gaps_on_grid": [
+   "2025-10"
+  ]
+ },
+ "forecast": {
+  "period": "2026-10",
+  "served": "ets",
+  "point": 337.19176,
+  "band_80": [
+   336.02105,
+   338.36655
+  ],
+  "band_95": [
+   334.88836,
+   339.511
+  ],
+  "units": "index 1982-1984=100",
+  "published_decimals": 3,
+  "change_from_last": 0.89376,
+  "band_from_n_residuals": 60
+ },
+ "methods": {
+  "random_walk": {
+   "point": 336.298,
+   "band_80": [
+    334.42696,
+    338.1795
+   ],
+   "band_95": [
+    333.08763,
+    339.53931
+   ]
+  },
+  "seasonal_naive": {
+   "point": 324.65374,
+   "band_80": [
+    303.06673,
+    347.77836
+   ],
+   "band_95": [
+    299.11481,
+    352.37323
+   ]
+  },
+  "drift": {
+   "point": 337.01671,
+   "band_80": [
+    335.63349,
+    338.40563
+   ],
+   "band_95": [
+    334.40515,
+    339.64866
+   ]
+  },
+  "ets": {
+   "point": 337.19176,
+   "band_80": [
+    336.02105,
+    338.36655
+   ],
+   "band_95": [
+    334.88836,
+    339.511
+   ]
+  },
+  "ensemble_mean": {
+   "point": 336.83527,
+   "band_80": [
+    335.59152,
+    338.08363
+   ],
+   "band_95": [
+    334.23275,
+    339.45804
+   ]
+  }
+ },
+ "selection": {
+  "rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "mae": {
+   "random_walk": 0.746361,
+   "seasonal_naive": 7.14605,
+   "drift": 0.514715,
+   "ets": 0.498163,
+   "ensemble_mean": 0.549741
+  },
+  "winner": "ets",
+  "served": "ets",
+  "basis": "ets has the lowest MAE; the ensemble is worse by +0.051577 (95% interval +0.007447 to +0.108852)",
+  "sealed": true,
+  "reason": null
+ },
+ "evidence": {
+  "origins": {
+   "first": "2011-07",
+   "last": "2026-08",
+   "n": 180
+  },
+  "by_method": {
+   "random_walk": {
+    "mae": 0.746361,
+    "rmse": 0.978809,
+    "median_ae": 0.5925,
+    "coverage_80": 0.7702,
+    "coverage_95": 0.9068,
+    "n_banded": 161
+   },
+   "seasonal_naive": {
+    "mae": 7.14605,
+    "rmse": 8.968633,
+    "median_ae": 5.272,
+    "coverage_80": 0.7329,
+    "coverage_95": 0.8758,
+    "n_banded": 161
+   },
+   "drift": {
+    "mae": 0.514715,
+    "rmse": 0.74954,
+    "median_ae": 0.335799,
+    "coverage_80": 0.7826,
+    "coverage_95": 0.9255,
+    "n_banded": 161
+   },
+   "ets": {
+    "mae": 0.498163,
+    "rmse": 0.688225,
+    "median_ae": 0.358744,
+    "coverage_80": 0.8075,
+    "coverage_95": 0.9503,
+    "n_banded": 161
+   },
+   "ensemble_mean": {
+    "mae": 0.549741,
+    "rmse": 0.758597,
+    "median_ae": 0.381712,
+    "coverage_80": 0.795,
+    "coverage_95": 0.9317,
+    "n_banded": 161
+   }
+  },
+  "served_against": {
+   "random_walk": {
+    "gap": -0.248198,
+    "gap_95": [
+     -0.363181,
+     -0.15081
+    ],
+    "relative_mae": 0.6675,
+    "verdict": "better"
+   },
+   "seasonal_naive": {
+    "gap": -6.647887,
+    "gap_95": [
+     -8.605262,
+     -4.824283
+    ],
+    "relative_mae": 0.0697,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": -0.016551,
+    "gap_95": [
+     -0.089383,
+     0.039354
+    ],
+    "relative_mae": 0.9678,
+    "verdict": "tie"
+   },
+   "ensemble_mean": {
+    "gap": -0.051577,
+    "gap_95": [
+     -0.108852,
+     -0.007447
+    ],
+    "relative_mae": 0.9062,
+    "verdict": "better"
+   }
+  },
+  "ensemble_against": {
+   "random_walk": {
+    "gap": -0.19662,
+    "gap_95": [
+     -0.264215,
+     -0.1376
+    ],
+    "relative_mae": 0.7366,
+    "verdict": "better"
+   },
+   "seasonal_naive": {
+    "gap": -6.596309,
+    "gap_95": [
+     -8.540149,
+     -4.806622
+    ],
+    "relative_mae": 0.0769,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": 0.035026,
+    "gap_95": [
+     -0.001052,
+     0.065965
+    ],
+    "relative_mae": 1.068,
+    "verdict": "tie"
+   },
+   "ets": {
+    "gap": 0.051577,
+    "gap_95": [
+     0.007447,
+     0.108852
+    ],
+    "relative_mae": 1.1035,
+    "verdict": "worse"
+   }
+  }
+ },
+ "method": {
+  "served": "series.ets@0.1.0",
+  "selection_rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "methods": {
+   "random_walk": "series.random_walk@0.1.0",
+   "seasonal_naive": "series.seasonal_naive@0.1.0",
+   "drift": "series.drift@0.1.0",
+   "ets": "series.ets@0.1.0",
+   "ensemble_mean": "series.ensemble_mean@0.1.0"
+  },
+  "members": [
+   "series.random_walk@0.1.0",
+   "series.drift@0.1.0",
+   "series.ets@0.1.0"
+  ],
+  "baselines": [
+   "series.random_walk@0.1.0",
+   "series.seasonal_naive@0.1.0",
+   "series.drift@0.1.0"
+  ],
+  "ets": {
+   "alpha": 0.99,
+   "beta": 0.2,
+   "phi": 0.95,
+   "gamma": null,
+   "seasonal": false
+  },
+  "config": {
+   "transform": "log",
+   "ensemble": [
+    "random_walk",
+    "drift",
+    "ets"
+   ],
+   "ets_seasonal": false,
+   "season": 12,
+   "fit_window": 240,
+   "origins": 180,
+   "calibration_window": 60,
+   "void_after": "2027-05-11"
+  },
+  "point": {
+   "random_walk": "the last value",
+   "seasonal_naive": "the value one season before the target",
+   "drift": "the last value plus h times the mean change over the fit window",
+   "ets": "damped-trend exponential smoothing, weights from a fixed grid by the least in-sample one-step squared error",
+   "ensemble_mean": "the mean of random_walk, drift, ets on the log scale (a geometric mean)"
+  },
+  "bands": "split-conformal, every method its own: the point plus or minus the ceil((n+1)*level)-th smallest absolute 1-step-ahead residual of that method over its newest 60 rolling-origin backtest origins, on the log scale"
+ },
+ "reviewed_evidence": {
+  "evidence_sha256": "302563dc2d598e63e8933ed97427c6a434fe140d9a35eed7f5a60c323f5e40bb",
+  "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+  "same_result": true
+ },
+ "scoring_plan": [
+  "Target: Consumer Price Index for All Urban Consumers: all items in U.S. city average (CPIAUCSL), 2026-10, as published by U.S. Bureau of Labor Statistics and read from https://fred.stlouisfed.org/graph/fredgraph.csv?id=CPIAUCSL.",
+  "Value scored against: the first print: the value U.S. Bureau of Labor Statistics publishes for 2026-10 on release day, read from the spec's URL on or after the release and before 2026-12-10, when the next release may revise it. The scorer records the value, the retrieval time and the sha256 of the raw response. Vintage note: Seasonally adjusted indexes are revised for five years each February; the next CPI release (2026-12-10, announced) is the bound.",
+  "Not scored, with the reason, if the period is not published by 2027-05-11, if it was published before this seal's OpenTimestamps attestation, or if the series is redefined.",
+  "Metric: absolute error in index 1982-1984=100 for the served forecast (ets, the headline) and for every other sealed method, the three baselines (random walk, seasonal naive, drift) among them; whether the published value falls inside each method's sealed 80% and 95% bands; the interval score at both levels. Published to 3 decimal place(s), so the published value carries up to half a unit of rounding in its last place.",
+  "Claim: 'sealed before publication' when the attestation's block time precedes the release."
+ ]
+}

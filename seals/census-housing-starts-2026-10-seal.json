@@ -1,0 +1,347 @@
+{
+ "kind": "series-seal-2",
+ "target_id": "census-housing-starts-2026-10",
+ "title": "US housing starts, October 2026",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-28T21:17:13Z",
+ "made_at_note": "evidence.json, which holds the forecast, was written at this time (UTC)",
+ "sealed_at": "2026-10-28T21:17:13Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof census-housing-starts-2026-10-seal.json.ots",
+ "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_dirty": false,
+ "evidence_code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_note": "the commit of the private code repository that built the seal and the one that ran the evidence; the seal's numbers recompute from its inputs either way",
+ "series": {
+  "id": "HOUST",
+  "name": "New privately-owned housing units started: total units",
+  "publisher": "U.S. Census Bureau (with HUD)",
+  "program": "New Residential Construction",
+  "units": "thousands of units, seasonally adjusted annual rate",
+  "frequency": "monthly",
+  "seasonal_adjustment": "seasonally adjusted",
+  "decimals": 0
+ },
+ "target": {
+  "period": "2026-10",
+  "release": "2026-11-18",
+  "release_time": "08:30 America/New_York",
+  "release_basis": "announced: https://www.census.gov/economic-indicators/calendar-listview-2026.html ('November 18, 2026 8:30 AM New Residential Construction ... October 2026')"
+ },
+ "vintage": {
+  "rule": "first_print",
+  "first_print_until": "2026-12-17",
+  "note": "Revised in the next two monthly releases; the first print stands until the November release (2026-12-17, announced)."
+ },
+ "notes": [
+  "Census publishes wide sampling intervals for monthly starts; a miss inside them is not evidence against the method."
+ ],
+ "claim": "before publication",
+ "claim_rule": "'sealed before publication' only if the OpenTimestamps attestation's block time precedes the release; a seal attested on or after the release is void",
+ "seal_by": "2026-11-17",
+ "void_after": "2027-05-19",
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "07c98fe2e44aad4b84c50abe8f9fc87338ffa9aae2d8ed78f59b20ee28c3428b"
+  },
+  "fetch_record": {
+   "file": "inputs/fetch.json",
+   "sha256": "fbae567131385dc4ce7fdf227b3750174786dd76d0129a1fb53eb8a38b28f36d"
+  },
+  "data": {
+   "file": "inputs/20261028T211641Z.csv",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=HOUST",
+   "retrieved_at": "2026-10-28T21:16:41Z",
+   "bytes": 12937,
+   "sha256": "47bc24513586c26b5467da890f86ba9ec905f8af8986dec70849945678e85c76",
+   "last_modified": "Tue, 20 Oct 2026 12:33:37 GMT"
+  },
+  "evidence": {
+   "file": "evidence.json",
+   "sha256": "3e1519149c0af15d1a12ffc1dc17495d59184017c83de6d1121dc2d68546509e"
+  }
+ },
+ "horizon": 1,
+ "data": {
+  "last_observation": "2026-09",
+  "last_value": 1221.0,
+  "n_observed": 813,
+  "gaps_on_grid": []
+ },
+ "forecast": {
+  "period": "2026-10",
+  "served": "ets",
+  "point": 1265.22,
+  "band_80": [
+   1149.2,
+   1392.95
+  ],
+  "band_95": [
+   1100.79,
+   1454.21
+  ],
+  "units": "thousands of units, seasonally adjusted annual rate",
+  "published_decimals": 0,
+  "change_from_last": 44.22,
+  "band_from_n_residuals": 60
+ },
+ "methods": {
+  "random_walk": {
+   "point": 1221.0,
+   "band_80": [
+    1101.45,
+    1353.53
+   ],
+   "band_95": [
+    1019.14,
+    1462.84
+   ]
+  },
+  "seasonal_naive": {
+   "point": 1273.0,
+   "band_80": [
+    1097.67,
+    1476.33
+   ],
+   "band_95": [
+    1021.11,
+    1587.03
+   ]
+  },
+  "drift": {
+   "point": 1219.98,
+   "band_80": [
+    1101.61,
+    1351.07
+   ],
+   "band_95": [
+    1018.63,
+    1461.13
+   ]
+  },
+  "ets": {
+   "point": 1265.22,
+   "band_80": [
+    1149.2,
+    1392.95
+   ],
+   "band_95": [
+    1100.79,
+    1454.21
+   ]
+  },
+  "ensemble_mean": {
+   "point": 1235.22,
+   "band_80": [
+    1115.72,
+    1367.52
+   ],
+   "band_95": [
+    1045.24,
+    1459.74
+   ]
+  }
+ },
+ "selection": {
+  "rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "mae": {
+   "random_walk": 86.283,
+   "seasonal_naive": 131.483,
+   "drift": 86.453,
+   "ets": 73.981,
+   "ensemble_mean": 80.949
+  },
+  "winner": "ets",
+  "served": "ets",
+  "basis": "ets has the lowest MAE; the ensemble is worse by +6.968 (95% interval +2.473 to +10.743)",
+  "sealed": true,
+  "reason": null
+ },
+ "evidence": {
+  "origins": {
+   "first": "2011-09",
+   "last": "2026-08",
+   "n": 180
+  },
+  "by_method": {
+   "random_walk": {
+    "mae": 86.283,
+    "rmse": 110.233,
+    "median_ae": 70.0,
+    "coverage_80": 0.8075,
+    "coverage_95": 0.9565,
+    "n_banded": 161
+   },
+   "seasonal_naive": {
+    "mae": 131.483,
+    "rmse": 173.201,
+    "median_ae": 98.0,
+    "coverage_80": 0.8696,
+    "coverage_95": 0.9752,
+    "n_banded": 161
+   },
+   "drift": {
+    "mae": 86.453,
+    "rmse": 110.421,
+    "median_ae": 69.114,
+    "coverage_80": 0.8075,
+    "coverage_95": 0.9565,
+    "n_banded": 161
+   },
+   "ets": {
+    "mae": 73.981,
+    "rmse": 102.465,
+    "median_ae": 54.488,
+    "coverage_80": 0.8137,
+    "coverage_95": 0.9503,
+    "n_banded": 161
+   },
+   "ensemble_mean": {
+    "mae": 80.949,
+    "rmse": 105.912,
+    "median_ae": 62.397,
+    "coverage_80": 0.8261,
+    "coverage_95": 0.9503,
+    "n_banded": 161
+   }
+  },
+  "served_against": {
+   "random_walk": {
+    "gap": -12.302,
+    "gap_95": [
+     -17.261,
+     -6.49
+    ],
+    "relative_mae": 0.8574,
+    "verdict": "better"
+   },
+   "seasonal_naive": {
+    "gap": -57.502,
+    "gap_95": [
+     -83.252,
+     -34.89
+    ],
+    "relative_mae": 0.5627,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": -12.471,
+    "gap_95": [
+     -17.433,
+     -6.658
+    ],
+    "relative_mae": 0.8557,
+    "verdict": "better"
+   },
+   "ensemble_mean": {
+    "gap": -6.968,
+    "gap_95": [
+     -10.743,
+     -2.473
+    ],
+    "relative_mae": 0.9139,
+    "verdict": "better"
+   }
+  },
+  "ensemble_against": {
+   "random_walk": {
+    "gap": -5.334,
+    "gap_95": [
+     -6.778,
+     -3.682
+    ],
+    "relative_mae": 0.9382,
+    "verdict": "better"
+   },
+   "seasonal_naive": {
+    "gap": -50.534,
+    "gap_95": [
+     -76.97,
+     -27.873
+    ],
+    "relative_mae": 0.6157,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": -5.503,
+    "gap_95": [
+     -6.947,
+     -3.891
+    ],
+    "relative_mae": 0.9363,
+    "verdict": "better"
+   },
+   "ets": {
+    "gap": 6.968,
+    "gap_95": [
+     2.473,
+     10.743
+    ],
+    "relative_mae": 1.0942,
+    "verdict": "worse"
+   }
+  }
+ },
+ "method": {
+  "served": "series.ets@0.1.0",
+  "selection_rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "methods": {
+   "random_walk": "series.random_walk@0.1.0",
+   "seasonal_naive": "series.seasonal_naive@0.1.0",
+   "drift": "series.drift@0.1.0",
+   "ets": "series.ets@0.1.0",
+   "ensemble_mean": "series.ensemble_mean@0.1.0"
+  },
+  "members": [
+   "series.random_walk@0.1.0",
+   "series.drift@0.1.0",
+   "series.ets@0.1.0"
+  ],
+  "baselines": [
+   "series.random_walk@0.1.0",
+   "series.seasonal_naive@0.1.0",
+   "series.drift@0.1.0"
+  ],
+  "ets": {
+   "alpha": 0.5,
+   "beta": 0.1,
+   "phi": 0.8,
+   "gamma": null,
+   "seasonal": false
+  },
+  "config": {
+   "transform": "log",
+   "ensemble": [
+    "random_walk",
+    "drift",
+    "ets"
+   ],
+   "ets_seasonal": false,
+   "season": 12,
+   "fit_window": 240,
+   "origins": 180,
+   "calibration_window": 60,
+   "void_after": "2027-05-19"
+  },
+  "point": {
+   "random_walk": "the last value",
+   "seasonal_naive": "the value one season before the target",
+   "drift": "the last value plus h times the mean change over the fit window",
+   "ets": "damped-trend exponential smoothing, weights from a fixed grid by the least in-sample one-step squared error",
+   "ensemble_mean": "the mean of random_walk, drift, ets on the log scale (a geometric mean)"
+  },
+  "bands": "split-conformal, every method its own: the point plus or minus the ceil((n+1)*level)-th smallest absolute 1-step-ahead residual of that method over its newest 60 rolling-origin backtest origins, on the log scale"
+ },
+ "reviewed_evidence": {
+  "evidence_sha256": "e7bad2cf22657e2801753d6780a57b0a8d0b2bd71adfe3a0e1d225fb1d364d96",
+  "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+  "same_result": true
+ },
+ "scoring_plan": [
+  "Target: New privately-owned housing units started: total units (HOUST), 2026-10, as published by U.S. Census Bureau (with HUD) and read from https://fred.stlouisfed.org/graph/fredgraph.csv?id=HOUST.",
+  "Value scored against: the first print: the value U.S. Census Bureau (with HUD) publishes for 2026-10 on release day, read from the spec's URL on or after the release and before 2026-12-17, when the next release may revise it. The scorer records the value, the retrieval time and the sha256 of the raw response. Vintage note: Revised in the next two monthly releases; the first print stands until the November release (2026-12-17, announced).",
+  "Not scored, with the reason, if the period is not published by 2027-05-19, if it was published before this seal's OpenTimestamps attestation, or if the series is redefined.",
+  "Metric: absolute error in thousands of units, seasonally adjusted annual rate for the served forecast (ets, the headline) and for every other sealed method, the three baselines (random walk, seasonal naive, drift) among them; whether the published value falls inside each method's sealed 80% and 95% bands; the interval score at both levels. Published to 0 decimal place(s), so the published value carries up to half a unit of rounding in its last place.",
+  "Claim: 'sealed before publication' when the attestation's block time precedes the release."
+ ]
+}

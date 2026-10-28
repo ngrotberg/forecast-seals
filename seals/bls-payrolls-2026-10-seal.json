@@ -1,0 +1,348 @@
+{
+ "kind": "series-seal-2",
+ "target_id": "bls-payrolls-2026-10",
+ "title": "US nonfarm payroll employment, October 2026",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-28T21:17:07Z",
+ "made_at_note": "evidence.json, which holds the forecast, was written at this time (UTC)",
+ "sealed_at": "2026-10-28T21:17:08Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof bls-payrolls-2026-10-seal.json.ots",
+ "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_dirty": false,
+ "evidence_code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_note": "the commit of the private code repository that built the seal and the one that ran the evidence; the seal's numbers recompute from its inputs either way",
+ "series": {
+  "id": "PAYEMS",
+  "name": "All employees, total nonfarm",
+  "publisher": "U.S. Bureau of Labor Statistics",
+  "program": "Current Employment Statistics (The Employment Situation)",
+  "units": "thousands of persons",
+  "frequency": "monthly",
+  "seasonal_adjustment": "seasonally adjusted",
+  "decimals": 0
+ },
+ "target": {
+  "period": "2026-10",
+  "release": "2026-11-06",
+  "release_time": "08:30 America/New_York",
+  "release_basis": "announced: https://www.bls.gov/schedule/news_release/empsit.htm ('October 2026 Nov. 06, 2026 08:30 AM')"
+ },
+ "vintage": {
+  "rule": "first_print",
+  "first_print_until": "2026-12-04",
+  "note": "Payrolls are revised in each of the next two monthly releases and benchmarked each February; the first print stands only until the November release (2026-12-04, announced)."
+ },
+ "notes": [
+  "The headline is the monthly change. The seal states the level; the implied change is the level minus September's value as printed on 2026-11-06, which is itself revised that day, so the level is the scored quantity.",
+  "Backtest values are revised history; a first-print error is usually larger."
+ ],
+ "claim": "before publication",
+ "claim_rule": "'sealed before publication' only if the OpenTimestamps attestation's block time precedes the release; a seal attested on or after the release is void",
+ "seal_by": "2026-11-05",
+ "void_after": "2027-05-07",
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "fb65b2ed738ab8e71737769577f2f46b47b1671fd125fe7b769913c65b0dcf89"
+  },
+  "fetch_record": {
+   "file": "inputs/fetch.json",
+   "sha256": "19f7e887c27838ec6bf3e001be3cd2e55b3d7fddc16319044aba3a76c60b5396"
+  },
+  "data": {
+   "file": "inputs/20261028T211638Z.csv",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PAYEMS",
+   "retrieved_at": "2026-10-28T21:16:38Z",
+   "bytes": 18405,
+   "sha256": "c8c429818ed73de6db985f4ff565d64bd2a5ba66a6b651b39373a1532924fc0e",
+   "last_modified": "Fri, 02 Oct 2026 13:24:33 GMT"
+  },
+  "evidence": {
+   "file": "evidence.json",
+   "sha256": "b40864bc87eca8375d2a6f6b823e2bbe0e79e8924076af5cfcd99ea4e151e9c9"
+  }
+ },
+ "horizon": 1,
+ "data": {
+  "last_observation": "2026-09",
+  "last_value": 159044.0,
+  "n_observed": 1053,
+  "gaps_on_grid": []
+ },
+ "forecast": {
+  "period": "2026-10",
+  "served": "drift",
+  "point": 159144.08,
+  "band_80": [
+   158918.59,
+   159369.9
+  ],
+  "band_95": [
+   158504.0,
+   159786.75
+  ],
+  "units": "thousands of persons",
+  "published_decimals": 0,
+  "change_from_last": 100.08,
+  "band_from_n_residuals": 60
+ },
+ "methods": {
+  "random_walk": {
+   "point": 159044.0,
+   "band_80": [
+    158731.57,
+    159357.05
+   ],
+   "band_95": [
+    158302.14,
+    159789.33
+   ]
+  },
+  "seasonal_naive": {
+   "point": 158408.0,
+   "band_80": [
+    152414.4,
+    164637.29
+   ],
+   "band_95": [
+    150864.91,
+    166328.23
+   ]
+  },
+  "drift": {
+   "point": 159144.08,
+   "band_80": [
+    158918.59,
+    159369.9
+   ],
+   "band_95": [
+    158504.0,
+    159786.75
+   ]
+  },
+  "ets": {
+   "point": 159043.7,
+   "band_80": [
+    158727.56,
+    159360.47
+   ],
+   "band_95": [
+    158297.29,
+    159793.62
+   ]
+  },
+  "ensemble_mean": {
+   "point": 159077.25,
+   "band_80": [
+    158799.9,
+    159355.09
+   ],
+   "band_95": [
+    158367.78,
+    159789.9
+   ]
+  }
+ },
+ "selection": {
+  "rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "mae": {
+   "random_walk": 398.478,
+   "seasonal_naive": 3312.828,
+   "drift": 323.931,
+   "ets": 353.896,
+   "ensemble_mean": 349.301
+  },
+  "winner": "drift",
+  "served": "drift",
+  "basis": "drift has the lowest MAE; the ensemble is worse by +25.37 (95% interval +11.594 to +46.122)",
+  "sealed": true,
+  "reason": null
+ },
+ "evidence": {
+  "origins": {
+   "first": "2011-09",
+   "last": "2026-08",
+   "n": 180
+  },
+  "by_method": {
+   "random_walk": {
+    "mae": 398.478,
+    "rmse": 1612.996,
+    "median_ae": 204.5,
+    "coverage_80": 0.8012,
+    "coverage_95": 0.9627,
+    "n_banded": 161
+   },
+   "seasonal_naive": {
+    "mae": 3312.828,
+    "rmse": 4470.499,
+    "median_ae": 2360.0,
+    "coverage_80": 0.7888,
+    "coverage_95": 0.9255,
+    "n_banded": 161
+   },
+   "drift": {
+    "mae": 323.931,
+    "rmse": 1609.925,
+    "median_ae": 108.501,
+    "coverage_80": 0.7702,
+    "coverage_95": 0.9565,
+    "n_banded": 161
+   },
+   "ets": {
+    "mae": 353.896,
+    "rmse": 1672.936,
+    "median_ae": 85.244,
+    "coverage_80": 0.7764,
+    "coverage_95": 0.9503,
+    "n_banded": 161
+   },
+   "ensemble_mean": {
+    "mae": 349.301,
+    "rmse": 1626.259,
+    "median_ae": 123.364,
+    "coverage_80": 0.8012,
+    "coverage_95": 0.9627,
+    "n_banded": 161
+   }
+  },
+  "served_against": {
+   "random_walk": {
+    "gap": -74.546,
+    "gap_95": [
+     -90.094,
+     -59.092
+    ],
+    "relative_mae": 0.8129,
+    "verdict": "better"
+   },
+   "seasonal_naive": {
+    "gap": -2988.896,
+    "gap_95": [
+     -3905.135,
+     -2338.206
+    ],
+    "relative_mae": 0.0978,
+    "verdict": "better"
+   },
+   "ets": {
+    "gap": -29.965,
+    "gap_95": [
+     -89.927,
+     8.063
+    ],
+    "relative_mae": 0.9153,
+    "verdict": "tie"
+   },
+   "ensemble_mean": {
+    "gap": -25.37,
+    "gap_95": [
+     -46.122,
+     -11.594
+    ],
+    "relative_mae": 0.9274,
+    "verdict": "better"
+   }
+  },
+  "ensemble_against": {
+   "random_walk": {
+    "gap": -49.177,
+    "gap_95": [
+     -69.822,
+     -23.357
+    ],
+    "relative_mae": 0.8766,
+    "verdict": "better"
+   },
+   "seasonal_naive": {
+    "gap": -2963.527,
+    "gap_95": [
+     -3869.171,
+     -2323.196
+    ],
+    "relative_mae": 0.1054,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": 25.37,
+    "gap_95": [
+     11.594,
+     46.122
+    ],
+    "relative_mae": 1.0783,
+    "verdict": "worse"
+   },
+   "ets": {
+    "gap": -4.595,
+    "gap_95": [
+     -45.521,
+     22.853
+    ],
+    "relative_mae": 0.987,
+    "verdict": "tie"
+   }
+  }
+ },
+ "method": {
+  "served": "series.drift@0.1.0",
+  "selection_rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "methods": {
+   "random_walk": "series.random_walk@0.1.0",
+   "seasonal_naive": "series.seasonal_naive@0.1.0",
+   "drift": "series.drift@0.1.0",
+   "ets": "series.ets@0.1.0",
+   "ensemble_mean": "series.ensemble_mean@0.1.0"
+  },
+  "members": [
+   "series.random_walk@0.1.0",
+   "series.drift@0.1.0",
+   "series.ets@0.1.0"
+  ],
+  "baselines": [
+   "series.random_walk@0.1.0",
+   "series.seasonal_naive@0.1.0",
+   "series.drift@0.1.0"
+  ],
+  "ets": {
+   "alpha": 0.99,
+   "beta": 0.0,
+   "phi": 0.8,
+   "gamma": null,
+   "seasonal": false
+  },
+  "config": {
+   "transform": "log",
+   "ensemble": [
+    "random_walk",
+    "drift",
+    "ets"
+   ],
+   "ets_seasonal": false,
+   "season": 12,
+   "fit_window": 240,
+   "origins": 180,
+   "calibration_window": 60,
+   "void_after": "2027-05-07"
+  },
+  "point": {
+   "random_walk": "the last value",
+   "seasonal_naive": "the value one season before the target",
+   "drift": "the last value plus h times the mean change over the fit window",
+   "ets": "damped-trend exponential smoothing, weights from a fixed grid by the least in-sample one-step squared error",
+   "ensemble_mean": "the mean of random_walk, drift, ets on the log scale (a geometric mean)"
+  },
+  "bands": "split-conformal, every method its own: the point plus or minus the ceil((n+1)*level)-th smallest absolute 1-step-ahead residual of that method over its newest 60 rolling-origin backtest origins, on the log scale"
+ },
+ "reviewed_evidence": {
+  "evidence_sha256": "92aed29f2e14649d348eaf7dc7e32a48081234e6bf18cfcc4a916801d6385a3d",
+  "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+  "same_result": true
+ },
+ "scoring_plan": [
+  "Target: All employees, total nonfarm (PAYEMS), 2026-10, as published by U.S. Bureau of Labor Statistics and read from https://fred.stlouisfed.org/graph/fredgraph.csv?id=PAYEMS.",
+  "Value scored against: the first print: the value U.S. Bureau of Labor Statistics publishes for 2026-10 on release day, read from the spec's URL on or after the release and before 2026-12-04, when the next release may revise it. The scorer records the value, the retrieval time and the sha256 of the raw response. Vintage note: Payrolls are revised in each of the next two monthly releases and benchmarked each February; the first print stands only until the November release (2026-12-04, announced).",
+  "Not scored, with the reason, if the period is not published by 2027-05-07, if it was published before this seal's OpenTimestamps attestation, or if the series is redefined.",
+  "Metric: absolute error in thousands of persons for the served forecast (drift, the headline) and for every other sealed method, the three baselines (random walk, seasonal naive, drift) among them; whether the published value falls inside each method's sealed 80% and 95% bands; the interval score at both levels. Published to 0 decimal place(s), so the published value carries up to half a unit of rounding in its last place.",
+  "Claim: 'sealed before publication' when the attestation's block time precedes the release."
+ ]
+}

@@ -5,8 +5,9 @@ General Social Survey (GSS) and the Cooperative Election Study (CES), with their
 OpenTimestamps proofs and a script, `verify.py`, that checks a seal against the published
 forecast rows. It also holds forward seals: predictions of the next published reading of
 recurring Gallup, Marquette, Pew, Ipsos and Federal Reserve survey items, each made and
-timestamped before that reading was published, and a series seal of Census Bureau
-American Community Survey estimates (sections below).
+timestamped before that reading was published, and series seals of official statistics:
+Census Bureau American Community Survey estimates and eight monthly federal series (sections
+below).
 
 Every figure in these forecasts is a model-generated prediction, not a measurement.
 
@@ -262,6 +263,40 @@ collection and the 2024 change to the contract-rent cap.
 
 Check it with `shasum -a 256 seals/acs-2025-seal.json` against the digest above and `ots verify
 seals/acs-2025-seal.json.ots`.
+
+## Series seals: eight official statistics, sealed 2026-10-28
+
+Eight seal files, each a forecast of the next first print of one official statistic, made from
+the publisher's own series and nothing else. Each target's method was chosen by a rule stated in
+its spec before any result: serve the method with the lowest out-of-time error over past
+releases, or the ensemble where its gap to that method cannot be told from zero, and do not seal
+a target where repeating the last value wins. The unemployment rate, the egg price and the
+personal saving rate failed that test and are not sealed. Every forecast is one step ahead: no
+new print of any of these series is due between the seal and its release. Each will be scored
+by absolute error against the first print, beside the methods it beat.
+
+| Seal file | Series and period | Last value | Forecast (80% band) | Method served | Release | Digest (sha256 of the file) |
+| --- | --- | --- | --- | --- | --- | --- |
+| `seals/bls-payrolls-2026-10-seal.json` | All employees, total nonfarm (PAYEMS, U.S. Bureau of Labor Statistics), 2026-10; thousands of persons | 159,044 (2026-09) | 159,144.1 (158,918.6-159,369.9) | `drift` | 2026-11-06 (announced) | `1c294b5818b4296b978bb2f7795ada80b5426fe875fdace93115b65c7dcd870b` |
+| `seals/bls-cpi-2026-10-seal.json` | Consumer Price Index for All Urban Consumers: all items in U.S. city average (CPIAUCSL, U.S. Bureau of Labor Statistics), 2026-10; index 1982-1984=100 | 336.298 (2026-09) | 337.1918 (336.0211-338.3666) | `ets` | 2026-11-10 (announced) | `c311004376047811fb1daeb053dedb3f409e86abfd973811aa82f7151c7fb22c` |
+| `seals/bls-cpi-admissions-2026-10-seal.json` | CPI-U: admission to movies, theaters, and concerts in U.S. city average (CUUR0000SS62031, U.S. Bureau of Labor Statistics), 2026-10; index December 1997=100 | 238.383 (2026-09) | 238.8877 (236.7282-241.0669) | `drift` | 2026-11-10 (announced) | `ea9697abbbc2328757d6afe3d2fec92c619984911f917650cae263e3daa31773` |
+| `seals/bls-electricity-price-2026-10-seal.json` | Average price: electricity per kilowatt-hour in U.S. city average (APU000072610, U.S. Bureau of Labor Statistics), 2026-10; U.S. dollars per kilowatt-hour | 0.196 (2026-09) | 0.1941 (0.1882-0.2001) | `ensemble_mean` | 2026-11-10 (announced) | `e7c5ca05466c3dd91353f1a73d506dba8f44c9a156c3f444187324e7c059cdbc` |
+| `seals/census-retail-sales-2026-10-seal.json` | Advance retail sales: retail trade and food services (RSAFS, U.S. Census Bureau), 2026-10; millions of dollars (not adjusted for prices) | 745,021 (2026-09) | 746,271.1 (736,342.4-756,333.6) | `ensemble_mean` | 2026-11-17 (announced) | `c9b9a1940b0a18e7303078f439286423d6ef0d237e81b443de61b1c2838c1d15` |
+| `seals/census-housing-starts-2026-10-seal.json` | New privately-owned housing units started: total units (HOUST, U.S. Census Bureau (with HUD)), 2026-10; thousands of units, seasonally adjusted annual rate | 1,221 (2026-09) | 1,265.2 (1,149.2-1,393.0) | `ets` | 2026-11-18 (announced) | `e8348ac194ca82b10623a346983619ae515e0ffedd657afa02099c68960b19d5` |
+| `seals/nchs-overdose-deaths-2026-06-seal.json` | Provisional drug overdose deaths, 12-month-ending, United States (predicted value, adjusted for reporting delays) (xkb8-kh2a:US:predicted_value, CDC National Center for Health Statistics), 2026-06; deaths in the 12 months ending in the period | 66,478 (2026-05) | 65,780.9 (65,202.3-66,364.7) | `ets` | 2026-11-18 (inferred) | `db2dff0a7c6824080f60335cb409b7374ec02bbce6654737cd2ab068d08ce302` |
+| `seals/census-new-home-sales-2026-10-seal.json` | New one-family houses sold: United States (HSN1F, U.S. Census Bureau (with HUD)), 2026-10; thousands, seasonally adjusted annual rate | 676 (2026-09) | 675.6 (604.1-755.5) | `ensemble_mean` | 2026-11-25 (announced) | `444afec380a24761f8ca2b3ebae303e2a8071257767ca1ef55bb9512c6e67c32` |
+
+The forecasts were sealed between 2026-10-28 21:17:08 and 21:17:14 UTC and stamped with
+OpenTimestamps. All eight proofs are anchored in Bitcoin block 973603, mined 2026-10-28 22:05:29
+UTC, eight days before the first of these releases. The claim for each is "sealed before
+publication", and each file states that its seal is void if the block time is on or after the
+release. The overdose release date is our inference from NCHS's monthly cadence, not an announced
+date. The other seven are announced. Each file states its scoring plan: the first print, read
+from the publisher's series on release day, scored by absolute error for the served method and
+for every other method it was chosen over, including repeating the last value.
+
+Check each with `shasum -a 256 seals/<file>` against the digest above and `ots verify
+seals/<file>.ots`.
 
 ## When the waves resolve
 

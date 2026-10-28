@@ -1,0 +1,353 @@
+{
+ "kind": "series-seal-2",
+ "target_id": "bls-electricity-price-2026-10",
+ "title": "US average price of electricity per kilowatt-hour, October 2026",
+ "output_label": "model-generated prediction, not a measurement",
+ "made_at": "2026-10-28T21:17:11Z",
+ "made_at_note": "evidence.json, which holds the forecast, was written at this time (UTC)",
+ "sealed_at": "2026-10-28T21:17:11Z",
+ "sealed_at_note": "written by our own machine; the independent date is the OpenTimestamps proof bls-electricity-price-2026-10-seal.json.ots",
+ "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_dirty": false,
+ "evidence_code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+ "code_note": "the commit of the private code repository that built the seal and the one that ran the evidence; the seal's numbers recompute from its inputs either way",
+ "series": {
+  "id": "APU000072610",
+  "name": "Average price: electricity per kilowatt-hour in U.S. city average",
+  "publisher": "U.S. Bureau of Labor Statistics",
+  "program": "Consumer Price Index, average price data",
+  "units": "U.S. dollars per kilowatt-hour",
+  "frequency": "monthly",
+  "seasonal_adjustment": "not seasonally adjusted",
+  "decimals": 3
+ },
+ "target": {
+  "period": "2026-10",
+  "release": "2026-11-10",
+  "release_time": "08:30 America/New_York",
+  "release_basis": "announced: https://www.bls.gov/schedule/news_release/cpi.htm (published with the CPI: 'October 2026 / Nov. 10, 2026 / 08:30 AM')"
+ },
+ "vintage": {
+  "rule": "first_print",
+  "first_print_until": "2026-12-10",
+  "note": "Average prices are not seasonally adjusted and are not routinely revised; the next CPI release (2026-12-10) is the bound."
+ },
+ "notes": [
+  "Summer-peaking seasonality: the ETS member fits a seasonal term and seasonal naive joins the ensemble (the default for a monthly series that is not seasonally adjusted).",
+  "Published to a tenth of a cent ($0.196), so one printed step is about half a percent."
+ ],
+ "claim": "before publication",
+ "claim_rule": "'sealed before publication' only if the OpenTimestamps attestation's block time precedes the release; a seal attested on or after the release is void",
+ "seal_by": "2026-11-09",
+ "void_after": "2027-05-11",
+ "inputs": {
+  "spec": {
+   "file": "inputs/spec.json",
+   "sha256": "9548c4384d0f2b2464e06e6c518c95181384031f49152206ae90b9f83abea432"
+  },
+  "fetch_record": {
+   "file": "inputs/fetch.json",
+   "sha256": "ab0db58ef816d6306d102a0dfc45f43a4fea30a10700bfe60df40d4d35875793"
+  },
+  "data": {
+   "file": "inputs/20261028T211640Z.csv",
+   "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=APU000072610",
+   "retrieved_at": "2026-10-28T21:16:40Z",
+   "bytes": 9795,
+   "sha256": "3fc8c3652a3af7c9c05d8fae0c72843f6afde4521032608a6a3fbcd6a3a77a7e",
+   "last_modified": "Wed, 14 Oct 2026 12:35:34 GMT"
+  },
+  "evidence": {
+   "file": "evidence.json",
+   "sha256": "d9ebe0a2f8988b84b400ce6d1fe265d92438c4c692341e594b2c9e6d43814d93"
+  }
+ },
+ "horizon": 1,
+ "data": {
+  "last_observation": "2026-09",
+  "last_value": 0.196,
+  "n_observed": 573,
+  "gaps_on_grid": [
+   "1985-09",
+   "2025-10"
+  ]
+ },
+ "forecast": {
+  "period": "2026-10",
+  "served": "ensemble_mean",
+  "point": 0.19407,
+  "band_80": [
+   0.18824,
+   0.20008
+  ],
+  "band_95": [
+   0.185,
+   0.20358
+  ],
+  "units": "U.S. dollars per kilowatt-hour",
+  "published_decimals": 3,
+  "change_from_last": -0.00193,
+  "band_from_n_residuals": 60
+ },
+ "methods": {
+  "random_walk": {
+   "point": 0.196,
+   "band_80": [
+    0.1927,
+    0.19936
+   ],
+   "band_95": [
+    0.18933,
+    0.2029
+   ]
+  },
+  "seasonal_naive": {
+   "point": 0.1885,
+   "band_80": [
+    0.17251,
+    0.20598
+   ],
+   "band_95": [
+    0.16254,
+    0.21861
+   ]
+  },
+  "drift": {
+   "point": 0.19646,
+   "band_80": [
+    0.19338,
+    0.19959
+   ],
+   "band_95": [
+    0.19015,
+    0.20298
+   ]
+  },
+  "ets": {
+   "point": 0.19542,
+   "band_80": [
+    0.19134,
+    0.1996
+   ],
+   "band_95": [
+    0.19033,
+    0.20066
+   ]
+  },
+  "ensemble_mean": {
+   "point": 0.19407,
+   "band_80": [
+    0.18824,
+    0.20008
+   ],
+   "band_95": [
+    0.185,
+    0.20358
+   ]
+  }
+ },
+ "selection": {
+  "rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "mae": {
+   "random_walk": 0.001556,
+   "seasonal_naive": 0.005133,
+   "drift": 0.001609,
+   "ets": 0.001673,
+   "ensemble_mean": 0.00189
+  },
+  "winner": "random_walk",
+  "served": "ensemble_mean",
+  "basis": "random_walk has the lowest MAE; the ensemble's gap to it, +0.000334 (95% interval -0.000026 to +0.000796), holds zero",
+  "sealed": true,
+  "reason": null
+ },
+ "evidence": {
+  "origins": {
+   "first": "2011-07",
+   "last": "2026-08",
+   "n": 180
+  },
+  "by_method": {
+   "random_walk": {
+    "mae": 0.001556,
+    "rmse": 0.002285,
+    "median_ae": 0.001,
+    "coverage_80": 0.8261,
+    "coverage_95": 0.9689,
+    "n_banded": 161
+   },
+   "seasonal_naive": {
+    "mae": 0.005133,
+    "rmse": 0.007294,
+    "median_ae": 0.004,
+    "coverage_80": 0.7453,
+    "coverage_95": 0.8571,
+    "n_banded": 161
+   },
+   "drift": {
+    "mae": 0.001609,
+    "rmse": 0.00226,
+    "median_ae": 0.001212,
+    "coverage_80": 0.8323,
+    "coverage_95": 0.9689,
+    "n_banded": 161
+   },
+   "ets": {
+    "mae": 0.001673,
+    "rmse": 0.002089,
+    "median_ae": 0.001422,
+    "coverage_80": 0.7764,
+    "coverage_95": 0.9441,
+    "n_banded": 161
+   },
+   "ensemble_mean": {
+    "mae": 0.00189,
+    "rmse": 0.002581,
+    "median_ae": 0.00141,
+    "coverage_80": 0.7702,
+    "coverage_95": 0.9193,
+    "n_banded": 161
+   }
+  },
+  "served_against": {
+   "random_walk": {
+    "gap": 0.000334,
+    "gap_95": [
+     -2.6e-05,
+     0.000796
+    ],
+    "relative_mae": 1.2148,
+    "verdict": "tie"
+   },
+   "seasonal_naive": {
+    "gap": -0.003244,
+    "gap_95": [
+     -0.004702,
+     -0.00197
+    ],
+    "relative_mae": 0.3681,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": 0.000281,
+    "gap_95": [
+     -8.8e-05,
+     0.000766
+    ],
+    "relative_mae": 1.1745,
+    "verdict": "tie"
+   },
+   "ets": {
+    "gap": 0.000217,
+    "gap_95": [
+     -0.000117,
+     0.000757
+    ],
+    "relative_mae": 1.1295,
+    "verdict": "tie"
+   }
+  },
+  "ensemble_against": {
+   "random_walk": {
+    "gap": 0.000334,
+    "gap_95": [
+     -2.6e-05,
+     0.000796
+    ],
+    "relative_mae": 1.2148,
+    "verdict": "tie"
+   },
+   "seasonal_naive": {
+    "gap": -0.003244,
+    "gap_95": [
+     -0.004702,
+     -0.00197
+    ],
+    "relative_mae": 0.3681,
+    "verdict": "better"
+   },
+   "drift": {
+    "gap": 0.000281,
+    "gap_95": [
+     -8.8e-05,
+     0.000766
+    ],
+    "relative_mae": 1.1745,
+    "verdict": "tie"
+   },
+   "ets": {
+    "gap": 0.000217,
+    "gap_95": [
+     -0.000117,
+     0.000757
+    ],
+    "relative_mae": 1.1295,
+    "verdict": "tie"
+   }
+  }
+ },
+ "method": {
+  "served": "series.ensemble_mean@0.1.0",
+  "selection_rule": "Serve the method with the lowest out-of-time MAE over the backtest origins. Where the ensemble's MAE gap to that method has a 95% interval (moving-block bootstrap of origins) that holds zero, serve the ensemble. If the method served is the random walk, the target is not sealed: the model adds nothing over repeating the last value.",
+  "methods": {
+   "random_walk": "series.random_walk@0.1.0",
+   "seasonal_naive": "series.seasonal_naive@0.1.0",
+   "drift": "series.drift@0.1.0",
+   "ets": "series.ets@0.1.0",
+   "ensemble_mean": "series.ensemble_mean@0.1.0"
+  },
+  "members": [
+   "series.random_walk@0.1.0",
+   "series.seasonal_naive@0.1.0",
+   "series.drift@0.1.0",
+   "series.ets@0.1.0"
+  ],
+  "baselines": [
+   "series.random_walk@0.1.0",
+   "series.seasonal_naive@0.1.0",
+   "series.drift@0.1.0"
+  ],
+  "ets": {
+   "alpha": 0.3,
+   "beta": 0.1,
+   "phi": 0.95,
+   "gamma": 0.2,
+   "seasonal": true
+  },
+  "config": {
+   "transform": "log",
+   "ensemble": [
+    "random_walk",
+    "seasonal_naive",
+    "drift",
+    "ets"
+   ],
+   "ets_seasonal": true,
+   "season": 12,
+   "fit_window": 240,
+   "origins": 180,
+   "calibration_window": 60,
+   "void_after": "2027-05-11"
+  },
+  "point": {
+   "random_walk": "the last value",
+   "seasonal_naive": "the value one season before the target",
+   "drift": "the last value plus h times the mean change over the fit window",
+   "ets": "damped-trend exponential smoothing, weights from a fixed grid by the least in-sample one-step squared error",
+   "ensemble_mean": "the mean of random_walk, seasonal_naive, drift, ets on the log scale (a geometric mean)"
+  },
+  "bands": "split-conformal, every method its own: the point plus or minus the ceil((n+1)*level)-th smallest absolute 1-step-ahead residual of that method over its newest 60 rolling-origin backtest origins, on the log scale"
+ },
+ "reviewed_evidence": {
+  "evidence_sha256": "8c8bf80233e332a2aee3025003c6321803bae06cdaae5cbc56aef8c2d9f53d26",
+  "code_commit": "01ae13692a7e15e8c7ea202bc46caa22d17952a3",
+  "same_result": true
+ },
+ "scoring_plan": [
+  "Target: Average price: electricity per kilowatt-hour in U.S. city average (APU000072610), 2026-10, as published by U.S. Bureau of Labor Statistics and read from https://fred.stlouisfed.org/graph/fredgraph.csv?id=APU000072610.",
+  "Value scored against: the first print: the value U.S. Bureau of Labor Statistics publishes for 2026-10 on release day, read from the spec's URL on or after the release and before 2026-12-10, when the next release may revise it. The scorer records the value, the retrieval time and the sha256 of the raw response. Vintage note: Average prices are not seasonally adjusted and are not routinely revised; the next CPI release (2026-12-10) is the bound.",
+  "Not scored, with the reason, if the period is not published by 2027-05-11, if it was published before this seal's OpenTimestamps attestation, or if the series is redefined.",
+  "Metric: absolute error in U.S. dollars per kilowatt-hour for the served forecast (ensemble_mean, the headline) and for every other sealed method, the three baselines (random walk, seasonal naive, drift) among them; whether the published value falls inside each method's sealed 80% and 95% bands; the interval score at both levels. Published to 3 decimal place(s), so the published value carries up to half a unit of rounding in its last place.",
+  "Claim: 'sealed before publication' when the attestation's block time precedes the release."
+ ]
+}
