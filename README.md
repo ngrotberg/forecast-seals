@@ -298,6 +298,39 @@ for every other method it was chosen over, including repeating the last value.
 Check each with `shasum -a 256 seals/<file>` against the digest above and `ots verify
 seals/<file>.ots`.
 
+<!-- scoreboard:start -->
+## Scoreboard: series seals
+
+Generated from the seal, proof and score files by `tools/series_seal scoreboard`; not edited by hand. Every forecast here is a model-generated prediction, not a measurement. Each error is absolute (the served forecast minus the publisher's first print, sign dropped) in the series' units, beside the error of repeating the last value (`random_walk`) and of the straight-line trend (`drift`).
+
+9 sealed: 1 scored, 8 pending, 0 void. Of 6 scored forecasts (each series target, and each ACS indicator on its mean error over the 51 states), the served forecast was closer than repeating the last value (`random_walk`) in 6 of 6 and closer than the straight-line trend (`drift`) in 3 of 4. A forecast served by a baseline is not compared with that baseline.
+
+| Seal | Period | Forecast (80% band), method | First print | Error | Error, repeat last value | Error, drift | Bitcoin block |
+|---|---|---|---|---|---|---|---|
+| `bls-payrolls-2026-10-seal.json` | 2026-10 | 159,144.1 (158,918.6 to 159,369.9), `drift` | pending (release 2026-11-06) |  |  | served | 973,603 |
+| `bls-cpi-2026-10-seal.json` | 2026-10 | 337.1918 (336.0211 to 338.3666), `ets` | pending (release 2026-11-10) |  |  |  | 973,603 |
+| `bls-cpi-admissions-2026-10-seal.json` | 2026-10 | 238.8877 (236.7282 to 241.0669), `drift` | pending (release 2026-11-10) |  |  | served | 973,603 |
+| `bls-electricity-price-2026-10-seal.json` | 2026-10 | 0.1941 (0.1882 to 0.2001), `ensemble_mean` | pending (release 2026-11-10) |  |  |  | 973,603 |
+| `census-retail-sales-2026-10-seal.json` | 2026-10 | 746,271.1 (736,342.4 to 756,333.6), `ensemble_mean` | pending (release 2026-11-17) |  |  |  | 973,603 |
+| `census-housing-starts-2026-10-seal.json` | 2026-10 | 1,265.2 (1,149.2 to 1,393.0), `ets` | pending (release 2026-11-18) |  |  |  | 973,603 |
+| `nchs-overdose-deaths-2026-06-seal.json` | 2026-06 | 65,780.9 (65,202.3 to 66,364.7), `ets` | pending (release 2026-11-18) |  |  |  | 973,603 |
+| `census-new-home-sales-2026-10-seal.json` | 2026-10 | 675.6 (604.1 to 755.5), `ensemble_mean` | pending (release 2026-11-25) |  |  |  | 973,603 |
+
+### ACS 2025 1-year estimates: eight headline indicators for every state, DC and the US
+
+Seal `acs-2025-seal.json`, Bitcoin block 973,461 (2026-10-27 21:27:06 UTC); release 2026-10-29; scored from the primary route. Not sealed: uninsured, work_from_home.
+
+| Indicator | Served | US forecast (80% band) | US first print | US error | US error, repeat last value | US error, drift | 51-state mean error: served / repeat last value / drift | States inside the 80% band |
+|---|---|---|---|---|---|---|---|---|
+| Percent of households with a broadband Internet subscription | `ensemble_mean` | 93.97 (93.31 to 94.64) | 94.0 | 0.03 | 0.80 | 0.68 | 0.451 / 0.849 / 0.811 | 46 of 51 |
+| Median household income (dollars of the survey year) | `drift` | 85,098 (82,199 to 88,100) | 84,780 | 318 | 3,176 | served | 1,542 / 3,165 / 1,542 | 49 of 51 |
+| Percent of people below the poverty level | `ensemble_mean` | 11.97 (11.40 to 12.54) | 11.8 | 0.17 | 0.30 | 0.04 | 0.524 / 0.577 / 0.514 | 44 of 51 |
+| Percent of people 25 and over with a bachelor's degree or higher | `ensemble_mean` | 37.22 (36.84 to 37.60) | 37.4 | 0.18 | 0.60 | 0.07 | 0.581 / 0.682 / 0.596 | 40 of 51 |
+| Percent of the population born outside the United States | `ensemble_mean` | 14.90 (14.46 to 15.34) | 14.7 | 0.20 | 0.10 | 0.25 | 0.315 / 0.320 / 0.339 | 45 of 51 |
+| Median gross rent (dollars of the survey year) | `drift` | 1,558 (1,460 to 1,662) | 1,557 | 1 | 70 | served | 37 / 71 / 37 | 51 of 51 |
+
+<!-- scoreboard:end -->
+
 ## When the waves resolve
 
 We expect GSS 2026 and CES 2026 data to be released in spring 2027. That is our own
