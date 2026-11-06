@@ -1,14 +1,18 @@
 cff-version: 1.2.0
 message: "To cite these seals, please use the metadata below."
 type: dataset
-title: "Forecast seals: GSS 2026, CES 2026 and Gallup October 2026"
+title: "Forecast seals: survey waves and official statistics, 2026"
 authors:
   - name: "Nate Grotberg"
 abstract: >-
-  Seal files for model-generated forecasts of the 2026 General Social Survey and the
-  2026 Cooperative Election Study. Each seal is a sha256 digest over every forecast row
-  for one survey wave (protocol forecast-seal-1), sealed on 2026-09-07 and submitted to
-  OpenTimestamps on 2026-09-23. The repository includes the OpenTimestamps proofs and a
+  Seal files for model-generated forecasts of nine survey waves: the 2026 General Social
+  Survey and the 2026 Cooperative Election Study, sealed on 2026-09-07 and submitted to
+  OpenTimestamps on 2026-09-23, and seven federal surveys (HTOPS November 2026, NHIS 2026,
+  SHED 2026, BRFSS 2026, and the CPS ASEC, Computer and Internet Use, and Civic Engagement
+  and Volunteering supplements of 2027), sealed and timestamped on 2026-11-06. Each seal is
+  a sha256 digest over every forecast row for one survey wave (protocol forecast-seal-1).
+  The repository also holds forward seals of recurring survey readings and series seals of
+  official statistics. The repository includes the OpenTimestamps proofs and a
   standard-library Python verifier. The forecasts are model-generated predictions, not
   measurements.
 keywords:
@@ -17,6 +21,11 @@ keywords:
   - OpenTimestamps
   - General Social Survey
   - Cooperative Election Study
+  - Household Pulse Survey
+  - National Health Interview Survey
+  - Survey of Household Economics and Decisionmaking
+  - Behavioral Risk Factor Surveillance System
+  - Current Population Survey
 identifiers:
   - type: other
     value: "a90d3004ebd7c584077658e22a42be55a47701a0616c24d384788a64ddba37a6"
@@ -24,3 +33,24 @@ identifiers:
   - type: other
     value: "3456fede015f87ab5b89baba5ef707644d799165dc39d3416df327d77455d202"
     description: "predictions_sha256 of seals/ces-2026.json (CES 2026, forecast-seal-1)"
+  - type: other
+    value: "778289f5d613a23bdd1584e2ca776121c4dde46e0d47b6c895d54d2ba5592082"
+    description: "predictions_sha256 of seals/htops-202611.json (HTOPS 202611, forecast-seal-1)"
+  - type: other
+    value: "b70e9140af231731f83e624057575797f472079f8ed30dfdfa83acfe80106f10"
+    description: "predictions_sha256 of seals/nhis-2026.json (NHIS 2026, forecast-seal-1)"
+  - type: other
+    value: "e6e15987b44371b4ea56447165ef124eabbc4eae7f66c3be8903bdc2b03e21c7"
+    description: "predictions_sha256 of seals/shed-2026.json (SHED 2026, forecast-seal-1)"
+  - type: other
+    value: "9a63e8ec8cab0e1f6434b23ad976805b6f375ff3bd46d7f9fa563120ddd95c9d"
+    description: "predictions_sha256 of seals/brfss-2026.json (BRFSS 2026, forecast-seal-1)"
+  - type: other
+    value: "9600935db175ecfba958f49b23f7c9e5a00011b56197f5bc690c314cd2ac65fa"
+    description: "predictions_sha256 of seals/cps_asec-2027.json (CPS ASEC 2027, forecast-seal-1)"
+  - type: other
+    value: "db00910371e338b230fef8ab3467e3a4520d25adf77df9c81c05d8fc7983144c"
+    description: "predictions_sha256 of seals/cps_ciu-2027.json (CPS CIU 2027, forecast-seal-1)"
+  - type: other
+    value: "0084fb115550e00258ff3d3372801d1b427d4088c5c80dd2d0aa6d9777dd0658"
+    description: "predictions_sha256 of seals/cps_cev-2027.json (CPS CEV 2027, forecast-seal-1)"

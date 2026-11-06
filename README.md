@@ -1,13 +1,13 @@
 # Forecast seals
 
-This repository holds the seals for a set of model forecasts of two 2026 surveys, the
-General Social Survey (GSS) and the Cooperative Election Study (CES), with their
+This repository holds the seals for model forecasts of nine survey waves, with their
 OpenTimestamps proofs and a script, `verify.py`, that checks a seal against the published
-forecast rows. It also holds forward seals: predictions of the next published reading of
-recurring Gallup, Marquette, Pew, Ipsos and Federal Reserve survey items, each made and
-timestamped before that reading was published, and series seals of official statistics:
-Census Bureau American Community Survey estimates and eight monthly federal series (sections
-below).
+forecast rows: the General Social Survey (GSS) and the Cooperative Election Study (CES) 2026,
+sealed 2026-09-07, and seven federal surveys sealed 2026-11-06 (section below). It also holds
+forward seals: predictions of the next published reading of recurring Gallup, Marquette, Pew,
+Ipsos and Federal Reserve survey items, each made and timestamped before that reading was
+published, and series seals of official statistics: Census Bureau American Community Survey
+estimates and eight monthly federal series (sections below).
 
 Every figure in these forecasts is a model-generated prediction, not a measurement.
 
@@ -39,7 +39,7 @@ checked from outside.
 The independent date comes from the OpenTimestamps proof beside each seal file, which ties
 the file's sha256 to a Bitcoin block.
 
-## What is sealed
+## What is sealed: GSS and CES 2026
 
 2,310 question-by-cut cells sealed (GSS 1,364; CES 946); 2,090 served-model forecasts, each sealed beside its
 baselines, made by `ensemble_mean` 0.3.0.
@@ -75,7 +75,7 @@ are scored when the waves resolve. Neither replaces the other.
 | `seals/gss-2026-r2.json` | GSS 2026 | 8,193 | 1,364 | 2026-10-06 22:42:02 | `ad5efea9d3f50a2bdc8a784a35478696d3e7f9fa41c45f5378d1efb86c296011` |
 | `seals/ces-2026-r2.json` | CES 2026 | 4,796 | 726 | 2026-10-06 22:42:06 | `2a9932b6866d1c25994397485ffdffff22df1a37d04f8914d32395edb7a01142` |
 
-## Dating
+## Dating: GSS and CES 2026
 
 - **Sealed (by our machine):** 2026-09-07, as `sealed_at` in each file.
 - **Independently timestamped:** both seal files are anchored in Bitcoin block 968355, mined
@@ -93,6 +93,46 @@ are scored when the waves resolve. Neither replaces the other.
 - **The r2 set:** sealed 2026-10-06 and anchored in Bitcoin block 970247, mined 2026-10-06
   23:00:31 UTC. That is after CES 2026 interviewing could have begun, so for r2 the claim for
   both waves is "sealed before the data were public", never "before fieldwork".
+
+## Seven more survey waves, sealed 2026-11-06
+
+Seven seal files in the same format as the GSS and CES seals, checked by `verify.py` the same
+way. Each cell (one survey question for one population cut) was forecast by the served model,
+`ensemble_mean` 0.4.0, which the service runs today, beside its two members (`gbm_pooled` 0.1.0
+and `mrp_numpyro` 0.5.0) and the two baselines it will be scored against: `carry_forward` (the
+last wave's weighted share) and `demographics_only` (a model with no time term). Each seal
+therefore holds five rows per cell. All seven were made in one run from code commit `c97ef83`,
+with no item skipped or failed: 273 items, 5,926 cells, 29,630 rows.
+
+| Seal file | Survey wave | Items | Cells | Rows | `sealed_at` (UTC) | First Bitcoin block (UTC) | Digest (`predictions_sha256`) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| `seals/htops-202611.json` | Census Household Trends and Outlook Pulse Survey (HTOPS), November 2026 collection | 43 | 946 | 4,730 | 2026-11-06 14:37:17 | 974817, 2026-11-06 14:49:18 | `778289f5d613a23bdd1584e2ca776121c4dde46e0d47b6c895d54d2ba5592082` |
+| `seals/nhis-2026.json` | CDC/NCHS National Health Interview Survey (NHIS) 2026, Sample Adult | 61 | 1,342 | 6,710 | 2026-11-06 15:11:04 | 974819, 2026-11-06 15:17:25 | `b70e9140af231731f83e624057575797f472079f8ed30dfdfa83acfe80106f10` |
+| `seals/shed-2026.json` | Federal Reserve Survey of Household Economics and Decisionmaking (SHED) 2026 | 36 | 792 | 3,960 | 2026-11-06 15:26:42 | 974832, 2026-11-06 17:31:15 | `e6e15987b44371b4ea56447165ef124eabbc4eae7f66c3be8903bdc2b03e21c7` |
+| `seals/brfss-2026.json` | CDC Behavioral Risk Factor Surveillance System (BRFSS) 2026 | 40 | 800 | 4,000 | 2026-11-06 18:18:50 | 974838, 2026-11-06 18:44:06 | `9a63e8ec8cab0e1f6434b23ad976805b6f375ff3bd46d7f9fa563120ddd95c9d` |
+| `seals/cps_asec-2027.json` | Current Population Survey, Annual Social and Economic Supplement (CPS ASEC) 2027 | 35 | 770 | 3,850 | 2026-11-06 19:30:46 | 974847, 2026-11-06 19:42:53 | `9600935db175ecfba958f49b23f7c9e5a00011b56197f5bc690c314cd2ac65fa` |
+| `seals/cps_ciu-2027.json` | CPS Computer and Internet Use Supplement (NTIA) 2027 | 37 | 814 | 4,070 | 2026-11-06 20:01:00 | 974852, 2026-11-06 20:16:57 | `db00910371e338b230fef8ab3467e3a4520d25adf77df9c81c05d8fc7983144c` |
+| `seals/cps_cev-2027.json` | CPS Civic Engagement and Volunteering Supplement (AmeriCorps) 2027 | 21 | 462 | 2,310 | 2026-11-06 20:14:41 | 974852, 2026-11-06 20:16:57 | `0084fb115550e00258ff3d3372801d1b427d4088c5c80dd2d0aa6d9777dd0658` |
+
+Each proof is complete. Where it is anchored in more than one Bitcoin block, the table gives
+the earliest, whose time is the independent date. `verify.py` prints every block height and merkle
+root a proof commits to, and `ots verify` checks them against a Bitcoin node.
+
+What each seal can claim depends on where the survey's fieldwork stood at that block:
+
+- **CPS ASEC, Computer and Internet Use, and Civic Engagement and Volunteering 2027:** sealed
+  before fieldwork. The ASEC is fielded February to April; the two supplements were fielded in
+  mid-November and in mid to late September respectively in 2019-2023.
+- **NHIS 2026 and BRFSS 2026:** both are fielded all year, so these were sealed before the
+  year's fieldwork ended and before any of its data were published, not before fieldwork.
+- **SHED 2026:** sealed before publication only. SHED was fielded in mid to late October in
+  2023-2025 and published the following May.
+- **HTOPS, November 2026:** sealed before publication. Census publishes no collection schedule
+  (its 2026 collections began March 13, April 29 and July 15), so the claim is "before
+  fieldwork" only if a start date Census publishes later shows it.
+
+These rows were made after both interval fixes described under Errata below; the errata concern
+the GSS and CES 2026 rows only.
 
 ## How to verify
 
@@ -333,8 +373,9 @@ Seal `acs-2025-seal.json`, Bitcoin block 973,461 (2026-10-27 21:27:06 UTC); rele
 
 ## When the waves resolve
 
-We expect GSS 2026 and CES 2026 data to be released in spring 2027. That is our own
-estimate, not a date either survey has announced. When a wave's data are released, every
+We expect GSS 2026 and CES 2026 data to be released in spring 2027, and the HTOPS November
+2026 file around January or February 2027. Those are our own estimates, not dates the surveys
+have announced. The other six waves resolve on their publishers' own schedules. When a wave's data are released, every
 sealed forecast for that wave will be scored against the data and the scores will be
 published, misses included.
 
