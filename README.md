@@ -303,18 +303,18 @@ seals/<file>.ots`.
 
 Generated from the seal, proof and score files by `tools/series_seal scoreboard`; not edited by hand. Every forecast here is a model-generated prediction, not a measurement. Each error is absolute (the served forecast minus the publisher's first print, sign dropped) in the series' units, beside the error of repeating the last value (`random_walk`) and of the straight-line trend (`drift`).
 
-9 sealed: 1 scored, 8 pending, 0 void. Of 6 scored forecasts (each series target, and each ACS indicator on its mean error over the 51 states), the served forecast was closer than repeating the last value (`random_walk`) in 6 of 6 and closer than the straight-line trend (`drift`) in 3 of 4. A forecast served by a baseline is not compared with that baseline.
+9 sealed: 2 scored, 7 pending, 0 void. Of 7 scored forecasts (each series target, and each ACS indicator on its mean error over the 51 states), the served forecast was closer than repeating the last value (`random_walk`) in 7 of 7 and closer than the straight-line trend (`drift`) in 3 of 4. A forecast served by a baseline is not compared with that baseline.
 
 | Seal | Period | Forecast (80% band), method | First print | Error | Error, repeat last value | Error, drift | Bitcoin block |
 |---|---|---|---|---|---|---|---|
-| `bls-payrolls-2026-10-seal.json` | 2026-10 | 159,144.1 (158,918.6 to 159,369.9), `drift` | pending (release 2026-11-06) |  |  | served | 973,603 |
-| `bls-cpi-2026-10-seal.json` | 2026-10 | 337.1918 (336.0211 to 338.3666), `ets` | pending (release 2026-11-10) |  |  |  | 973,603 |
-| `bls-cpi-admissions-2026-10-seal.json` | 2026-10 | 238.8877 (236.7282 to 241.0669), `drift` | pending (release 2026-11-10) |  |  | served | 973,603 |
-| `bls-electricity-price-2026-10-seal.json` | 2026-10 | 0.1941 (0.1882 to 0.2001), `ensemble_mean` | pending (release 2026-11-10) |  |  |  | 973,603 |
-| `census-retail-sales-2026-10-seal.json` | 2026-10 | 746,271.1 (736,342.4 to 756,333.6), `ensemble_mean` | pending (release 2026-11-17) |  |  |  | 973,603 |
-| `census-housing-starts-2026-10-seal.json` | 2026-10 | 1,265.2 (1,149.2 to 1,393.0), `ets` | pending (release 2026-11-18) |  |  |  | 973,603 |
-| `nchs-overdose-deaths-2026-06-seal.json` | 2026-06 | 65,780.9 (65,202.3 to 66,364.7), `ets` | pending (release 2026-11-18) |  |  |  | 973,603 |
-| `census-new-home-sales-2026-10-seal.json` | 2026-10 | 675.6 (604.1 to 755.5), `ensemble_mean` | pending (release 2026-11-25) |  |  |  | 973,603 |
+| `bls-payrolls-2026-10-seal.json` | 2026-10 | 159,144.1 (158,918.6 to 159,369.9), `drift` | 159,293 | 148.9 | 249.0 | served | 973,603 (2026-10-28 22:05:29 UTC) |
+| `bls-cpi-2026-10-seal.json` | 2026-10 | 337.1918 (336.0211 to 338.3666), `ets` | pending (release 2026-11-10) |  |  |  | 973,603 (2026-10-28 22:05:29 UTC) |
+| `bls-cpi-admissions-2026-10-seal.json` | 2026-10 | 238.8877 (236.7282 to 241.0669), `drift` | pending (release 2026-11-10) |  |  | served | 973,603 (2026-10-28 22:05:29 UTC) |
+| `bls-electricity-price-2026-10-seal.json` | 2026-10 | 0.1941 (0.1882 to 0.2001), `ensemble_mean` | pending (release 2026-11-10) |  |  |  | 973,603 (2026-10-28 22:05:29 UTC) |
+| `census-retail-sales-2026-10-seal.json` | 2026-10 | 746,271.1 (736,342.4 to 756,333.6), `ensemble_mean` | pending (release 2026-11-17) |  |  |  | 973,603 (2026-10-28 22:05:29 UTC) |
+| `census-housing-starts-2026-10-seal.json` | 2026-10 | 1,265.2 (1,149.2 to 1,393.0), `ets` | pending (release 2026-11-18) |  |  |  | 973,603 (2026-10-28 22:05:29 UTC) |
+| `nchs-overdose-deaths-2026-06-seal.json` | 2026-06 | 65,780.9 (65,202.3 to 66,364.7), `ets` | pending (release 2026-11-18) |  |  |  | 973,603 (2026-10-28 22:05:29 UTC) |
+| `census-new-home-sales-2026-10-seal.json` | 2026-10 | 675.6 (604.1 to 755.5), `ensemble_mean` | pending (release 2026-11-25) |  |  |  | 973,603 (2026-10-28 22:05:29 UTC) |
 
 ### ACS 2025 1-year estimates: eight headline indicators for every state, DC and the US
 

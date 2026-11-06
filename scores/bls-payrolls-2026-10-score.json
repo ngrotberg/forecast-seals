@@ -1,0 +1,96 @@
+{
+ "kind": "series-score-1",
+ "target_id": "bls-payrolls-2026-10",
+ "output_label": "model-generated prediction, not a measurement",
+ "seal": {
+  "sealed_at": "2026-10-28T21:17:08Z",
+  "made_at": "2026-10-28T21:17:07Z",
+  "method": "series.drift@0.1.0",
+  "attested": "2026-10-28T22:05:29Z",
+  "claim": "before publication",
+  "block": 973603,
+  "sha256": "1c294b5818b4296b978bb2f7795ada80b5426fe875fdace93115b65c7dcd870b"
+ },
+ "published": "2026-11-06",
+ "scored_against": {
+  "period": "2026-10",
+  "value": 159293.0,
+  "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=PAYEMS",
+  "retrieved_at": "2026-11-06T16:15:26Z",
+  "bytes": 18423,
+  "sha256": "968f9252d00246e2b6cf40307e01eef7a413ec936fcc45c7498347a509a2dc32",
+  "file": "20261106T161526Z.csv",
+  "last_modified": "Fri, 06 Nov 2026 15:43:20 GMT",
+  "vintage_rule": "first_print",
+  "vintage_read": "first print",
+  "vintage_as_specified": true
+ },
+ "void": null,
+ "units": "thousands of persons",
+ "rounding_note": "U.S. Bureau of Labor Statistics publishes 0 decimal place(s), so the published value carries up to half a unit of rounding in its last place.",
+ "forecast": 159144.08,
+ "signed_error": -148.92,
+ "miss": 148.92,
+ "baselines": {
+  "random_walk": {
+   "point": 159044.0,
+   "miss": 249.0
+  },
+  "seasonal_naive": {
+   "point": 158408.0,
+   "miss": 885.0
+  },
+  "drift": {
+   "point": 159144.08,
+   "miss": 148.92
+  }
+ },
+ "methods": {
+  "random_walk": {
+   "point": 159044.0,
+   "miss": 249.0,
+   "in_band_80": true,
+   "in_band_95": true
+  },
+  "seasonal_naive": {
+   "point": 158408.0,
+   "miss": 885.0,
+   "in_band_80": true,
+   "in_band_95": true
+  },
+  "drift": {
+   "point": 159144.08,
+   "miss": 148.92,
+   "in_band_80": true,
+   "in_band_95": true
+  },
+  "ets": {
+   "point": 159043.7,
+   "miss": 249.3,
+   "in_band_80": true,
+   "in_band_95": true
+  },
+  "ensemble_mean": {
+   "point": 159077.25,
+   "miss": 215.75,
+   "in_band_80": true,
+   "in_band_95": true
+  }
+ },
+ "band_80": [
+  158918.59,
+  159369.9
+ ],
+ "band_95": [
+  158504.0,
+  159786.75
+ ],
+ "in_band_80": true,
+ "in_band_95": true,
+ "interval_score_80": 451.31,
+ "interval_score_95": 1282.75,
+ "verdict": "Closer than every baseline.",
+ "served": "drift",
+ "test": false,
+ "scored_at": "2026-11-06T16:15:05Z"
+}
