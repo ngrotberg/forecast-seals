@@ -1,8 +1,8 @@
 # Forecast seals
 
 This repository holds the seals for model forecasts of nine survey waves, with their
-OpenTimestamps proofs and a script, `verify.py`, that checks a seal against the published
-forecast rows: the General Social Survey (GSS) and the Cooperative Election Study (CES) 2026,
+OpenTimestamps proofs and a script, `verify.py`, that checks every seal and its date in one
+command and a seal against the published forecast rows: the General Social Survey (GSS) and the Cooperative Election Study (CES) 2026,
 sealed 2026-09-07, and seven federal surveys sealed 2026-11-06 (section below). It also holds
 forward seals: predictions of the next published reading of recurring Gallup, Marquette, Pew,
 Ipsos and Federal Reserve survey items, each made and timestamped before that reading was
@@ -136,29 +136,53 @@ the GSS and CES 2026 rows only.
 
 ## How to verify
 
-You need Python 3.12 (standard library only) and the OpenTimestamps client
-(`pip install opentimestamps-client`). For each seal, run two commands:
+You need Python 3.12 (standard library only). To check every seal in this repository and
+when it was made, run one command:
+
+```
+python verify.py --all --online
+```
+
+For each seal file it prints its sha256, checks the structure of a survey-wave seal, and checks
+that the OpenTimestamps proof beside it commits to the file. With `--online` it also reads the date: for the
+earliest Bitcoin block each proof is anchored in, it fetches the block hash and the 80-byte
+block header from a public block explorer (blockstream.info, or mempool.space if that one does
+not answer), sending only block heights and hashes. It then checks the header itself: the header
+must hash to that block hash, carry the proof of work its own difficulty field states (no easier
+than difficulty 2^46, which every block since mid-2025 meets), and hold the merkle root the proof
+commits to. Making up a header that passes takes about half the work of mining a real Bitcoin
+block in 2026, so you need no Bitcoin node and no trust in the explorer. The header's time is
+the independent date.
+
+Where a seal file names the release its claim must beat ("sealed before publication", for the
+series seals), the script says whether the block was mined before that release. The other claims
+depend on later events, such as a survey's published fieldwork start, or are stated in this
+README; for those it prints the block time to compare. It ends with a table of every seal, its
+earliest block, the time that block was mined and the claim, and exits 0 when every check
+passed. Without `--online` it contacts nothing and prints the block heights and merkle roots,
+which you can compare with any block explorer.
+
+The OpenTimestamps client (`pip install opentimestamps-client`) checks a proof another way:
+`ots verify seals/<file>.ots` checks it against a local Bitcoin Core node (a pruned node is
+fine, according to the client's documentation).
+
+To check a survey-wave seal against the forecasts it covers, pass the seal and the published
+rows:
 
 ```
 python verify.py seals/gss-2026.json path/to/ledger.json
-ots verify seals/gss-2026.json.ots
 ```
 
-The first command recomputes the digest from the published rows. It prints `ok` or the
-first mismatch, plus the number of rows made after `sealed_at`. It accepts `ledger.json`
-with its per-wave files in the same folder, a single per-wave file such as
-`ledger-gss-2026.json`, or the public event log `public-events.jsonl`.
-
-The second command checks the proof against Bitcoin. According to the client's
-documentation, it needs a local Bitcoin Core node (a pruned node is fine). Without one,
-`verify.py` prints the block height and merkle root the proof commits to, which you can
-compare with that block in a block explorer.
+It recomputes the digest from the rows and prints `ok` or the first mismatch, plus the number
+of rows made after `sealed_at`. It accepts `ledger.json` with its per-wave files in the same
+folder, a single per-wave file such as `ledger-gss-2026.json`, or the public event log
+`public-events.jsonl`.
 
 **The row-level check needs the published rows, which are not public yet.** They will be
 published with the public ledger page at [LEDGER PAGE URL, pending], as `ledger.json` plus
-one file per wave, and archived with a tagged release of this repository. Until then,
-`python verify.py seals/gss-2026.json` checks only two things: the structure of the seal
-file, and whether the proof beside it commits to that file. It does not check any forecast.
+one file per wave, and archived with a tagged release of this repository. Until then, the
+script checks each seal file and its proof and date, not any forecast inside a survey-wave
+seal.
 
 The tests run with `python -m unittest test_verify.py`.
 
@@ -203,7 +227,8 @@ in 2024 and 2025 these items came out on 10-29 and 10-30.
 
 Check it with `shasum -a 256 seals/gallup-2026-10-seal.json`
 (db8c86dbebfb0124b7558ad2ff8e0a0aaf4a456519b722a2d42cb6e198413944) and `ots verify
-seals/gallup-2026-10-seal.json.ots`. `verify.py` covers the ledger seals only.
+seals/gallup-2026-10-seal.json.ots`, or with `python verify.py seals/gallup-2026-10-seal.json
+--online`.
 
 ## Forward seal: Marquette Law School national poll, next wave
 

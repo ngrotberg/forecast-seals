@@ -7,9 +7,12 @@ import copy
 import hashlib
 import io
 import json
+import struct
 import tempfile
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
+from unittest import mock
 
 import verify
 
@@ -379,6 +382,292 @@ class ProofTest(unittest.TestCase):
             self.assertIn("could not be read", lines[0])
         finally:
             ws.close()
+
+
+# --- every seal at once, and the Bitcoin block headers ------------------------------------
+
+# Two real Bitcoin blocks as public explorers serve them (block hash, 80-byte header), read on
+# 2026-11-06: 973603 anchors the series seals of 2026-10-28, 968355 the GSS and CES seals.
+REAL_BLOCKS = {
+    973603: (
+        "0000000000000000000030c0c091654edce8e67fe3e922e54bf05a015b4b37ff",
+        (
+            "00800b20b5a4857226d08364a85a7f5c0ab03400ff57271a33010000000000000000000059e1cdc4136af1"
+            "12233e5f0ca2b270a98c200ce26a1c5bed3cb85bc41fbfca55a971e26a93000217dcc048d6"
+        ),
+    ),
+    968355: (
+        "00000000000000000000957d7579226d73711fbfafa9e63b099151663028008b",
+        (
+            "00a00320e2322ffebb0372b249bd2458e17c083ba0c8065e86b800000000000000000000ef7e47fcac88c7"
+            "d83d7f6ad56abfa63359b37e783feb261ffa5a598c6e4095322bacb46ac51e0217a47f0e4e"
+        ),
+    ),
+}
+REPO_SEALS = Path(__file__).resolve().parent / "seals"
+BLOCK_TIME = datetime(2026, 10, 28, 22, 5, 29, tzinfo=timezone.utc)
+EASY_BITS = 0x2100FFFF  # a target above 2^255: any hash meets it, so tests raise MAX_TARGET
+
+
+def make_proof(file_bytes: bytes, height: int | None = 915000) -> tuple[bytes, str]:
+    """A proof with a pending branch and, unless height is None, a Bitcoin branch; and the
+    Bitcoin branch's merkle root in explorer byte order."""
+    file_digest = hashlib.sha256(file_bytes).digest()
+    prefix = bytes([1, 2]) + (height or 0).to_bytes(4, "little")
+    pending = b"\xf0" + varbytes(b"n" * 16) + b"\x08" + b"\x00" + verify.OTS_PENDING + varbytes(
+        varbytes(b"https://calendar.example")
+    )
+    if height is None:
+        return verify.OTS_MAGIC + b"\x01" + b"\x08" + file_digest + pending, ""
+    bitcoin = (
+        b"\xf1" + varbytes(prefix) + b"\x08" + b"\x00" + verify.OTS_BITCOIN
+        + varbytes(varuint(height))
+    )
+    data = verify.OTS_MAGIC + b"\x01" + b"\x08" + file_digest + b"\xff" + pending + bitcoin
+    return data, hashlib.sha256(prefix + file_digest).digest()[::-1].hex()
+
+
+def make_header(root: str, when: datetime, bits: int = EASY_BITS) -> tuple[str, str]:
+    """(block hash, header hex) of a made-up block carrying `root`, mined at `when`."""
+    head = (
+        struct.pack("<I", 0x20000000) + bytes(32) + bytes.fromhex(root)[::-1]
+        + struct.pack("<III", int(when.timestamp()), bits, 0)
+    )
+    return hashlib.sha256(hashlib.sha256(head).digest()).digest()[::-1].hex(), head.hex()
+
+
+class Explorer:
+    """A stand-in for the block explorers: heights to (hash, header), some bases down."""
+
+    def __init__(self, blocks: dict[int, tuple[str, str]], down: tuple[str, ...] = ()) -> None:
+        self.blocks, self.down, self.urls = blocks, down, []
+
+    def __call__(self, url: str) -> bytes:
+        self.urls.append(url)
+        if url.startswith(self.down):
+            raise OSError("unreachable")
+        if "/block-height/" in url:
+            return self.blocks[int(url.rsplit("/", 1)[1])][0].encode()
+        wanted = url.split("/block/")[1].split("/")[0]
+        for block_hash, head in self.blocks.values():
+            if block_hash == wanted:
+                return head.encode()
+        raise OSError("404")
+
+
+def series_seal(release: str = "2026-11-10", release_time: str | None = "08:30 America/New_York") -> dict:
+    target = {"period": "2026-10", "release": release, "release_basis": "announced: test"}
+    if release_time:
+        target["release_time"] = release_time
+    return {
+        "kind": "series-seal-2",
+        "target_id": "synthetic-2026-10",
+        "title": "SYNTHETIC rate, October 2026",
+        "sealed_at": "2026-10-28T21:17:09Z",
+        "claim": "before publication",
+        "claim_rule": "test",
+        "target": target,
+    }
+
+
+FORWARD = {
+    "kind": "forward-seal-kit-1",
+    "target_id": "synthetic-forward",
+    "sealed_at": "2026-10-27T00:14:07Z",
+    "claim": "before fieldwork",
+    "claim_rule": "test",
+}
+
+
+class AllTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self.ws = Workspace()
+        self.seals = self.ws.dir / "seals"
+        self.seals.mkdir()
+        self.roots: dict[int, str] = {}
+
+    def tearDown(self) -> None:
+        self.ws.close()
+
+    def add(self, name: str, seal: dict, height: int | None = 915000, proof: bool = True) -> None:
+        raw = (json.dumps(seal, indent=1) + "\n").encode()
+        (self.seals / name).write_bytes(raw)
+        if proof:
+            data, root = make_proof(raw, height)
+            (self.seals / f"{name}.ots").write_bytes(data)
+            if height is not None:
+                self.roots[height] = root
+
+    def explorer(self, when: datetime = BLOCK_TIME, **kw) -> Explorer:
+        return Explorer({h: make_header(r, when, **kw) for h, r in self.roots.items()})
+
+    def run_all(self, *extra: str, get=None) -> tuple[int, str]:
+        def offline(url: str) -> bytes:
+            raise AssertionError(f"fetched {url} without --online")
+
+        with (
+            mock.patch.object(verify, "_get", get or offline),
+            mock.patch.object(verify, "MAX_TARGET", 1 << 256),
+        ):
+            return self.ws.run("--all", "--dir", str(self.seals), *extra)
+
+    def three(self) -> None:
+        self.add("gss-2026.json", SEAL, height=915001)
+        self.add("synthetic-2026-10-seal.json", series_seal(), height=915002)
+        self.add("synthetic-forward-seal.json", FORWARD, height=915003)
+
+    def test_offline_lists_every_seal_and_fetches_nothing(self):
+        self.three()
+        code, out = self.run_all()
+        self.assertEqual(code, 0, out)
+        for name in ("gss-2026.json", "synthetic-2026-10-seal.json", "synthetic-forward-seal.json"):
+            self.assertIn(name, out)
+        self.assertIn("3 seal files", out)
+        self.assertIn("3 proofs commit to their files", out)
+        self.assertIn("--online", out)
+        self.assertIn("block 915,002", out)
+
+    def test_online_reads_the_block_time_and_checks_the_claim(self):
+        self.three()
+        explorer = self.explorer()
+        code, out = self.run_all("--online", get=explorer)
+        self.assertEqual(code, 0, out)
+        self.assertIn("mined 2026-10-28 22:05:29 UTC", out)
+        # 2026-11-10 08:30 in New York is 13:30 UTC, after daylight saving time ends.
+        self.assertIn("holds: the block was mined 12d 15h 24m before 2026-11-10 08:30 America/New_York", out)
+        self.assertIn("decided by later events", out)
+        self.assertIn("1 claim with a deadline in its file: 1 holds", out)
+        self.assertEqual(len([u for u in explorer.urls if "/block-height/" in u]), 3)
+
+    def test_a_block_mined_after_the_release_fails_the_claim(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(release="2026-10-28"), height=915002)
+        code, out = self.run_all("--online", get=self.explorer())
+        self.assertEqual(code, 1, out)
+        self.assertIn("FAILS", out)
+        self.assertIn("0 hold, 1 fails", out)
+
+    def test_a_release_date_alone_is_read_as_the_start_of_that_day_in_utc(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(release_time=None), height=915002)
+        code, out = self.run_all("--online", get=self.explorer())
+        self.assertEqual(code, 0, out)
+        self.assertIn("before 2026-11-10 00:00 UTC", out)
+
+    def test_an_unknown_time_zone_falls_back_to_the_stricter_bound(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(release_time="08:30 Nowhere/Zone"), height=915002)
+        code, out = self.run_all("--online", get=self.explorer())
+        self.assertEqual(code, 0, out)
+        self.assertIn("before 2026-11-10 00:00 UTC", out)
+        self.assertIn("could not be read", out)
+
+    def test_a_header_without_the_proofs_merkle_root_is_rejected(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(), height=915002)
+        wrong = Explorer({915002: make_header("ab" * 32, BLOCK_TIME)})
+        code, out = self.run_all("--online", get=wrong)
+        self.assertEqual(code, 1, out)
+        self.assertIn("merkle root", out)
+        self.assertNotIn("holds", out)
+
+    def test_a_header_without_its_proof_of_work_is_rejected(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(), height=915002)
+        code, out = self.run_all("--online", get=self.explorer(bits=0x03000001))
+        self.assertEqual(code, 1, out)
+        self.assertIn("proof of work", out)
+
+    def test_the_second_explorer_is_tried_when_the_first_is_down(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(), height=915002)
+        explorer = self.explorer()
+        explorer.down = (verify.EXPLORERS[0],)
+        code, out = self.run_all("--online", get=explorer)
+        self.assertEqual(code, 0, out)
+        self.assertIn(verify.EXPLORERS[1], out)
+
+    def test_no_explorer_reachable_exits_2(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(), height=915002)
+        explorer = self.explorer()
+        explorer.down = verify.EXPLORERS
+        code, out = self.run_all("--online", get=explorer)
+        self.assertEqual(code, 2, out)
+        self.assertIn("could not be reached", out)
+
+    def test_a_pending_proof_is_reported_not_failed(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(), height=None)
+        code, out = self.run_all("--online", get=self.explorer())
+        self.assertEqual(code, 0, out)
+        self.assertIn("no Bitcoin attestation yet", out)
+        self.assertIn("1 pending", out)
+
+    def test_a_seal_with_no_proof_fails(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(), proof=False)
+        code, out = self.run_all()
+        self.assertEqual(code, 1, out)
+        self.assertIn("no proof", out)
+
+    def test_a_proof_of_another_file_fails(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(), height=915002)
+        other, _root = make_proof(b"something else")
+        (self.seals / "synthetic-2026-10-seal.json.ots").write_bytes(other)
+        code, out = self.run_all()
+        self.assertEqual(code, 1, out)
+        self.assertIn("NOT this file", out)
+
+    def test_a_malformed_ledger_seal_still_exits_2(self):
+        broken = copy.deepcopy(SEAL)
+        broken["n_predictions"] = 0
+        self.add("gss-2026.json", broken)
+        code, out = self.run_all()
+        self.assertEqual(code, 2, out)
+
+    def test_one_series_seal_can_be_checked_on_its_own(self):
+        self.add("synthetic-2026-10-seal.json", series_seal(), height=915002)
+        path = str(self.seals / "synthetic-2026-10-seal.json")
+        with (
+            mock.patch.object(verify, "MAX_TARGET", 1 << 256),
+            mock.patch.object(verify, "_get", self.explorer()),
+        ):
+            code, out = self.ws.run(path, "--online")
+        self.assertEqual(code, 0, out)
+        self.assertIn("holds", out)
+
+
+class RealBlockTest(unittest.TestCase):
+    def test_a_real_header_passes_at_the_real_difficulty_floor(self):
+        block_hash, head = REAL_BLOCKS[973603]
+        facts = verify.check_header(
+            bytes.fromhex(head),
+            block_hash,
+            "55cabf1fc45bb83ced5b1c6ae20c208ca970b2a20c5f3e2312f16a13c4cde159",
+        )
+        self.assertEqual(facts["time"], BLOCK_TIME)
+
+    def test_the_floor_takes_real_2026_blocks_and_refuses_easier_ones(self):
+        for _hash, head in REAL_BLOCKS.values():
+            bits = int.from_bytes(bytes.fromhex(head)[72:76], "little")
+            self.assertLessEqual(verify.target_of(bits), verify.MAX_TARGET)
+        self.assertGreater(verify.target_of(0x1800FFFF), verify.MAX_TARGET)  # difficulty 2^40
+        self.assertGreater(verify.target_of(0x170FFFF0), verify.MAX_TARGET)  # difficulty 2^44
+
+    def test_a_made_up_header_fails_the_real_difficulty_floor(self):
+        block_hash, head = make_header("ab" * 32, BLOCK_TIME)
+        with self.assertRaisesRegex(verify.HeaderError, "proof of work"):
+            verify.check_header(bytes.fromhex(head), block_hash, "ab" * 32)
+
+    @unittest.skipUnless((REPO_SEALS / "bls-cpi-2026-10-seal.json.ots").exists(), "needs seals/")
+    def test_published_seals_check_against_the_real_blocks(self):
+        ws = Workspace()
+        try:
+            folder = ws.dir / "seals"
+            folder.mkdir()
+            for name in ("gss-2026.json", "bls-cpi-2026-10-seal.json"):
+                for suffix in ("", ".ots"):
+                    (folder / (name + suffix)).write_bytes((REPO_SEALS / (name + suffix)).read_bytes())
+            with mock.patch.object(verify, "_get", Explorer(REAL_BLOCKS)):
+                code, out = ws.run("--all", "--dir", str(folder), "--online")
+        finally:
+            ws.close()
+        self.assertEqual(code, 0, out)
+        self.assertIn("mined 2026-09-24 04:50:51 UTC", out)
+        self.assertIn("mined 2026-10-28 22:05:29 UTC", out)
+        self.assertIn("holds: the block was mined 12d 15h 24m before 2026-11-10 08:30 America/New_York", out)
 
 
 if __name__ == "__main__":
