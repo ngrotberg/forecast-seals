@@ -1,5 +1,7 @@
 # Sample reports
 
+**Easier to read: [the forecast pages](https://ngrotberg.github.io/forecast-seals/)**, every figure below in plain English, with each state and group drawn beside the rest.
+
 Two free sample reports and the catalog of items a report can forecast, prepared by Nate
 Grotberg. Every figure in them is a model-generated prediction, not a measurement. Never
 describe one as a poll or a survey result.
