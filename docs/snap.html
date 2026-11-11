@@ -77,7 +77,8 @@ function card(f,pick){
  return d;
 }
 function show(){
- var want=(location.hash||'').replace('#','').toLowerCase().split('+').filter(Boolean);
+ var h=(location.hash||'').replace('#','');try{h=decodeURIComponent(h);}catch(e){}
+ var want=h.toLowerCase().split(/[+,]/).filter(Boolean);
  var picked=want.map(function(c){return data.figs[c];}).filter(Boolean);
  var box=document.getElementById('cards');box.innerHTML='';
  document.querySelectorAll('.row.pick').forEach(function(r){r.classList.remove('pick');});
